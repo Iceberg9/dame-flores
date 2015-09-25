@@ -1,0 +1,1655 @@
+[
+  {
+    "name": "Welcome",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Please visit our Envy Documentation site for full details on how to edit your theme: [http:\/\/www.wetheme.com\/themes\/envy\/docs\/](http:\/\/www.wetheme.com\/themes\/envy\/docs\/)"
+      }
+    ]
+  },
+  {
+    "name": "Site Options",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "select",
+        "id": "typography-heading-font",
+        "label": "Heading Font",
+        "options": [
+          {
+            "value": "typography-heading-monserrat",
+            "label": "Monserrat"
+          },
+          {
+            "value": "typography-heading-bree-serif",
+            "label": "Bree Serif"
+          },
+          {
+            "value": "typography-heading-raleway",
+            "label": "Raleway"
+          },
+          {
+            "value": "typography-heading-lato",
+            "label": "Lato"
+          },
+          {
+            "value": "typography-heading-bevan",
+            "label": "Bevan"
+          },
+          {
+            "value": "typography-heading-abril-fatface",
+            "label": "Abril Fatface"
+          },
+          {
+            "value": "typography-heading-playfair-display",
+            "label": "Playfair Display"
+          },
+          {
+            "value": "typography-heading-sansita-one",
+            "label": "Sansita One"
+          },
+          {
+            "value": "typography-heading-istok-web",
+            "label": "Istok Web"
+          },
+          {
+            "value": "typography-heading-pacifico",
+            "label": "Pacifico"
+          },
+          {
+            "value": "typography-heading-nixie-one",
+            "label": "Nixie One"
+          },
+          {
+            "value": "typography-heading-cantana-one",
+            "label": "Cantata One"
+          },
+          {
+            "value": "typography-heading-rancho",
+            "label": "Rancho"
+          },
+          {
+            "value": "typography-heading-roboto",
+            "label": "Roboto"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography-body-font",
+        "label": "Body Font",
+        "options": [
+          {
+            "value": "typography-body-helvetica",
+            "label": "Helvetica"
+          },
+          {
+            "value": "typography-body-open-sans",
+            "label": "Open Sans"
+          },
+          {
+            "value": "typography-body-lato",
+            "label": "Lato"
+          },
+          {
+            "value": "typography-body-pontano-sans",
+            "label": "Pontano Sans"
+          },
+          {
+            "value": "typography-body-average",
+            "label": "Average"
+          },
+          {
+            "value": "typography-body-muli",
+            "label": "Muli"
+          },
+          {
+            "value": "typography-body-kameron",
+            "label": "Kameron"
+          },
+          {
+            "value": "typography-body-lora",
+            "label": "Lora"
+          },
+          {
+            "value": "typography-body-arimo",
+            "label": "Arimo"
+          },
+          {
+            "value": "typography-body-ledger",
+            "label": "Ledger"
+          },
+          {
+            "value": "typography-body-imprima",
+            "label": "Imprima"
+          },
+          {
+            "value": "typography-body-gudea",
+            "label": "Gudea"
+          },
+          {
+            "value": "typography-body-roboto",
+            "label": "Roboto"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "menu-case",
+        "label": "Menu Case",
+        "options": [
+          {
+            "value": "menu-normal-case",
+            "label": "Normal Case"
+          },
+          {
+            "value": "menu-lower-case",
+            "label": "Lower Case"
+          },
+          {
+            "value": "menu-upper-case",
+            "label": "Uppercase"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "font-colour",
+        "label": "Font Colour",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "link-colour",
+        "label": "Link Colour",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "active-link-colour",
+        "label": "Active Link Colour",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "header-background-colour",
+        "label": "Header\/Footer Background Colour",
+        "default": "#ebebeb"
+      },
+      {
+        "type": "color",
+        "id": "header-text-colour",
+        "label": "Header\/Footer Text Colour",
+        "default": "#ebebeb"
+      },
+      {
+        "type": "color",
+        "id": "header-link-colour",
+        "label": "Header\/Footer Link Colour",
+        "default": "#ebebeb"
+      },
+      {
+        "type": "color",
+        "id": "header-active-link-colour",
+        "label": "Header\/Footer Active Link Colour",
+        "default": "#fff"
+      },
+      {
+        "type": "select",
+        "id": "title-bar-styling",
+        "label": "Title Bar Styling",
+        "options": [
+          {
+            "value": "title-bar-diagonal-background",
+            "label": "Diagonal Background"
+          },
+          {
+            "value": "title-bar-minimal",
+            "label": "Minimal"
+          },
+          {
+            "value": "title-bar-lowercase",
+            "label": "Lowercase Alternative"
+          }
+        ],
+        "default": "title-bar-diagonal-background"
+      },
+      {
+        "type": "header",
+        "content": "Page Background"
+      },
+      {
+        "type": "select",
+        "id": "body_bg_img",
+        "label": "Background image",
+        "options": [
+          {
+            "value": "background-user-uploaded.jpg",
+            "label": "Custom"
+          },
+          {
+            "value": "none",
+            "label": "No background image (solid colour)"
+          },
+          {
+            "value": "bg1-white-wall.png",
+            "label": "White Wall"
+          },
+          {
+            "value": "bg2-upholstery.png",
+            "label": "Upholstery"
+          },
+          {
+            "value": "bg3-corrugation.png",
+            "label": "Corrugation"
+          },
+          {
+            "value": "bg4-reticular-tissue.png",
+            "label": "Reticular Tissue"
+          },
+          {
+            "value": "bg5-brilliant.png",
+            "label": "Brilliant"
+          },
+          {
+            "value": "bg6-tapestry.png",
+            "label": "Tapestry"
+          },
+          {
+            "value": "bg7-psychedelic.png",
+            "label": "Psychedelic"
+          },
+          {
+            "value": "bg8-flowertrail.png",
+            "label": "Flower Trail"
+          },
+          {
+            "value": "bg9-clean-textile.png",
+            "label": "Clean Textile"
+          },
+          {
+            "value": "bg10-gplay.png",
+            "label": "gPlay"
+          },
+          {
+            "value": "bg11-weave.png",
+            "label": "Weave"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "body_bg_alignment",
+        "label": "Background image alignment",
+        "options": [
+          {
+            "value": "center",
+            "label": "Align to Center"
+          },
+          {
+            "value": "left",
+            "label": "Align to Left"
+          },
+          {
+            "value": "right",
+            "label": "Align to Right"
+          },
+          {
+            "value": "tile",
+            "label": "Tile"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "image",
+        "id": "background-user-uploaded.jpg",
+        "label": "Upload a new background image"
+      },
+      {
+        "type": "color",
+        "id": "bg_colour",
+        "label": "Background Colour",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "remove-all-bg-colour",
+        "label": "Remove background colour from header and footer?"
+      },
+      {
+        "type": "header",
+        "content": "Site Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "indiv_product_shadowing",
+        "label": "Individual products have box shadows?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "block_pinterest",
+        "label": "Block images from your site being pinned on Pinterest?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Cart Page"
+      },
+      {
+        "type": "checkbox",
+        "id": "allow_note",
+        "label": "Allow customers to add a note to their order?"
+      },
+      {
+        "type": "header",
+        "content": "Custom ice9"
+      },
+      {
+        "type": "text",
+        "id": "tel_number",
+        "label": "Numero de Teléfono",
+        "default": "55-5555 55 55"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Site Title\/Logo"
+      },
+      {
+        "type": "select",
+        "id": "logo_image",
+        "label": "Site logo",
+        "options": [
+          {
+            "value": "logo.png",
+            "label": "Custom Logo Image"
+          },
+          {
+            "value": "nologo.png",
+            "label": "Use Text"
+          }
+        ],
+        "default": "logo.png"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom logo",
+        "max-width": 700,
+        "max-height": 400,
+        "info": "Maximum recommended dimensions: 700px x 400px"
+      },
+      {
+        "type": "text",
+        "id": "title_text",
+        "label": "Homepage Title Text",
+        "info": "Keywords to show on your site homepage title, good for SEO"
+      },
+      {
+        "type": "color",
+        "id": "logo_colour",
+        "label": "Logo link colour",
+        "default": "#282C2E"
+      },
+      {
+        "type": "color",
+        "id": "logo_hover_colour",
+        "label": "Logo link hover colour",
+        "default": "#554B60"
+      },
+      {
+        "type": "select",
+        "id": "header_font_size",
+        "label": "Logo font size and style",
+        "options": [
+          {
+            "value": "10px",
+            "label": "10px",
+            "group": "Font Size"
+          },
+          {
+            "value": "11px",
+            "label": "11px",
+            "group": "Font Size"
+          },
+          {
+            "value": "12px",
+            "label": "12px",
+            "group": "Font Size"
+          },
+          {
+            "value": "13px",
+            "label": "13px",
+            "group": "Font Size"
+          },
+          {
+            "value": "14px",
+            "label": "14px",
+            "group": "Font Size"
+          },
+          {
+            "value": "16px",
+            "label": "16px",
+            "group": "Font Size"
+          },
+          {
+            "value": "18px",
+            "label": "18px",
+            "group": "Font Size"
+          },
+          {
+            "value": "24px",
+            "label": "24px",
+            "group": "Font Size"
+          },
+          {
+            "value": "30px",
+            "label": "30px",
+            "group": "Font Size"
+          },
+          {
+            "value": "36px",
+            "label": "36px",
+            "group": "Font Size"
+          },
+          {
+            "value": "48px",
+            "label": "48px",
+            "group": "Font Size"
+          },
+          {
+            "value": "60px",
+            "label": "60px",
+            "group": "Font Size"
+          },
+          {
+            "value": "72px",
+            "label": "72px",
+            "group": "Font Size"
+          }
+        ],
+        "default": "48px"
+      },
+      {
+        "type": "select",
+        "id": "header_font_style",
+        "label": "Font Style",
+        "options": [
+          {
+            "value": "normal",
+            "label": "normal",
+            "group": "Font Style"
+          },
+          {
+            "value": "bold",
+            "label": "bold",
+            "group": "Font Style"
+          },
+          {
+            "value": "italic",
+            "label": "italic",
+            "group": "Font Style"
+          },
+          {
+            "value": "bold italic",
+            "label": "bold italic",
+            "group": "Font Style"
+          }
+        ],
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "which-linklist-header-menu",
+        "label": "Which linklist do you want to show as your top header menu?"
+      },
+      {
+        "type": "link_list",
+        "id": "which-linklist-main-menu",
+        "label": "Which linklist do you want to show in your main navigation (below logo)?"
+      },
+      {
+        "type": "link_list",
+        "id": "which-linklist-footer-menu",
+        "label": "Which linklist do you want to show in your footer?"
+      },
+      {
+        "type": "link_list",
+        "id": "which-linklist-mobile-menu",
+        "label": "Which linklist do you want to show in your mobile menu?"
+      }
+    ]
+  },
+  {
+    "name": "Slider Principal",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Las imágenes para el Slider deben tener una medida exacta de 1920 x 360. Se aconseja usar formato .jpg"
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide-0",
+        "label": "¿Activar?"
+      },
+      {
+        "type": "image",
+        "id": "slide-0.jpg",
+        "label": "Imagen",
+        "max-width": 1920
+      },
+      {
+        "type": "text",
+        "id": "slide-0-link",
+        "label": "URL",
+        "info": "URL a donde apunte el banner. Es opcional, si no desea apuntar a ningún lado poner \"#\"."
+      },
+      {
+        "type": "text",
+        "id": "slide-0-alt",
+        "label": "Texto Alternativo",
+        "info": "Por cuestiones de SEO es importante poner un texto breve. Este solo es visible si se hace hover sobre el slider."
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide-1",
+        "label": "¿Activar?"
+      },
+      {
+        "type": "image",
+        "id": "slide-1.jpg",
+        "label": "Imagen",
+        "max-width": 1920
+      },
+      {
+        "type": "text",
+        "id": "slide-1-link",
+        "label": "URL",
+        "info": "URL a donde apunte el banner. Es opcional, si no desea apuntar a ningún lado poner \"#\"."
+      },
+      {
+        "type": "text",
+        "id": "slide-1-alt",
+        "label": "Texto Alternativo",
+        "info": "Por cuestiones de SEO es importante poner un texto breve. Este solo es visible si se hace hover sobre el slider."
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide-2",
+        "label": "¿Activar?"
+      },
+      {
+        "type": "image",
+        "id": "slide-2.jpg",
+        "label": "Imagen",
+        "max-width": 1920
+      },
+      {
+        "type": "text",
+        "id": "slide-2-link",
+        "label": "URL",
+        "info": "URL a donde apunte el banner. Es opcional, si no desea apuntar a ningún lado poner \"#\"."
+      },
+      {
+        "type": "text",
+        "id": "slide-2-alt",
+        "label": "Texto Alternativo",
+        "info": "Por cuestiones de SEO es importante poner un texto breve. Este solo es visible si se hace hover sobre el slider."
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide-3",
+        "label": "¿Activar?"
+      },
+      {
+        "type": "image",
+        "id": "slide-3.jpg",
+        "label": "Imagen",
+        "max-width": 1920
+      },
+      {
+        "type": "text",
+        "id": "slide-3-link",
+        "label": "URL",
+        "info": "URL a donde apunte el banner. Es opcional, si no desea apuntar a ningún lado poner \"#\"."
+      },
+      {
+        "type": "text",
+        "id": "slide-3-alt",
+        "label": "Texto Alternativo",
+        "info": "Por cuestiones de SEO es importante poner un texto breve. Este solo es visible si se hace hover sobre el slider."
+      },
+      {
+        "type": "header",
+        "content": "Slide 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide-4",
+        "label": "¿Activar?"
+      },
+      {
+        "type": "image",
+        "id": "slide-4.jpg",
+        "label": "Imagen",
+        "max-width": 1920
+      },
+      {
+        "type": "text",
+        "id": "slide-4-link",
+        "label": "URL",
+        "info": "URL a donde apunte el banner. Es opcional, si no desea apuntar a ningún lado poner \"#\"."
+      },
+      {
+        "type": "text",
+        "id": "slide-4-alt",
+        "label": "Texto Alternativo",
+        "info": "Por cuestiones de SEO es importante poner un texto breve. Este solo es visible si se hace hover sobre el slider."
+      },
+      {
+        "type": "header",
+        "content": "Slide 6"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide-5",
+        "label": "¿Activar?"
+      },
+      {
+        "type": "image",
+        "id": "slide-5.jpg",
+        "label": "Imagen",
+        "max-width": 1920
+      },
+      {
+        "type": "text",
+        "id": "slide-5-link",
+        "label": "URL",
+        "info": "URL a donde apunte el banner. Es opcional, si no desea apuntar a ningún lado poner \"#\"."
+      },
+      {
+        "type": "text",
+        "id": "slide-5-alt",
+        "label": "Texto Alternativo",
+        "info": "Por cuestiones de SEO es importante poner un texto breve. Este solo es visible si se hace hover sobre el slider."
+      }
+    ]
+  },
+  {
+    "name": "Box Col Homepage",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Las imagenes para los Box de 2 columnas deben medir 600x400 y estar en formato .jpg"
+      },
+      {
+        "type": "header",
+        "content": "Box 1"
+      },
+      {
+        "type": "image",
+        "id": "box-1.jpg",
+        "label": "Imagen",
+        "max-width": 600
+      },
+      {
+        "type": "text",
+        "id": "boxcol1-title",
+        "label": "Titulo"
+      },
+      {
+        "type": "text",
+        "id": "boxcol1-sub",
+        "label": "Subtitulo"
+      },
+      {
+        "type": "text",
+        "id": "boxcol1-url",
+        "label": "URL"
+      },
+      {
+        "type": "header",
+        "content": "Box 2"
+      },
+      {
+        "type": "image",
+        "id": "box-2.jpg",
+        "label": "Imagen",
+        "max-width": 600
+      },
+      {
+        "type": "text",
+        "id": "boxcol2-title",
+        "label": "Titulo"
+      },
+      {
+        "type": "text",
+        "id": "boxcol2-sub",
+        "label": "Subtitulo"
+      },
+      {
+        "type": "text",
+        "id": "boxcol2-url",
+        "label": "URL"
+      }
+    ]
+  },
+  {
+    "name": "Homepage",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Homepage Slider"
+      },
+      {
+        "type": "paragraph",
+        "content": "Recommended dimensions of all carousel images: 1070px wide x 350px tall"
+      },
+      {
+        "type": "paragraph",
+        "content": "Leave the \"Link to\" field empty for no link."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_slider",
+        "label": "Show slider?"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #1"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_carousel_item_1",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "carousel-item-1.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_1_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_1_caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_1_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #2"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_carousel_item_2",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "carousel-item-2.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_2_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_2_caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_2_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #3"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_carousel_item_3",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "carousel-item-3.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_3_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_3_caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_3_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #4"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_carousel_item_4",
+        "label": "Show?"
+      },
+      {
+        "type": "image",
+        "id": "carousel-item-4.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_4_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_4_caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_4_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #5"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_carousel_item_5",
+        "label": "Show?"
+      },
+      {
+        "type": "image",
+        "id": "carousel-item-5.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_5_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_5_caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_5_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #6"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_carousel_item_6",
+        "label": "Show?"
+      },
+      {
+        "type": "image",
+        "id": "carousel-item-6.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_6_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_6_caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "carousel_item_6_link",
+        "label": "Link to"
+      },
+      {
+        "type": "header",
+        "content": "Homepage Adverts"
+      },
+      {
+        "type": "paragraph",
+        "content": "One Promo Box - 1170 x 300px Two Promo Boxes - 555 x 300px each Three Promo Boxes - 400 x 200px each"
+      },
+      {
+        "type": "select",
+        "id": "number_of_promoboxs",
+        "label": "Number of Promo Boxes",
+        "options": [
+          {
+            "value": "none",
+            "label": "None",
+            "group": "Number of Promo Boxes"
+          },
+          {
+            "value": "one",
+            "label": "One",
+            "group": "Number of Promo Boxes"
+          },
+          {
+            "value": "two",
+            "label": "Two",
+            "group": "Number of Promo Boxes"
+          },
+          {
+            "value": "three",
+            "label": "Three",
+            "group": "Number of Promo Boxes"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "paragraph",
+        "content": "Box #1"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_promobox_item_1",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "promobox-item-1.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_1_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_1_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Box #2"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_promobox_item_2",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "promobox-item-2.jpg",
+        "label": "Image",
+        "max-width": 940
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_2_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_2_link",
+        "label": "Link to"
+      },
+      {
+        "type": "paragraph",
+        "content": "Box #3"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_promobox_item_3",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "promobox-item-3.jpg",
+        "label": "Image",
+        "max-width": 940
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_3_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_3_link",
+        "label": "Link to"
+      },
+      {
+        "type": "header",
+        "content": "Homepage Collection"
+      },
+      {
+        "type": "collection",
+        "id": "which-collection",
+        "label": "Which collection would you like to show on your homepage?"
+      },
+      {
+        "type": "header",
+        "content": "Instagram Homepage Feed"
+      },
+      {
+        "type": "checkbox",
+        "id": "show-instagram-homepage",
+        "label": "Show Instagram homepage feed?"
+      },
+      {
+        "type": "text",
+        "id": "instagram-user-id",
+        "label": "Instagram User ID"
+      },
+      {
+        "type": "text",
+        "id": "instagram-access-token",
+        "label": "Instagram Access Token"
+      }
+    ]
+  },
+  {
+    "name": "Blog",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Advert (sidebar)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Recommended size: 220 pixels wide, any height"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #4"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_blog_promobox",
+        "label": "Show?"
+      },
+      {
+        "type": "image",
+        "id": "promobox-item-4.jpg",
+        "label": "Image",
+        "max-width": 420
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_4_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_4_link",
+        "label": "Link to"
+      },
+      {
+        "type": "header",
+        "content": "Author Information"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_author_info",
+        "label": "Have Author information on blog posts?"
+      },
+      {
+        "type": "header",
+        "content": "Facebook"
+      },
+      {
+        "type": "paragraph",
+        "content": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "blogfeed_facebook",
+        "label": "Show 'Like Box'?"
+      },
+      {
+        "type": "text",
+        "id": "blogfeed_facebook_username",
+        "label": "Facebook URL"
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sharing Buttons"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_prod_on_twitter",
+        "label": "Tweet button",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_prod_on_facebook",
+        "label": "Facebook Like button",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_prod_on_pinterest",
+        "label": "Pin This button",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_prod_on_googleplus",
+        "label": "Google +1 button",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Collection",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Display Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "show-collections-tags",
+        "label": "Show category tags on collection page?"
+      },
+      {
+        "type": "text",
+        "id": "products-per-page",
+        "label": "How many products to show on collection pages?"
+      },
+      {
+        "type": "header",
+        "content": "Collection Page Advert"
+      },
+      {
+        "type": "paragraph",
+        "content": "Recommended size: 1170 pixels wide, any height (around 150px is recommended)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Slide #5"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_collection_promobox",
+        "label": "Show?"
+      },
+      {
+        "type": "image",
+        "id": "promobox-item-5.jpg",
+        "label": "Image",
+        "max-width": 1170
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_5_alt_text",
+        "label": "Alt Text"
+      },
+      {
+        "type": "text",
+        "id": "promobox_item_5_link",
+        "label": "Link to"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Attribution:"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_designed_by",
+        "label": "Show 'Designed by WeTheme' link?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Social Media Icons:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_facebook",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sm_facebook_link",
+        "label": "Link to",
+        "default": "http:\/\/www.facebook.com"
+      },
+      {
+        "type": "paragraph",
+        "content": "Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_twitter",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sm_twitter_link",
+        "label": "Link to",
+        "default": "http:\/\/www.twitter.com"
+      },
+      {
+        "type": "paragraph",
+        "content": "YouTube"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_youtube",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sm_youtube_link",
+        "label": "Link to",
+        "default": "http:\/\/www.youtube.com"
+      },
+      {
+        "type": "paragraph",
+        "content": "Flickr"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_flickr",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sm_flickr_link",
+        "label": "Link to",
+        "default": "http:\/\/www.flickr.com"
+      },
+      {
+        "type": "paragraph",
+        "content": "Pinterest"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_pinterest",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sm_pinterest_link",
+        "label": "Link to",
+        "default": "http:\/\/www.pinterest.com"
+      },
+      {
+        "type": "paragraph",
+        "content": "Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_instagram",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sm_instagram_link",
+        "label": "Link to",
+        "default": "http:\/\/www.instagram.com"
+      },
+      {
+        "type": "header",
+        "content": "Payment methods:"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_amex",
+        "label": "American Express",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_discover",
+        "label": "Discover",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_visa",
+        "label": "Visa",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_mastercard",
+        "label": "Mastercard",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_maestro",
+        "label": "Maestro",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cirrus",
+        "label": "Cirrus",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_paypal",
+        "label": "Paypal",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_google",
+        "label": "Google Checkout",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Popup",
+    "settings": [
+      {
+        "type": "select",
+        "id": "pop-up-selection",
+        "label": "What type of pop-up do you want to show?",
+        "options": [
+          {
+            "value": "none",
+            "label": "None",
+            "group": "Popup Style"
+          },
+          {
+            "value": "text",
+            "label": "Text",
+            "group": "Popup Style"
+          },
+          {
+            "value": "image",
+            "label": "Image",
+            "group": "Popup Style"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "Text Options"
+      },
+      {
+        "type": "color",
+        "id": "pop-up-text-background-colour",
+        "label": "Background Colour",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "pop-up-text-header-text",
+        "label": "Header Text"
+      },
+      {
+        "type": "color",
+        "id": "pop-up-text-header-text-colour",
+        "label": "Header Text Colour",
+        "default": "#000"
+      },
+      {
+        "type": "select",
+        "id": "pop-up-text-header-text-size",
+        "label": "Header Text Size",
+        "options": [
+          {
+            "value": "10px",
+            "label": "10px",
+            "group": "Font Size"
+          },
+          {
+            "value": "11px",
+            "label": "11px",
+            "group": "Font Size"
+          },
+          {
+            "value": "12px",
+            "label": "12px",
+            "group": "Font Size"
+          },
+          {
+            "value": "13px",
+            "label": "13px",
+            "group": "Font Size"
+          },
+          {
+            "value": "14px",
+            "label": "14px",
+            "group": "Font Size"
+          },
+          {
+            "value": "16px",
+            "label": "16px",
+            "group": "Font Size"
+          },
+          {
+            "value": "18px",
+            "label": "18px",
+            "group": "Font Size"
+          },
+          {
+            "value": "24px",
+            "label": "24px",
+            "group": "Font Size"
+          },
+          {
+            "value": "30px",
+            "label": "30px",
+            "group": "Font Size"
+          },
+          {
+            "value": "36px",
+            "label": "36px",
+            "group": "Font Size"
+          },
+          {
+            "value": "48px",
+            "label": "48px",
+            "group": "Font Size"
+          },
+          {
+            "value": "60px",
+            "label": "60px",
+            "group": "Font Size"
+          },
+          {
+            "value": "72px",
+            "label": "72px",
+            "group": "Font Size"
+          }
+        ],
+        "default": "48px"
+      },
+      {
+        "type": "text",
+        "id": "pop-up-text-description-text",
+        "label": "Description Text"
+      },
+      {
+        "type": "color",
+        "id": "pop-up-text-description-text-colour",
+        "label": "Description Text Colour",
+        "default": "#000"
+      },
+      {
+        "type": "select",
+        "id": "pop-up-text-description-text-size",
+        "label": "Description Text Size",
+        "options": [
+          {
+            "value": "10px",
+            "label": "10px",
+            "group": "Font Size"
+          },
+          {
+            "value": "11px",
+            "label": "11px",
+            "group": "Font Size"
+          },
+          {
+            "value": "12px",
+            "label": "12px",
+            "group": "Font Size"
+          },
+          {
+            "value": "13px",
+            "label": "13px",
+            "group": "Font Size"
+          },
+          {
+            "value": "14px",
+            "label": "14px",
+            "group": "Font Size"
+          },
+          {
+            "value": "16px",
+            "label": "16px",
+            "group": "Font Size"
+          },
+          {
+            "value": "18px",
+            "label": "18px",
+            "group": "Font Size"
+          },
+          {
+            "value": "24px",
+            "label": "24px",
+            "group": "Font Size"
+          },
+          {
+            "value": "30px",
+            "label": "30px",
+            "group": "Font Size"
+          },
+          {
+            "value": "36px",
+            "label": "36px",
+            "group": "Font Size"
+          },
+          {
+            "value": "48px",
+            "label": "48px",
+            "group": "Font Size"
+          },
+          {
+            "value": "60px",
+            "label": "60px",
+            "group": "Font Size"
+          },
+          {
+            "value": "72px",
+            "label": "72px",
+            "group": "Font Size"
+          }
+        ],
+        "default": "14px"
+      },
+      {
+        "type": "text",
+        "id": "pop-up-mailchimp-url",
+        "label": "MailChimp URL"
+      },
+      {
+        "type": "header",
+        "content": "Image Options"
+      },
+      {
+        "type": "image",
+        "id": "pop-up-graphic.jpg",
+        "label": "Upload Image",
+        "max-width": 768,
+        "max-height": 1000,
+        "info": "Maximum recommended dimensions: 600px x 600px"
+      }
+    ]
+  }
+]

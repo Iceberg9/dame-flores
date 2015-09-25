@@ -1,0 +1,96 @@
+{% paginate search.results by 12 %}
+	<section id="search_results" class="collection">
+		<header>
+		
+		<div class="title-bar custom-font">
+			<h2>{{ 'general.search.search_results' | t }}</h2>
+			{% if search.terms != empty %}
+			<h3 class="title-bar-sub">{{ search.terms | escape }}</h3>
+			{% endif %}
+			<div class="clear"></div>
+		</div>
+			
+        <div id="page-layout">
+          {% include 'ice9-nav-filter-bar' %}
+        </div>
+          
+		</header>
+
+		{% if search.results_count > 0 %}
+		<ul class="product-grid clearfix">
+			{% for item in search.results %}
+				<li class="[ col-lg-3{% cycle ' alpha', '', '', ' omega' %} col-sm-6 ]">
+				<div class="indiv-product">
+					<div class="[ border--gray ]">
+						{% if item.compare_at_price_max > item.price %}
+							<div id="compare-tag">
+								<img src="{{ 'compare_tag.png' | asset_url }}">
+							</div>
+							{% comment %}
+							<div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+							{% endcomment %}
+						{% endif %}
+                        <a href="{{item.url}}">
+                            {% if item.featured_image %}
+                                <img src="{{ item.featured_image | product_img_url: 'large'}}" alt="{{ item.description | strip_html | truncate: 75 }} click for more information" />
+                            {% endif %}
+                        </a>
+						<div class="hp-title">
+							<a href="{{ item.url }}">
+								{{item.title}}<br />
+							</a>
+						</div>
+					</div>
+					<div class="[ clearfix no-gutter ][ border--gray ]">
+						<div class="[ col-xs-6 ][ indiv-product-action ]">
+							<span class="[ money-styling ] [ custom-font ] [ text-center ]">
+								{% if item.price_varies %}
+									<small>{{ 'products.general.from' | t }}</small> {{ item.price_min | money_without_trailing_zeros }}
+								{% else %}
+
+									{% if item.compare_at_price %}
+										<i class="product-compare">{{ item.compare_at_price_max | money_without_trailing_zeros }}</i>
+									{% endif %}
+									
+									{{ item.price_min | money_without_trailing_zeros }}
+
+								{% endif %}
+							</span>
+						</div>
+						<div class="[ col-xs-6 ][ indiv-product-action ]">
+							<form action="/cart/add" method="post">
+								<div style="visibility: hidden; height: 1px;">
+									<select id="product-select" name='id' class="[ form-control ][ hidden ]">
+										{% for variant in item.variants %}
+											<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<input type="submit" name="add" value="Comprar" id="purchase" class="[ ]" />
+								{% comment %}<input type="submit" name="add" value="{{ 'products.product.add_to_cart' | t }}" id="purchase" class="[ ]" />{% endcomment %}
+							</form>
+						</div>
+					</div>{% comment %}[ row ]{% endcomment %}
+				</div>
+			</li>
+			{% endfor %}	
+		</ul>
+		{% else %}
+		
+
+		{% if search.terms != empty %}
+			<h3 class="no-results">{{ 'general.search.no_results_html' | t: terms: search.terms  }}</h3>
+		{% else %}
+			<h3 class="no-results">{{ 'general.search.first_search' | t }}</h3>
+		{% endif %}
+		
+		
+		
+		
+			
+		{% endif %}
+		{% if search.results_count > 12 %}
+        {% include 'pagination' %}
+		{% endif %}
+	</section>
+{% endpaginate %}

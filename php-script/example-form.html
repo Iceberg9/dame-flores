@@ -1,0 +1,42 @@
+<form id="footer-hb-form" class="form-inline nice">
+  <input type="text" placeholder="ej. Figaro Gonzáles" value="" name="FNAME" id="mce-FNAME" required>
+  <input type="text" placeholder="ej. figaro@petngo.com.mx" name="email" id="address" required>
+  <input type="hidden" value="Footer" name="ORIGIN" id="mce-ORIGIN">
+  <button class="btn-yellow" type="submit" id="btn-chimp-footer" >¡Recibir Promociones!</button>
+</form>
+<span id="result-mailchimp"></span>
+
+<!-- js - ice9 -->
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#btn-chimp-footer').on('click', function(e){
+
+    e.preventDefault();
+    console.log('Click OK');
+
+    $.ajax({
+      url: 'https://iceberg9.com/shopify-assets/petngo/mailchimp-form/chimp-footer.php' ,
+      dataType: 'jsonp',
+      type: 'GET',
+      data: {
+        email: $('#address').val(),
+        FNAME: $('#mce-FNAME').val(),
+        ORIGIN: $('#mce-ORIGIN').val()
+      },
+      jsonp: false,
+      jsonpCallback: 'handleP'
+    });
+
+  });
+
+});
+function handleP(data)
+{
+  if (data == true) {
+    $('#result-mailchimp').html('¡Gracias! ¡Te has suscrito a nuestro boletín en donde encontrarás información interesante, promociones y Descuentos!');
+  } else {
+    $('#result-mailchimp').html('Lo sentimos, a ocurrido un error, intenta nuevamente.');
+  }
+}
+</script>

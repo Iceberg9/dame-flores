@@ -1,0 +1,50 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	{% comment %}
+	<ol class="carousel-indicators">
+		{% for i in (0..5) %}
+			{% capture slide %}slide-{{ i }}{% endcapture %}
+			{% capture slide_active %}slide-active-{{ i }}{% endcapture %}
+			{% if settings[slide] %}
+				<li data-target="#carousel-example-generic" data-slide-to="{{ i }}" class="{% if slide_active == 'slide-active-0' %}active{% endif %}"></li>
+			{% endif %}
+		{% endfor %}
+	</ol>
+	{% endcomment %}
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+
+		{% for i in (0..5) %}
+			{% capture slide %}slide-{{ i }}{% endcapture %}
+			{% capture slide_img %}slide-{{ i }}.jpg{% endcapture %}
+			{% capture slide_active %}slide-active-{{ i }}{% endcapture %}
+			{% capture slide_link %}slide-{{ i }}-link{% endcapture %}
+			{% capture slide_alt %}slide-{{ i }}-alt{% endcapture %}
+			{% if settings[slide] %}
+				<div class="item {% if slide_active == 'slide-active-0' %}active{% endif %}">
+					<a href="{{ settings[slide_link] }}">
+					<div style="background: url('{{ slide_img | asset_url }}') 50% 0 no-repeat; height:360px;"></div>
+					</a>
+					{% comment %}
+					<a href="{{ settings[slide_link] }}"><img src="{{ slide_img | asset_url }}" class="img-height" alt="{{ slide_alt }}"></a>
+					{% endcomment %}
+					<div class="carousel-caption">
+						{{ settings[slide_alt] }}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		<i class="fa fa-angle-left"></i>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		<i class="fa fa-angle-right"></i>
+		<span class="sr-only">Next</span>
+	</a>
+</div><!-- /carousel-example-generic -->

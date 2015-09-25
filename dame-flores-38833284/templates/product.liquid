@@ -1,0 +1,372 @@
+<div id="page-layout">
+	{% include 'ice9-nav-filter-bar' %}
+</div>
+
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+			<a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+			{% if collection %}
+				<span aria-hidden="true">&rsaquo;</span>
+				{% if collection.handle %}
+					{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+					{{ collection.title | link_to: url }}
+				{% endif %}
+			{% endif %}
+			<span aria-hidden="true">&rsaquo;</span>
+			<span>{{ product.title }}</span>
+		</nav>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12 col-md-6 col-lg-6">
+		<div class="row">
+			<!-- img product carousel -->
+			<div id="product-images">
+				<div class="col-lg-10" id="slider">
+					<div id="img-products-carousel" class="carousel slide" data-pause="hover">
+						<!-- main slider carousel items -->
+						<div class="carousel-inner">
+							{% for image in product.images %}
+							{% capture img_position %}img-{{ forloop.index0 }}{% endcapture %}
+								<div {% if img_position == 'img-0' %} class="item active" {% else %} class="item" {% endif %} data-slide-number="{{ forloop.index0 }}">
+									<!--<a href="{{ image.src | product_img_url: 'grande' }}" class="zoom-demo" title="Ajua">-->
+										<img src="{{ image.src | product_img_url: 'grande' }}" title="Ajuaa" data-imagezoom="{{ image.src | product_img_url: '1024x1024' }}" data-magnification="2" data-zoomviewsize="[440,440]">
+									<!-- </a> -->
+								</div>
+							{% endfor %}
+						</div>
+						<!-- main slider carousel nav controls -->
+						<!--
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+						<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+						-->
+					</div><!--/image produc carousel-->
+				</div><!-- /col-xs-12 -->
+
+				<!-- thumb navigation carousel -->
+				<div class="col-xs-12 col-md-2" id="slider-thumbs">
+					<!-- thumb navigation carousel items -->
+					{% if product.images.size > 1 %}
+						<ul>
+							{% for image in product.images %}
+								{% capture img_position %}img-{{ forloop.index0 }}{% endcapture %}
+								<li><a id="carousel-selector-{{ forloop.index0 }}" {% if img_position == 'img-0' %} class="selected" {% endif %}><img src="{{ image.src | product_img_url: 'medium' }}" class="img-responsive"></a></li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div><!-- /col-xs-12 -->
+			</div><!-- /product-images -->
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-6 col-lg-6">
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="title-product">
+					<h1>{{ product.title }}</h1>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div id="product-description">
+				{{ product.description }}
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div id="add-cart-product">
+				{% if product.available %}
+					<form action="/cart/add" method="post">
+						{% if product.variants.size > 1  %}
+							<div id="product-variants">
+								<select id="product-select" name='id' class="form-control">
+									{% for variant in product.variants %}
+										<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							{% if product.compare_at_price_max > product.price %}
+								<h5 class="custom-font compare-at-price">{{ product.compare_at_price_max | money }}</h5>
+							{% endif %}
+							<h3 class="custom-font" id="price-field"></h3>
+						{% else %}
+							<div style="visibility: hidden; height: 1px;">
+								<select id="product-select" name='id' class="form-control">
+									{% for variant in product.variants %}
+										<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							{% if product.compare_at_price_max > product.price_min %}
+								<h5 class="custom-font compare-at-price">{{ product.compare_at_price_max | money }}</h5>
+							{% endif %}
+							<h3 class="custom-font product-description-header">{{ product.price | money }}</h3>
+						{% endif %}
+						<input type="submit" name="add" value="{{ 'products.product.add_to_cart' | t }}" id="purchase" class="btn btn-success" />
+                        {% comment %}
+                        {% capture the_snippet_ask_friends %}{% include 'socialshopwave-widget-askfriends' %}{% endcapture %}
+						{% unless the_snippet_ask_friends contains 'Liquid error' %}
+   						 {{ the_snippet_ask_friends }}
+						{% endunless %}                     
+                      {% capture the_snippet_fave %}{% include 'socialshopwave-widget-fave' %}{% endcapture %}
+						{% unless the_snippet_fave contains 'Liquid error' %}
+    					{{ the_snippet_fave }}
+						{% endunless %}
+                        {% capture the_snippet_reviews %}{% include 'socialshopwave-widget-recommends' %}{% endcapture %}
+						{% unless the_snippet_reviews contains 'Liquid error' %}
+  						 {{ the_snippet_reviews }}
+						{% endunless %}
+						{% endcomment %}
+					</form>
+				{% else %}
+					<div class="product-out-of-stock">{{ 'products.product.sorry_stock' | t }}</div>
+				{% endif %}
+				</div>
+			</div>
+			<div class="col-xs-12">
+				{% include 'ice9-product-related' %}
+			</div>
+			<div class="col-xs-12">
+				<div id="social-reviews">
+					{% capture the_snippet_ask_friends %}{% include 'socialshopwave-widget-askfriends' %}{% endcapture %}
+					{% unless the_snippet_ask_friends contains 'Liquid error' %}
+					{{ the_snippet_ask_friends }}
+					{% endunless %}                     
+					{% capture the_snippet_fave %}{% include 'socialshopwave-widget-fave' %}{% endcapture %}
+					{% unless the_snippet_fave contains 'Liquid error' %}
+					{{ the_snippet_fave }}
+					{% endunless %}
+					{% capture the_snippet_reviews %}{% include 'socialshopwave-widget-recommends' %}{% endcapture %}
+					{% unless the_snippet_reviews contains 'Liquid error' %}
+					{{ the_snippet_reviews }}
+					{% endunless %}
+
+					{% if settings.share_prod_on_twitter or  settings.share_prod_on_facebook or  settings.share_prod_on_pinterest  or  settings.share_prod_on_googleplus %}
+					<div class="row">
+						<div id="sharing">
+							{% if settings.share_prod_on_twitter %}
+								<div class="col-md-3 col-sm-3">
+									<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>
+								</div>
+							{% endif %}
+							{% if settings.share_prod_on_facebook %}
+								<div class="col-md-3 col-sm-3">
+									<div id="fb-root"></div>
+										<div class="fb-like" data-send="false" data-layout="button_count" data-width="" data-show-faces="false"></div>
+									</div>
+							{% endif %}
+							{% if settings.share_prod_on_googleplus %}
+								<div class="col-md-3 col-sm-3">
+									<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"></div>
+								</div>
+							{% endif %}
+							{% if settings.share_prod_on_pinterest %}
+								<div class="col-md-3 col-sm-3">
+									<a href="http://pinterest.com/pin/create/button/?url={{ shop.url }}{{ product.url }}&media={{ product.featured_image | product_img_url: 'compact' }}&description={{ product.description | strip_html | truncatewords: 20 | escape }}" class="pin-it-button" count-layout="horizontal">Pin It</a>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+					<div id="fb-root"></div>
+					<script>(function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) return;
+						js = d.createElement(s); js.id = id;
+						js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+						fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));</script>
+
+					<!-- +1 button -->
+					<script defer type="text/javascript">
+						(function() {
+							var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+							po.src = 'https://apis.google.com/js/plusone.js';
+							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+						})();
+					</script>
+
+					<!-- tweet btn -->
+					<script defer type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+					<!-- pinterest btn -->
+					{{ '//assets.pinterest.com/js/pinit.js' | script_tag }}
+					{% endif %}
+					<div class="fb-comments" data-href="{{ shop.url }}{{ product.url }}" data-num-posts="3"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% comment %}
+<article id="{{product.handle}}" class="product hentry">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+				<a href="/" title="{{ 'general.breadcrumbs.back_home' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+				{% if collection %}
+					<span aria-hidden="true">&rsaquo;</span>
+					{% if collection.handle %}
+						{% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+						{{ collection.title | link_to: url }}
+					{% endif %}
+				{% endif %}
+				<span aria-hidden="true">&rsaquo;</span>
+				<span>{{ product.title }}</span>
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 product-images">
+			{% if product.compare_at_price_max > product.price %}
+				<div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+			{% endif %}
+			<!-- The first image pulled from the product is a large image (480x480), subsequent images are "compact" which is 160x160 -->
+			<div id="product_images">
+				{% for image in product.images %}
+					{% if forloop.first %}
+						<!--
+							<a href="{{ image | product_img_url: 'original' }}" title="{{ image.alt | escape }}" id="zoom1" class="cloud-zoom" rel="position: 'inside', showTitle: false">
+								<img src="{{ image | product_img_url: 'original'}}" alt="{{ image.alt | escape }}" class="product-main-image"/>
+							</a>
+						-->
+						{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+						<div class="featured-image-div">
+							<img src="{{ featured_image | img_url: 'master' }}" alt="{{ featured_image.alt | escape }}" class="product-main-image" />
+						</div>
+					{% endif %}
+				{% endfor %}
+				{% if product.images.size > 1 %}
+					<div class="row">
+						<ul id="product-thumbnails">
+							{% for image in product.images %}
+								<li class="col-md-3 col-sm-4{% cycle ' alpha ', '', '', ' omega' %}">
+									<a href="{{ image | product_img_url: 'original' }}" title="{{ image.alt | escape }}" class="image-swap">
+										<img src="{{ image | product_img_url: 'compact'}}" alt="{{ image.alt | escape }}" />
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+			</div>
+			<div id="mobile-product-images">
+				<ul id="product-thumbnails">
+					{% for image in product.images %}
+						<li class="col-xs-4 {% cycle ' alpha ', '', '', ' omega' %}">
+							<img src="{{ image | product_img_url: 'grande'}}" alt="{{ image.alt | escape }}" />
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<section class="entry-content">
+				<h1 class="custom-font product-description-header">{{ product.title }}</h1>
+				<div class="product-description-wrapper">
+					{{ product.description }}
+				</div>
+				{% if product.available %}
+					<form action="/cart/add" method="post">
+						{% if product.variants.size > 1  %}
+							<div id="product-variants">
+								<select id="product-select" name='id' class="form-control">
+									{% for variant in product.variants %}
+										<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							{% if product.compare_at_price_max > product.price %}
+								<h5 class="custom-font compare-at-price">{{ product.compare_at_price_max | money }}</h5>
+							{% endif %}
+							<h3 class="custom-font" id="price-field"></h3>
+						{% else %}
+							<div style="visibility: hidden; height: 1px;">
+								<select id="product-select" name='id' class="form-control">
+									{% for variant in product.variants %}
+										<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							{% if product.compare_at_price_max > product.price_min %}
+								<h5 class="custom-font compare-at-price">{{ product.compare_at_price_max | money }}</h5>
+							{% endif %}
+							<h3 class="custom-font product-description-header">{{ product.price | money }}</h3>
+						{% endif %}
+						<input type="submit" name="add" value="{{ 'products.product.add_to_cart' | t }}" id="purchase" class="btn btn-success" />
+                        {% capture the_snippet_ask_friends %}{% include 'socialshopwave-widget-askfriends' %}{% endcapture %}
+						{% unless the_snippet_ask_friends contains 'Liquid error' %}
+   						 {{ the_snippet_ask_friends }}
+						{% endunless %}                     
+                      {% capture the_snippet_fave %}{% include 'socialshopwave-widget-fave' %}{% endcapture %}
+						{% unless the_snippet_fave contains 'Liquid error' %}
+    					{{ the_snippet_fave }}
+						{% endunless %}
+                        {% capture the_snippet_reviews %}{% include 'socialshopwave-widget-recommends' %}{% endcapture %}
+						{% unless the_snippet_reviews contains 'Liquid error' %}
+  						 {{ the_snippet_reviews }}
+						{% endunless %}
+                      
+                      
+                      
+                      
+					</form>
+				{% else %}
+					<div class="product-out-of-stock">{{ 'products.product.sorry_stock' | t }}</div>
+				{% endif %}
+				{% if settings.share_prod_on_twitter or  settings.share_prod_on_facebook or  settings.share_prod_on_pinterest  or  settings.share_prod_on_googleplus %}
+					<div class="row">
+						<div id="sharing">
+							{% if settings.share_prod_on_twitter %}
+								<div class="col-md-3 col-sm-3">
+									<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>
+								</div>
+							{% endif %}
+							{% if settings.share_prod_on_facebook %}
+								<div class="col-md-3 col-sm-3">
+									<div id="fb-root"></div>
+										<div class="fb-like" data-send="false" data-layout="button_count" data-width="" data-show-faces="false"></div>
+									</div>
+							{% endif %}
+							{% if settings.share_prod_on_googleplus %}
+								<div class="col-md-3 col-sm-3">
+									<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"></div>
+								</div>
+							{% endif %}
+							{% if settings.share_prod_on_pinterest %}
+								<div class="col-md-3 col-sm-3">
+									<a href="http://pinterest.com/pin/create/button/?url={{ shop.url }}{{ product.url }}&media={{ product.featured_image | product_img_url: 'compact' }}&description={{ product.description | strip_html | truncatewords: 20 | escape }}" class="pin-it-button" count-layout="horizontal">Pin It</a>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+					<div id="fb-root"></div>
+					<script>(function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) return;
+						js = d.createElement(s); js.id = id;
+						js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+						fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));</script>
+
+					<!-- +1 button -->
+					<script defer type="text/javascript">
+						(function() {
+							var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+							po.src = 'https://apis.google.com/js/plusone.js';
+							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+						})();
+					</script>
+
+					<!-- tweet btn -->
+					<script defer type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+					<!-- pinterest btn -->
+					{{ '//assets.pinterest.com/js/pinit.js' | script_tag }}
+				{% endif %}
+				<div class="fb-comments" data-href="{{ shop.url }}{{ product.url }}" data-num-posts="3"></div>
+			</section>
+		</div>
+	</div>
+</article>
+{% endcomment %}

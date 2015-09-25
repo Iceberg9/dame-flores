@@ -1,0 +1,300 @@
+<div id="page-layout">
+	{% include 'ice9-nav-filter-bar' %}
+</div>
+
+ <!-- cerramos efimeramente "container" principal -->
+</div>
+
+<div id="slider-ice9" class="hidden-xs"> 
+	{% include 'ice9-slider-bootstrap' %}
+</div>
+
+<div id="box-middle" class="hidden-xs">
+	{% include 'ice9-box-middle' %}
+</div>
+
+ <!-- reabrimos el container principal -->
+<div class="container">
+
+<div id="box-2col">
+	{% include 'ice9-box-2col' %}
+</div>
+
+{% if settings.show_slider %}
+	<div class="row">
+		<div class="flexslider-container col-lg-12">
+			<div class="flexslider">
+				<ul class="slides">
+					{% if settings.show_carousel_item_1 %}
+						<li>
+							{% if settings.carousel_item_1_link != empty %}
+								{{ 'carousel-item-1.jpg' | asset_url | img_tag: settings.carousel_item_1_alt_text | link_to: settings.carousel_item_1_link }}
+							{% else %}
+								{{ 'carousel-item-1.jpg' | asset_url | img_tag: settings.carousel_item_1_alt_text }}
+							{% endif %}
+							{% if settings.carousel_item_1_caption != empty %}
+								{% if settings.carousel_item_1_link != empty %}
+									<div class="slider-caption custom-font"><h4><a href="{{ settings.carousel_item_1_link }}">{{ settings.carousel_item_1_caption }}</a></h4></div>
+								{% else %}
+									<div class="slider-caption custom-font"><h4>{{ settings.carousel_item_1_caption }}</h4></div>
+								{%endif%}
+							{%endif%}
+						</li>
+					{% endif %}
+					{% if settings.show_carousel_item_2 %}
+						<li>
+							{% if settings.carousel_item_2_link != empty %}
+								{{ 'carousel-item-2.jpg' | asset_url | img_tag | link_to: settings.carousel_item_2_link }}
+							{% else %}
+								{{ 'carousel-item-2.jpg' | asset_url | img_tag }}
+							{%endif%}
+							{% if settings.carousel_item_2_caption != empty %}
+								{% if settings.carousel_item_2_link != empty %}
+									<div class="slider-caption custom-font"><h4><a href="{{ settings.carousel_item_2_link }}">{{ settings.carousel_item_2_caption }}</a></h4></div>
+								{% else %}
+									<div class="slider-caption custom-font"><h4>{{ settings.carousel_item_2_caption }}</h4></div>
+								{%endif%}
+							{%endif%}
+						</li>
+					{% endif %}
+					{% if settings.show_carousel_item_3 %}
+						<li>
+							{% if settings.carousel_item_3_link != empty %}
+								{{ 'carousel-item-3.jpg' | asset_url | img_tag | link_to: settings.carousel_item_3_link }}
+							{% else %}
+								{{ 'carousel-item-3.jpg' | asset_url | img_tag }}
+							{%endif%}
+							{% if settings.carousel_item_3_caption != empty %}
+								{% if settings.carousel_item_3_link != empty %}
+									<div class="slider-caption custom-font"><h4><a href="{{ settings.carousel_item_3_link }}">{{ settings.carousel_item_3_caption }}</a></h4></div>
+								{% else %}
+									<div class="slider-caption custom-font"><h4>{{ settings.carousel_item_3_caption }}</h4></div>
+								{%endif%}
+							{%endif%}
+						</li>
+					{% endif %}
+					{% if settings.show_carousel_item_4 %}
+						<li>
+							{% if settings.carousel_item_4_link != empty %}
+								{{ 'carousel-item-4.jpg' | asset_url | img_tag | link_to: settings.carousel_item_4_link }}
+							{% else %}
+								{{ 'carousel-item-4.jpg' | asset_url | img_tag }}
+							{%endif%}
+							{% if settings.carousel_item_4_caption != empty %}
+								{% if settings.carousel_item_4_link != empty %}
+									<div class="slider-caption custom-font"><h4><a href="{{ settings.carousel_item_4_link }}">{{ settings.carousel_item_4_caption }}</a></h4></div>
+								{% else %}
+									<div class="slider-caption custom-font"><h4>{{ settings.carousel_item_4_caption }}</h4></div>
+								{%endif%}
+							{%endif%}
+						</li>
+					{% endif %}
+					{% if settings.show_carousel_item_5 %}
+						<li>
+							{% if settings.carousel_item_5_link != empty %}
+								{{ 'carousel-item-5.jpg' | asset_url | img_tag | link_to: settings.carousel_item_5_link }}
+							{% else %}
+								{{ 'carousel-item-5.jpg' | asset_url | img_tag }}
+							{%endif%}
+							{% if settings.carousel_item_5_caption != empty %}
+								{% if settings.carousel_item_5_link != empty %}
+									<div class="slider-caption custom-font"><h4><a href="{{ settings.carousel_item_5_link }}">{{ settings.carousel_item_5_caption }}</a></h4></div>
+								{% else %}
+									<div class="slider-caption custom-font"><h4>{{ settings.carousel_item_5_caption }}</h4></div>
+								{%endif%}
+							{%endif%}
+						</li>
+					{% endif %}
+					{% if settings.show_carousel_item_6 %}
+						<li>
+							{% if settings.carousel_item_6_link != empty %}
+								{{ 'carousel-item-6.jpg' | asset_url | img_tag | link_to: settings.carousel_item_6_link }}
+							{% else %}
+								{{ 'carousel-item-6.jpg' | asset_url | img_tag }}
+							{%endif%}
+							{% if settings.carousel_item_6_caption != empty %}
+								{% if settings.carousel_item_6_link != empty %}
+									<div class="slider-caption custom-font"><h4><a href="{{ settings.carousel_item_6_link }}">{{ settings.carousel_item_6_caption }}</a></h4></div>
+								{% else %}
+									<div class="slider-caption custom-font"><h4>{{ settings.carousel_item_6_caption }}</h4></div>
+								{%endif%}
+							{%endif%}
+						</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% comment %}
+{% case settings.number_of_promoboxs %}
+	{% when 'one' %}
+		<div id="hp-one-promobox" class="row">
+			{% if settings.promobox_item_1_link != empty %}
+				{{ 'promobox-item-1.jpg' | asset_url | img_tag: settings.promobox_item_1_alt_text | link_to: settings.promobox_item_1_link }}
+			{% else %}
+				{{ 'promobox-item-1.jpg' | asset_url | img_tag: settings.promobox_item_1_alt_text }}
+			{%endif%}
+		</div>
+
+	{% when 'two' %}
+		<div id="hp-two-promoboxs" class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				{% if settings.promobox_item_1_link != empty %}
+					{{ 'promobox-item-1.jpg' | asset_url | img_tag: settings.promobox_item_1_alt_text | link_to: settings.promobox_item_1_link }}
+				{% else %}
+					{{ 'promobox-item-1.jpg' | asset_url | img_tag: settings.promobox_item_1_alt_text }}
+				{%endif%}
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				{% if settings.promobox_item_2_link != empty %}
+					{{ 'promobox-item-2.jpg' | asset_url | img_tag: settings.promobox_item_2_alt_text | link_to: settings.promobox_item_2_link }}
+				{% else %}
+					{{ 'promobox-item-2.jpg' | asset_url | img_tag: settings.promobox_item_2_alt_text }}
+				{%endif%}
+			</div>
+		</div>
+
+	{% when 'three' %}
+		<div id="hp-three-promoboxs" class="row">
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				{% if settings.promobox_item_1_link != empty %}
+					{{ 'promobox-item-1.jpg' | asset_url | img_tag: settings.promobox_item_1_alt_text | link_to: settings.promobox_item_1_link }}
+				{% else %}
+					{{ 'promobox-item-1.jpg' | asset_url | img_tag: settings.promobox_item_1_alt_text }}
+				{%endif%}
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				{% if settings.promobox_item_2_link != empty %}
+					{{ 'promobox-item-2.jpg' | asset_url | img_tag: settings.promobox_item_2_alt_text | link_to: settings.promobox_item_2_link }}
+				{% else %}
+					{{ 'promobox-item-2.jpg' | asset_url | img_tag: settings.promobox_item_2_alt_text }}
+				{%endif%}
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				{% if settings.promobox_item_3_link != empty %}
+					{{ 'promobox-item-3.jpg' | asset_url | img_tag: settings.promobox_item_3_alt_text | link_to: settings.promobox_item_3_link }}
+				{% else %}
+					{{ 'promobox-item-3.jpg' | asset_url | img_tag: settings.promobox_item_3_alt_text }}
+				{%endif%}
+			</div>
+		</div>
+
+{% endcase %}
+{% endcomment %}
+
+
+<div id="featured" class="">
+	{% comment %}<div class="title-bar custom-font">
+		<h2>{{ 'general.homepage.featured_products' | t }}</h2>
+		<div class="clear"></div>
+	</div>{% endcomment %}
+	<ul class="[ row no-gutter ][ featured-products ]">
+      
+      
+      	{% paginate collections[settings.which-collection].products by 20 %}  
+      
+      
+		{% for product in collections[settings.which-collection].products %}
+			<li class="[ col-lg-3{% cycle ' alpha', '', '', ' omega' %} col-xs-12 ]">
+				<div class="indiv-product">
+					<div class="[ border--gray ]">
+						{% if product.compare_at_price_max > product.price %}
+							<div id="compare-tag">
+								<img src="{{ 'compare_tag.png' | asset_url }}">
+							</div>
+							{% comment %}
+							<div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+							{% endcomment %}
+						{% endif %}
+						<a href="{{ product.url | within: collection }}">
+							<img src="{{ product.featured_image | product_img_url: 'large' }}'">
+						</a>
+						<div class="hp-title">
+							<a href="{{ product.url | within: collection }}">
+								{{product.title}}<br />
+							</a>
+						</div>
+					</div>
+					<div class="[ clearfix no-gutter ][ border--gray ]">
+						<div class="[ col-xs-6 ][ indiv-product-action ]">
+							<span class="[ money-styling ] [ custom-font ] [ text-center ]">
+								{% if product.price_varies %}
+									<small>{{ 'products.general.from' | t }}</small> {{ product.price_min | money_without_trailing_zeros }}
+								{% else %}
+
+									{% if product.compare_at_price %}
+										<i class="product-compare">{{ product.compare_at_price_max | money_without_trailing_zeros }}</i>
+									{% endif %}
+									
+									{{ product.price_min | money_without_trailing_zeros }}
+
+								{% endif %}
+							</span>
+						</div>
+						<div class="[ col-xs-6 ][ indiv-product-action ]">
+							<form action="/cart/add" method="post">
+								<div style="visibility: hidden; height: 1px;">
+									<select id="product-select" name='id' class="[ form-control ][ hidden ]">
+										{% for variant in product.variants %}
+											<option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_without_trailing_zeros }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<input type="submit" name="add" value="Comprar" id="purchase" class="[ ]" />
+								{% comment %}<input type="submit" name="add" value="{{ 'products.product.add_to_cart' | t }}" id="purchase" class="[ ]" />{% endcomment %}
+							</form>
+						</div>
+					</div>{% comment %}[ row ]{% endcomment %}
+				</div>
+			</li>
+		{% endfor %}    
+	</ul>
+
+	<div class="cta-more-product">
+		<a href="/collections/all" class="btn btn-default cta-pink">Ver todo los productos</a>
+	</div>
+
+	{% comment %}
+
+   	{% if paginate.pages > 1 %}
+	<div class="pagination">
+		<ul>
+			{% if paginate.previous %}
+				<li class="pagination-arrow"><a href="{{ paginate.previous.url }}" title="{{ 'general.pagination.previous' | t }}"><i class="fa fa-chevron-left"></i></a></li>
+			{% else %}
+				<li class="prev disabled"><a href="#" onclick="return false;">&laquo; {{ 'general.pagination.previous' | t }}</a></li>
+			{% endif %}
+			{% for part in paginate.parts %}
+				{% if part.is_link %}
+					<li class="pagination-number">{{ part.title | link_to: part.url }}</li>
+				{% else %}
+					{% if part.title == '&hellip;' %}
+						<li class="ellipsis disabled"><a href="#" onclick="return false;">{{ part.title }}</a></li>
+					{% else %}
+						<li class="active pagination-number">{{ part.title | link_to: part.url }}</li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+			{% if paginate.next %}
+				<li class="pagination-arrow"><a href="{{ paginate.next.url }}" title="{{ 'general.pagination.next' | t }}">Ver más productos</a></li>
+			{% else %}
+				<li class="next disabled"><a href="#" onclick="return false;">{{ 'products.general.next' | t }} Ver más productos</a></li>
+			{% endif %}
+		</ul>
+	</div>
+{% endif %}
+	{% endcomment %}
+  	{% endpaginate %}
+
+</div>
+{% if settings.show-instagram-homepage %}
+	<div class="instagram-wrapper">
+		<div class="title-bar custom-font">
+			<h2>Instagram</h2>
+			<div class="clear"></div>
+		</div>
+		<div id="instafeed" class="row"></div>
+	</div>
+{% endif %}
