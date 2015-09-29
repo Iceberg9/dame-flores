@@ -1,0 +1,996 @@
+/* Ssw Dropdown */
+a[data-toggle="ssw-dropdown"]{
+text-decoration: none;
+}
+
+.ssw-dropdown {
+position: relative;
+}
+
+.ssw-dropdown-toggle {
+*margin-bottom: -3px;
+}
+
+.ssw-dropdown-toggle:focus {
+outline: 0;
+}
+
+.ssw-dropdown-menu {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 3000000;
+display: none;
+float: left;
+min-width: 160px;
+margin: 2px 0 0;
+font-size: 14px;
+list-style: none;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+border: 1px solid rgba(0, 0, 0, 0.15);
+-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+background-clip: padding-box;
+padding: 0;
+text-align: left;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+}
+
+.ssw-dropdown-menu.ssw-pull-right {
+right: 0;
+left: auto;
+}
+
+
+.ssw-dropdown-menu .ssw-divider {
+height: 1px;
+margin: 2px 1px;
+overflow: hidden;
+background-color: #e2e2e2;
+}
+#ssw-topauth .ssw-dropdown-menu > li.ssw-divider, .ssw-widget-login .ssw-dropdown-menu > li.ssw-divider{
+margin: 2px 1px;
+}
+
+.ssw-dropdown-menu > li > a {
+display: block;
+padding: 6px 20px;
+clear: both;
+font-weight: normal;
+line-height: 1.428571429;
+color: #333333;
+white-space: nowrap;
+text-decoration: none;
+}
+
+ul.ssw-dropdown-menu > li > a:hover,
+ul.ssw-dropdown-menu > li > a:focus{
+color: #333333;
+text-decoration: none;
+background-color: #eeeeee;
+}
+
+ul.ssw-dropdown-menu > .ssw-active > a,
+ul.ssw-dropdown-menu > .ssw-active > a:hover,
+ul.ssw-dropdown-menu > .ssw-active > a:focus{
+color: #333333;
+text-decoration: none;
+background-color: #eeeeee;
+outline: 0;
+}
+
+.ssw-dropdown-menu > .ssw-disabled > a,
+.ssw-dropdown-menu > .ssw-disabled > a:hover,
+.ssw-dropdown-menu > .ssw-disabled > a:focus {
+color: #999999;
+}
+
+.ssw-dropdown-menu > .ssw-disabled > a:hover,
+.ssw-dropdown-menu > .ssw-disabled > a:focus {
+text-decoration: none;
+cursor: not-allowed;
+background-color: transparent;
+background-image: none;
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.ssw-open > .ssw-dropdown-menu {
+display: block;
+}
+
+.ssw-open > a {
+outline: 0;
+}
+
+.ssw-dropdown-header {
+display: block;
+padding: 3px 20px;
+font-size: 12px;
+line-height: 1.428571429;
+color: #999999;
+}
+
+.ssw-dropdown-backdrop {
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 2500000;
+}
+
+.ssw-pull-right > .ssw-dropdown-menu {
+right: 0;
+left: auto;
+}
+
+/* Ssw Datepicker */
+.ssw-datepicker {
+top: 0;
+left: 0;
+padding: 4px;
+margin-top: 1px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+background-color: #ffffff;
+/*.dow {
+border-top: 1px solid #ddd !important;
+}*/
+
+}
+.ssw-datepicker:before {
+content: '';
+display: inline-block;
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-bottom: 7px solid #ccc;
+border-bottom-color: rgba(0, 0, 0, 0.2);
+position: absolute;
+top: -7px;
+left: 6px;
+}
+.ssw-datepicker:after {
+content: '';
+display: inline-block;
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-bottom: 6px solid #ffffff;
+position: absolute;
+top: -6px;
+left: 7px;
+}
+.ssw-datepicker > div {
+display: none;
+}
+.ssw-datepicker table {
+width: 100%;
+margin: 0;
+}
+.ssw-datepicker td,
+.ssw-datepicker th {
+text-align: center;
+width: 20px;
+height: 20px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: none;
+}
+.ssw-datepicker td.ssw-day:hover {
+background: #eeeeee;
+cursor: pointer;
+}
+.ssw-datepicker td.ssw-day.ssw-disabled {
+color: #eeeeee;
+}
+.ssw-datepicker td.ssw-old,
+.ssw-datepicker td.ssw-new {
+color: #999999;
+}
+.ssw-datepicker td.ssw-active,
+.ssw-datepicker td.ssw-active:hover {
+color: #ffffff;
+background-color: #006dcc;
+background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+border-color: #0044cc #0044cc #002a80;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+*background-color: #0044cc;
+/* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.ssw-datepicker td.ssw-active:hover,
+.ssw-datepicker td.ssw-active:hover:hover,
+.ssw-datepicker td.ssw-active:focus,
+.ssw-datepicker td.ssw-active:hover:focus,
+.ssw-datepicker td.ssw-active:active,
+.ssw-datepicker td.ssw-active:hover:active,
+.ssw-datepicker td.ssw-active.ssw-active,
+.ssw-datepicker td.ssw-active:hover.ssw-active,
+.ssw-datepicker td.ssw-active.ssw-disabled,
+.ssw-datepicker td.ssw-active:hover.ssw-disabled,
+.ssw-datepicker td.ssw-active[disabled],
+.ssw-datepicker td.ssw-active:hover[disabled] {
+color: #ffffff;
+background-color: #0044cc;
+*background-color: #003bb3;
+}
+.ssw-datepicker td.ssw-active:active,
+.ssw-datepicker td.ssw-active:hover:active,
+.ssw-datepicker td.ssw-active.ssw-active,
+.ssw-datepicker td.ssw-active:hover.ssw-active {
+background-color: #003399 \9;
+}
+.ssw-datepicker td span {
+display: block;
+width: 47px;
+height: 54px;
+line-height: 54px;
+float: left;
+margin: 2px;
+cursor: pointer;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.ssw-datepicker td span:hover {
+background: #eeeeee;
+}
+.ssw-datepicker td span.ssw-active {
+color: #ffffff;
+background-color: #006dcc;
+background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+border-color: #0044cc #0044cc #002a80;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+*background-color: #0044cc;
+/* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.ssw-datepicker td span.ssw-active:hover,
+.ssw-datepicker td span.ssw-active:focus,
+.ssw-datepicker td span.ssw-active:active,
+.ssw-datepicker td span.ssw-active.ssw-active,
+.ssw-datepicker td span.ssw-active.ssw-disabled,
+.ssw-datepicker td span.ssw-active[disabled] {
+color: #ffffff;
+background-color: #0044cc;
+*background-color: #003bb3;
+}
+.ssw-datepicker td span.ssw-active:active,
+.ssw-datepicker td span.ssw-active.ssw-active {
+background-color: #003399 \9;
+}
+.ssw-datepicker td span.ssw-old {
+color: #999999;
+}
+.ssw-datepicker th.ssw-switch {
+width: 145px;
+}
+.ssw-datepicker th.ssw-next,
+.ssw-datepicker th.ssw-prev {
+font-size: 21px;
+}
+.ssw-datepicker thead tr:first-child th {
+cursor: pointer;
+}
+.ssw-datepicker thead tr:first-child th:hover {
+background: #eeeeee;
+}
+
+/* --- Signup & Login --- */
+.ssw-login .ssw-modal-body h3 {
+clear: both;
+text-align: center;
+font-size: 25px;
+line-height: 20px;
+margin: 0 0 20px;
+}
+.ssw-login .ssw-modal-footer { margin-top:0; }
+.ssw-login .ssw-modal-body > .ssw-close{
+font-size: 30px;
+margin-bottom: 0;
+}
+.ssw-login form {
+margin: 0 auto;
+text-align: right;
+width: 56%;
+}
+
+.ssw-login form input.ssw-span3{
+display: inline-block;
+margin-bottom: 0;
+width:100%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+.ssw-login .ssw-control-group:last-child{
+margin-bottom: 0;
+}
+
+.ssw-login .ssw-control-group > .btn,
+.ssw-login .ssw-action-bottom > .btn{
+margin-bottom: 0;
+}
+
+.ssw-login .ssw-login-loading,
+.ssw-login .ssw-signup-loading{
+display:none;
+left: 50%;
+margin-left: -13px;
+margin-top: 30px;
+position: absolute;
+text-align: center;
+}
+
+.ssw-login p{
+font-size: 16px;
+text-align: center;
+}
+
+.ssw-login .ssw-socialconnect{
+margin: 40px 0 30px;
+text-align: center;
+}
+
+.ssw-login .btn{
+display: inline-block;
+}
+
+.ssw-login .login-failed{
+margin-top: 20px;
+}
+
+.ssw-socialconnect > div {
+display: inline-block;
+margin-bottom: 10px;
+margin-right: 4px;
+}
+.ssw-login.ssw-modal .ssw-socialconnect > div{
+margin-right: 15px;
+}
+.ssw-login.ssw-modal .ssw-socialconnect > div:last-child{
+margin-right: 0;
+clear: both;
+}
+.ssw-socialconnect > .ssw-fbconnect > i.ssw-icon-facebook-o {
+background: none repeat scroll 0 0 #354F88;
+}
+
+.ssw-socialconnect > .ssw-fbconnect > a {
+background: none repeat scroll 0 0 #3B5998;
+}
+
+.ssw-socialconnect > .ssw-inconnect > a {
+background: none repeat scroll 0 0 #517fa4;
+}
+
+.socialconnect > .inconnect > a {
+  background: #3b5998 none repeat scroll 0 0;
+}
+
+.ssw-socialconnect > .ssw-fbconnect > a:hover{ background: #354f88; }
+
+.ssw-socialconnect > .ssw-twconnect > i.ssw-icon-twitter {
+background: none repeat scroll 0 0 #40A2D1;
+}
+
+.ssw-socialconnect > .ssw-yconnect > i.ssw-icon-yahoo {
+background: none repeat scroll 0 0 #600080;
+}
+
+.ssw-socialconnect > .ssw-gconnect > i.ssw-icon-gplus {
+background: none repeat scroll 0 0 #DF4A32;
+}
+
+.ssw-socialconnect > .ssw-tmconnect > i.ssw-icon-tumblr {
+background: none repeat scroll 0 0 #409bca;
+}
+
+.ssw-socialconnect > .ssw-inconnect > i.ssw-icon-instagram {
+background: none repeat scroll 0 0 #4a7598;
+}
+
+.ssw-socialconnect > .ssw-twconnect > a {
+background: none repeat scroll 0 0 #45B0E3;
+}
+
+.ssw-socialconnect > .ssw-gconnect > a {
+background: none repeat scroll 0 0 #E8533B;
+}
+
+.ssw-socialconnect > .ssw-tmconnect > a {
+background: none repeat scroll 0 0 #529ECC;
+}
+
+.ssw-socialconnect > .ssw-yconnect > a {
+background: none repeat scroll 0 0 #7b0099;
+}
+
+.ssw-socialconnect > .ssw-simple-login > a {
+background: none repeat scroll 0 0 #3498DB;
+}
+
+.ssw-icon-yahoo:before {
+width: 1.3em !important;
+}
+
+.ssw-socialconnect > .ssw-twconnect > a:hover{ background: #40a2d1; }
+
+.ssw-socialconnect > .ssw-gconnect > a:hover{ background: #DF4A32; }
+
+.ssw-socialconnect > .ssw-yconnect > a:hover{ background: #700090; }
+
+.ssw-socialconnect > .ssw-fbconnect > i.ssw-icon-facebook-o,
+.ssw-socialconnect > .ssw-twconnect > i.ssw-icon-twitter,
+.ssw-socialconnect > .ssw-gconnect > i.ssw-icon-gplus,
+.ssw-socialconnect > .ssw-yconnect > i.ssw-icon-yahoo,
+.ssw-socialconnect > .ssw-tmconnect > i.ssw-icon-tumblr,
+.ssw-socialconnect > .ssw-inconnect > i.ssw-icon-instagram{
+color: #FFFFFF;
+display: inline-block;
+float: left;
+font-size: 20px;
+line-height: 40px;
+text-align: center;
+width: 41px;
+}
+
+.ssw-socialconnect > div > a {
+color: #FFFFFF !important;
+display: inline-block;
+line-height: 40px;
+outline: medium none;
+text-align: center;
+text-decoration: none;
+width: 180px;
+opacity: 1;
+}
+
+.ssw-login.ssw-modal .ssw-socialconnect > div > a {
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+font-size: 29px;
+line-height: 48px;
+width: 50px;
+}
+
+.ssw-login.ssw-modal .ssw-socialconnect > div > a > i,
+.ssw-login.ssw-modal .ssw-socialconnect > div > a > i:before{
+line-height: 48px;
+}
+.ssw-socialconnect > div > a:hover{
+color: #FFFFFF;
+opacity: 1;
+}
+
+#ssw-topauth{
+display: inline;
+}
+
+.ssw-widget-login > a, .ssw-widget-login > div > a,
+#ssw-topauth > a, #ssw-topauth > div > a {
+display:inline;
+}
+
+#ssw-topauth a.ssw-dropdown-toggle,
+.ssw-widget-login a.ssw-dropdown-toggle{
+border: none ;
+}
+
+#ssw-topauth ul.ssw-dropdown-menu,
+.ssw-widget-login ul.ssw-dropdown-menu{
+display: none;
+}
+
+#ssw-topauth .ssw-open > .ssw-dropdown-menu,
+.ssw-widget-login .ssw-open > .ssw-dropdown-menu{
+display: block;
+}
+
+#ssw-topauth ul.ssw-dropdown-menu > li,
+.ssw-widget-login ul.ssw-dropdown-menu > li{
+color: #333333;
+display: block;
+float: none;
+margin: 0;
+padding: 0;
+border: none !important;
+}
+
+#ssw-topauth ul.ssw-dropdown-menu li.ssw-hide,
+.ssw-widget-login ul.ssw-dropdown-menu li.ssw-hide{
+display: none;
+}
+
+#ssw-topauth .ssw-dropdown-menu > li > a,
+.ssw-widget-login .ssw-dropdown-menu > li > a{
+color: #333333;
+padding: 6px 20px;
+border: none;
+text-decoration: none;
+}
+
+#ssw-topauth > .tprofile > .ssw-dropdown-menu > li > a:hover,
+#ssw-topauth > .tprofile > .ssw-dropdown-menu > li > a:focus,
+.ssw-widget-login > .tprofile > .ssw-dropdown-menu > li > a:hover,
+.ssw-widget-login > .tprofile > .ssw-dropdown-menu > li > a:focus{
+color: #333333;
+text-decoration: none;
+}
+
+#ssw-topauth > a,
+#ssw-topauth .btn,
+.ssw-widget-login > a,
+.ssw-widget-login .btn{
+display: inline-block;
+}
+
+#ssw-topauth .ssw-dropdown i,
+.ssw-widget-login .ssw-dropdown i{
+font-size: 110%;
+}
+
+#ssw-topauth .btn.ssw-accept-follow,
+#ssw-topauth .btn.decline-follow,
+.ssw-widget-login .btn.ssw-accept-follow,
+.ssw-widget-login .btn.ssw-decline-follow,
+.ssw-community-box .ssw-join-button{
+padding: 8px 12px;
+margin: 10px 0;
+width: auto;
+min-width: 0;
+display: inline-block !important;
+height: auto;
+line-height: 100%;
+}
+
+.ssw-tnotify > ul.ssw-dropdown-menu {
+max-height: 415px;
+overflow-y: auto;
+width: 280px;
+}
+
+#ssw-topauth .ssw-tnotify > ul > li,
+.ssw-widget-login .ssw-tnotify > ul > li{
+line-height: 120%;
+}
+.ssw-tprofile, .ssw-tnotify {
+display: inline-block;
+}
+
+.ssw-tnotify > a {
+padding: 0 10px;
+position: relative;
+text-decoration: none;
+}
+
+.ssw-tnotify #ssw-no-notification:hover{
+background: #eeeeee;
+color: #333333;
+}
+
+.ssw-tnotify #ssw-no-notification>div{
+padding: 10px;
+text-align: center;
+cursor: pointer;
+}
+
+.ssw-tnotify > ul > li > div.ssw-notify-item{
+border-bottom: 1px solid #e2e2e2;
+cursor: pointer;
+display: block;
+font-size: 13px;
+min-height: 48px;
+padding: 6px 10px;
+white-space: normal;
+}
+.ssw-tnotify > ul > li > div.ssw-notify-item:hover{
+background: #eeeeee;
+color: #333333;
+}
+.ssw-tnotify > ul > li > div.ssw-notify-item:hover a{
+color: #333333;
+}
+.ssw-tnotify div.ssw-new{
+background: #eeeeee;
+color: #333333;
+}
+.ssw-tnotify > a > span{
+background: #c43c35;
+background-image: linear-gradient(to bottom, #E05550, #A52B27);
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+color: #fff;
+display: inline-block;
+font-size: 10px;
+font-weight: bold;
+height: 16px;
+width: 16px;
+line-height: 14px;
+position: absolute;
+text-align: center;
+top: -7px;
+left: 22px;
+}
+.ssw-tnotify .ssw-muted{
+font-size: 12px;
+}
+.ssw-tnotify > ul > li.ssw-notify-actions{
+cursor: pointer;
+padding: 6px 0;
+text-align: center;
+}
+
+/* --- PROFILE --- */
+.ssw-profile_thumb{
+height: 160px;
+width: 160px;
+}
+
+.ssw-follow-btn{
+float: right;
+margin-top: 3px;
+margin-right: 120px;
+}
+
+#ssw-about-link.btn{
+padding: 6px 12px;
+line-height: normal;
+height: auto;
+}
+
+#ssw-about-form label{
+display: block;
+}
+
+#ssw-about-modal .or {
+margin: 0 10px;
+}
+
+#ssw-about-modal .ssw-modal-header > h3 {
+margin-bottom: 0;
+}
+#ssw-about-modal .ssw-modal-header {
+border-bottom: medium none;
+padding-bottom: 0;
+}
+#ssw-about-modal .ssw-icon-facebook {
+background: none repeat scroll 0 0 #3b5998;
+color: #fff;
+float: left;
+font-size: 24px;
+margin-right: 5px;
+padding: 10px 7px;
+}
+
+.ssw-sm-twitter, .ssw-sm-facebook, .ssw-sm-pinterest, .ssw-sm-tumblr, .ssw-sm-instagram{
+display: block;
+line-height: 24px;
+margin-bottom: 3px;
+}
+
+.ssw-sm-twitter i, .ssw-sm-facebook i, .ssw-sm-pinterest i,.ssw-sm-tumblr i, .ssw-sm-instagram i{
+display: block;
+float: left;
+margin-right: 5px;
+width: 24px;
+line-height:24px;
+text-align:center;
+font-size:14px;
+border-radius: 24px;
+}
+.ssw-sm-facebook i{
+color: #FFFFFF;
+background-color: #354F88;
+}
+.ssw-sm-twitter i{
+background-color: #45B0E3;
+color: #FFFFFF;
+}
+.ssw-sm-pinterest i{
+color: #FFFFFF;
+background-color: #CB2027;
+}
+.ssw-sm-tumblr i{
+color: #FFFFFF;
+background-color: #32506d;
+}
+.ssw-sm-instagram i{
+color: #FFFFFF;
+background-color: #517fa4;
+}
+
+/* Profile Edit */
+#ssw-edit-profile-form .ssw-fileupload .ssw-thumbnail {
+border: none;
+box-shadow: none;
+background: none;
+}
+
+#ssw-edit-profile-form .ssw-fileupload > .ssw-loader {
+height: 16px;
+margin-left: 10px;
+vertical-align: middle;
+width: 16px;
+}
+
+#ssw-edit-profile-form .ssw-radio.ssw-inline, #ssw-edit-profile-form .ssw-checkbox {
+line-height: 100%;
+}
+
+#ssw-edit-profile-form .ssw-fileupload-new.btn, #ssw-edit-profile-form .ssw-fileupload-exists.btn {
+margin-top: 0;
+margin-bottom: 0;
+}
+.ssw-snconnected{
+margin-right: 5px;
+}
+
+#ssw-edit-notifications-form label{
+display:block;
+margin-top: 10px;
+line-height: 100%;
+}
+
+.ssw-edit-profile-page h2 {
+float: left;
+line-height: 5px;
+margin-right: 25px;
+}
+
+/* Social Login Widget */
+.ssw-social-login-widget {
+margin-bottom: 10px;
+overflow: hidden;
+}
+.ssw-social-login-widget > .ssw-socialconnect > div {
+margin-bottom: 0px;
+}
+.ssw-social-login-widget > .ssw-socialconnect > div > a {
+border-radius: 6px;
+line-height: 40px;
+width: 50px;
+border: none;
+}
+
+.ssw-social-login-widget > .ssw-socialconnect > div > a > i {
+font-size: 20px;
+line-height: 40px;
+}
+
+.ssw-social-login-widget > .ssw-socialconnect > div > a > i:before{
+line-height: 40px;
+}
+
+.ssw-icon-at:before {
+content: "@";
+}
+
+/* SSW Login Top Bar */
+.ssw-widget-login{
+left: 40%;
+background-color: #2ba6cb;
+font-size: 14px;
+-webkit-box-shadow: 0 0 0 2px #ffffff;
+-moz-box-shadow: 0 0 0 2px #ffffff;
+box-shadow: 0 0 0 2px #ffffff;
+line-height:110%;
+padding: 8px 18px;
+position: absolute;
+text-align: center;
+z-index: 2000000;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
+margin: 0;
+font-weight: normal;
+}
+
+.ssw-widget-login:hover{ background-color: #27afcb; }
+.ssw-widget-login > a,
+.ssw-widget-login > .ssw-dropdown > a,
+.ssw-widget-login > span{
+color: #ffffff;
+line-height: inherit;
+font: inherit;
+text-decoration: none;
+}
+
+.ssw-widget-login > a:hover,
+.ssw-widget-login > .ssw-dropdown > a:hover{
+text-decoration: none;
+}
+
+@media screen and (max-width: 480px){
+.ssw-profile .ssw-pl1,
+.ssw-profile .ssw-pl2{
+width: 100%;
+max-width: 100%;
+}
+.ssw-profile .ssw-pl2 { margin-left: 0; }
+
+.ssw-profile .ssw-cmnav { margin-left: 0; }
+
+.ssw-profile .ssw-cmnav > li.active,
+.ssw-profile .ssw-cmnav > li:hover{
+border-color: #ccc;
+}
+
+.ssw-profile .ssw-cmnav > li > span{
+color: #333;
+font-size: 13px;
+}
+.ssw-profile .ssw-cmnav > li {
+border-bottom: 1px solid #ccc;
+border-left: 1px solid #ccc;
+border-right: 1px solid #ccc;
+display: block;
+padding: 10px;
+text-align: left;
+}
+.ssw-profile .ssw-cmnav > li:first-child{
+border-top: 1px solid #ccc;
+}
+.ssw-profile .ssw-cmnav > li.ssw-active{
+background-color: #eee;
+}
+.ssw-profile .ssw-cmnav > li > div {
+background-color: #777;
+border-radius: 10px;
+color: #fff;
+float: right;
+font-size: 17px;
+padding: 2px 10px;
+text-align: center;
+}
+.ssw-login form { width: 80%; }
+
+.ssw-login .ssw-modal-body > .ssw-close { font-size: 40px; }
+}
+@media screen and (max-width: 360px){
+.ssw-login form { width: 96%; }
+}
+
+@media screen and (max-width: 550px){
+#ssw-edit-profile-form .ssw-control-label,
+#ssw-edit-notifications-form .ssw-control-label{
+float: none;
+width: auto;
+display: block;
+}
+#ssw-edit-profile-form .ssw-controls, #ssw-edit-notifications-form .ssw-controls { margin-left: 0; }
+#ssw-edit-profile-form .ssw-controls > input, #ssw-edit-profile-form .ssw-controls > textarea { max-width: 100%; }
+#ssw-edit-profile-form .ssw-controls > .ssw-shop-url { display: none; }
+}
+
+@media screen and (max-width: 700px){
+.ssw-edit-profile-page h2 {
+float: none;
+margin-right: 0;
+margin-bottom: 20px;
+line-height: normal;
+}
+.ssw-edit-profile-page .ssw-nav-pills > li > a:first-child { padding-left: 0; }
+}
+.ssw-profile-sm > a {
+float: left;
+margin-right: 5px;
+}
+.ssw-profile-sm > a:last-child {
+margin-right: 0;
+}
+.ssw-cmnav {
+padding-top: 20px;
+clear:both;
+margin: 0 0 30px 5px;
+}
+.ssw-cmnav > li.ssw-active, .ssw-cmnav > li:hover {
+border-color: #00a7fd;
+color: #333;
+}
+.ssw-cmnav > li {
+border-bottom: 4px solid transparent;
+cursor: pointer;
+display: inline-block;
+padding: 3px 20px;
+text-align: center;
+}
+.ssw-cmnav > li > span {
+color: #909090;
+font-size: 11px;
+text-transform: uppercase;
+}
+.ssw-cmnav > li > div {
+font-size: 21px;
+line-height: 130%;
+}
+.ssw-pl1 {
+max-width: 160px;
+width: 30%;
+}
+.ssw-pl2 {
+margin-left: 2%;
+padding-top: 30px;
+width: 68%;
+}
+#ssw-followers-list, #ssw-following-list, #ssw-faves-list {
+min-height: 500px;
+}
+.ssw-icon-edit.ssw-inline {
+float: right;
+font-size: 20px;
+width: 4%;
+}
+
+.ssw-profile-photos {
+background: none repeat scroll 0 0 #fff;
+border: 10px solid #fff;
+border-radius: 2px;
+box-shadow: 0 0 2px #999;
+height: 160px;
+overflow: hidden;
+position: relative;
+}
+.ssw-profile-photos ul{
+list-style: outside none none;
+margin: 0;
+padding: 0;
+position: relative;
+width: 20000em;
+}
+.ssw-profile-photos-cont {
+position: relative;
+}
+#ssw-about-modal .ssw-modal-body label > i {
+color: #fff;
+float: left;
+font-size: 24px;
+margin-right: 5px;
+padding: 10px 7px;
+}
+
+.ssw-profile-photos-next, .ssw-profile-photos-prev{
+z-index: 10;
+}
+
+#ssw-edit-profile-form .ssw-input-large{
+width: 210px;
+}
+#ssw-about-form .ssw-icon-facebook {
+background: none repeat scroll 0 0 #3b5998;
+}
+#ssw-about-form .ssw-icon-twitter {
+background: none repeat scroll 0 0 #529ecc;
+}
+#ssw-about-form .ssw-icon-pinterest {
+background: none repeat scroll 0 0 #e8533b;
+}
+#ssw-about-form .ssw-icon-tumblr {
+background: none repeat scroll 0 0 #008cba;
+}
+#ssw-about-form .ssw-icon-instagram {
+background: none repeat scroll 0 0 #3b5998;
+}

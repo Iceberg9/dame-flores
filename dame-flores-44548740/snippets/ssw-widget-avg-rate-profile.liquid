@@ -1,0 +1,74 @@
+{% if template == 'product' %}
+    <div id="ssw-avg-rate-profile-html" data-product-id="{{product.id}}" data-avg-rate="{{ product.metafields.ssw['avg_rate'] }}">
+        {% if product.metafields.ssw['count_rate'] %}
+            {% assign ssw_count_rate = product.metafields.ssw['count_rate'] %}
+        {% else %}
+            {% assign ssw_count_rate = '0' %}
+        {% endif %}
+        <div class="ssw-stars ssw-stars-large">
+            {% if ssw_count_rate == '0' %}
+                {% for i in (1..5) %}
+                    <i class="ssw-icon-star-empty"></i>
+                {% endfor %}
+            {% else %}
+                {% assign ssw_j = product.metafields.ssw['avg_rate'] | floor %}
+                {% for i in (1..ssw_j) %}
+                    <i class="ssw-icon-star"></i>
+                {% endfor %}
+                {% assign ssw_rate_last_star = 5 | minus:product.metafields.ssw['avg_rate'] %}
+                {% assign ssw_y = ssw_rate_last_star | floor %}
+                {% assign ssw_x = product.metafields.ssw['avg_rate'] | minus:ssw_j %}
+                {% if ssw_x > 0.74 %}
+                    <i class="ssw-icon-star"></i>
+                {% else %}
+                    {% if ssw_x > 0.24 %}
+                        <i class="ssw-icon-star-half-alt"></i>
+                    {% else %}
+                        {% if ssw_x > 0 %}
+                            {% assign ssw_y = ssw_y | plus:1 %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+                {% for i in (1..ssw_y) %}
+                    <i class="ssw-icon-star-empty"></i>
+                {% endfor %}
+            {% endif %}
+            <span class="ssw-review-count">
+      {% if ssw_count_rate == '0' %}
+          <a href="javascript: void(0);">{{ 'socialshopwave.write_a_review' | t }}</a>
+      {% else %}
+          {% if ssw_count_rate == '1' %}
+              {{ 'socialshopwave.quantity_review2' | t: ssw_count_rate: ssw_count_rate }}
+          {% else %}
+              {{ 'socialshopwave.quantity_reviews2' | t: ssw_count_rate: ssw_count_rate }}
+          {% endif %}
+      {% endif %}
+    </span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if(typeof sswAvgRateProfileCheckInterval == 'undefined'){
+            var sswAvgRateListingCheckInterval = setInterval( function() {
+                if(typeof userChecked != 'undefined' && userChecked){
+                    clearInterval(sswAvgRateListingCheckInterval);
+                    ssw('#ssw-avg-rate-profile-html').click(function(){
+                        if(ssw('#ssw-widget-recommends-html').length > 0){
+                            ssw('html, body').scrollTop(ssw("#ssw-widget-recommends-html").offset().top - 40);
+                        }
+                    });
+                }
+            }, 200);
+        }
+    </script>
+
+    <div itemtype="http://data-vocabulary.org/Review-aggregate" itemscope="" style="">
+        <meta content="{{product.title}}" itemprop="itemreviewed">
+        <meta content="{{ product.metafields.ssw['count_rate'] }}" itemprop="votes">
+      
+      <span itemtype="http://data-vocabulary.org/Rating" itemscope="" itemprop="rating">
+        <meta content="{{ product.metafields.ssw['avg_rate'] }}" itemprop="average">
+        <meta content="5" itemprop="best">
+        <meta content="1" itemprop="worst">
+      </span>
+    </div>
+{% endif %}

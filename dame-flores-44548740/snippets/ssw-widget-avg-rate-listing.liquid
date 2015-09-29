@@ -1,0 +1,35 @@
+{% if product.metafields.ssw['count_rate'] %}
+    {% assign ssw_count_rate = product.metafields.ssw['count_rate'] %}
+    {% if ssw_count_rate != '0' %}
+        <div class="ssw-widget-avg-rate-listing ssw-stars ssw-stars-large">
+            {% assign ssw_j = product.metafields.ssw['avg_rate'] | floor %}
+            {% for i in (1..ssw_j) %}
+                <i class="ssw-icon-star"></i>
+            {% endfor %}
+            {% assign ssw_rate_last_star = 5 | minus:product.metafields.ssw['avg_rate'] %}
+            {% assign ssw_y = ssw_rate_last_star | floor %}
+            {% assign ssw_x = product.metafields.ssw['avg_rate'] | minus:ssw_j %}
+            {% if ssw_x > 0.74 %}
+                <i class="ssw-icon-star"></i>
+            {% else %}
+                {% if ssw_x > 0.24 %}
+                    <i class="ssw-icon-star-half-alt"></i>
+                {% else %}
+                    {% if ssw_x > 0 %}
+                        {% assign ssw_y = ssw_y | plus:1 %}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {% for i in (1..ssw_y) %}
+                <i class="ssw-icon-star-empty"></i>
+            {% endfor %}
+            <span class="ssw-review-count">
+        {% if ssw_count_rate == '1' %}
+            {{ 'socialshopwave.quantity_review' | t: ssw_count_rate: ssw_count_rate }}
+        {% else %}
+            {{ 'socialshopwave.quantity_reviews' | t: ssw_count_rate: ssw_count_rate }}
+        {% endif %}
+      </span>
+        </div>
+    {% endif %}
+{% endif %}

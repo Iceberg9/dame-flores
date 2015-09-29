@@ -1,0 +1,19 @@
+{% unless customer %}
+<div class='ssw-social-login-widget'>
+    <div class="ssw-socialconnect">
+        {% include 'ssw-social-buttons' %}
+        <div class="ssw-simple-login">
+            <a title="{{ 'socialshopwave.log_in' | t }}" href="javascript://">
+                <i class="ssw-icon-at"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    var initSocialButtons = function($) {
+        $('.ssw-social-login-widget').on('click', '.ssw-simple-login', function(e){
+            ssw('#login_modal').sswModal();
+        });
+    }
+</script>
+{% endunless %}

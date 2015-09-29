@@ -1,0 +1,5 @@
+{{ 'ssw-review.css'| asset_url | stylesheet_tag }}
+{% capture ssw_widget_review_bar %}{% include 'ssw-widget-review-bar' %}{% endcapture %}
+{% unless ssw_widget_review_bar contains 'Liquid error' %}
+	{{ ssw_widget_review_bar }}
+{% endunless %}

@@ -1,0 +1,129 @@
+.ssw-faveit {
+bottom: 0;
+color: #606060;
+cursor: pointer;
+display: none;
+font-size: 30px;
+left: 0;
+position: absolute;
+padding: 8px 12px;
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+}
+
+.ssw-faveit > i, .ssw-faveiticon > i{
+color: #E0140D;
+}
+
+.ssw-faveiticon {
+color: #606060;
+cursor: pointer;
+font-size: 20px;
+background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Fave Button */
+.ssw-faveappbtn{
+-webkit-box-shadow: 1px 1px 0 rgba(255,255,255,0.5) inset;
+-moz-box-shadow: 1px 1px 0 rgba(255,255,255,0.5) inset;
+box-shadow: 1px 1px 0 rgba(255,255,255,0.5) inset;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+border: 1px solid;
+background: #fcfcfc;
+background: -webkit-linear-gradient(top, #ffffff 0%,#f0f0f0 50%,#f2f2f2 100%);
+background: -o-linear-gradient(top, #ffffff 0%,#f0f0f0 50%,#f2f2f2 100%);
+background: linear-gradient(to bottom, #ffffff 0%,#f0f0f0 80%,#f2f2f2 100%);
+border-color: #ccc;
+color: #E0140D;
+cursor: pointer;
+display: inline-block;
+font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+height: 18px;
+line-height: 18px;
+padding: 0 8px 0 6px;
+position: relative;
+font-size: 11px;
+font-weight: bold;
+text-decoration: none;
+text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+/*margin-top: 2px;*/
+float: left;
+}
+div.ssw-faveappbtn > i{
+color: #E0140D;
+float: left;
+margin-top: 3px !important;
+}
+.ssw-faveappbtn-counter{ margin-right: 55px; }
+.ssw-faveappbtn-counter:after,
+.ssw-faveappbtn-counter:hover:after{ text-shadow: none; }
+.ssw-faveappbtn-counter:after{
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+border: 1px solid #d3d3d3;
+background-color: #fefefe;
+padding: 0 8px;
+color: #999;
+font-weight: normal;
+content: attr(data-count);
+left: 100%;
+margin-left: 8px;
+margin-right: -13px;
+position: absolute;
+top: -1px;
+}
+.ssw-faveappbtn-counter:before{
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+transform: rotate(45deg);
+filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476, sizingMethod='auto expand');
+background-color: #fefefe;
+border: 1px solid #d3d3d3;
+border-right: 0;
+border-top: 0;
+content: '';
+position: absolute;
+right: -12px;
+top: 5px;
+height: 6px;
+width: 6px;
+z-index: 1;
+zoom: 1;
+}
+
+.ssw-faveappbtn:hover, .ssw-faveappbtn.ssw-active:hover{
+border-color: #B0B0B0;
+}
+
+.ssw-faveappbtn:active{
+-webkit-box-shadow: 0 0 5px 3px rgba(0,0,0,0.15) inset;
+-moz-box-shadow: 0 0 5px 3px rgba(0,0,0,0.15) inset;
+box-shadow: 0 0 5px 3px rgba(0,0,0,0.15) inset;
+}
+
+.ssw-faveappbtn2{
+height: 22px;
+line-height: 22px;
+padding: 0 10px 0 7px;
+font-size: 12px;
+}
+.ssw-faveappbtn2 > i{
+font-size: 17px;
+margin-top: 2px;
+margin-right: 5px;
+}
+.ssw-aveappbtn-counter:before{
+top: 7px;
+}
+
+.ssw-hide-fave-count:after,
+.ssw-hide-fave-count:before{
+display: none;
+}
+.ssw-hide-fave-count {
+margin-right: 15px;
+}

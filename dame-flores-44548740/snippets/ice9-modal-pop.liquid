@@ -1,0 +1,58 @@
+<div id="modal-pop" style="display:none;">
+	<div class="pop-wrap">
+		<div class="close">
+			<i id="close-modal" class="fa fa-times"></i>
+		</div>
+		<div class="head">
+			<div class="logo">
+				<img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name | escape }}" class="img-responsive">
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="body">
+			<div class="mensaje">
+				<span><strong>¡Bienvenido!</strong> Registra tu email y recibe un 10% de descuento en tu primera compra.</span>
+			</div>
+			<div class="box-mc">
+				<form id="chimp">
+				  <input type="text" placeholder="ej. miguel@dameflores.com" name="email" id="address" required="required">
+				  <button class="btn btn-default" type="submit" id="btn-chimp" >¡Registrar Email!</button>
+				</form>
+				<span id="result-mailchimp"></span>
+
+				<!-- js - ice9 -->
+				<script type="text/javascript">
+				$(document).ready(function() {
+
+				  $('#btn-chimp').on('click', function(e){
+
+				    e.preventDefault();
+				    console.log('Click OK');
+
+				    $.ajax({
+				      url: 'https://iceberg9.com/shopify-assets/dameflores/chimp-popup.php' ,
+				      dataType: 'jsonp',
+				      type: 'GET',
+				      data: {
+				        email: $('#address').val()
+				      },
+				      jsonp: false,
+				      jsonpCallback: 'handleP'
+				    });
+
+				  });
+
+				});
+				function handleP(data)
+				{
+				  if (data == true) {
+				    $('#result-mailchimp').html('<span style="background: #d8d8d8; font-size:1.3em; padding: 10px; display: block;">Código: GIRASOL</span> <br>¡Gracias! Al finalizar tu compra ingresa el código: GIRASOL y obtén el 10% de descuento.');
+				  } else {
+				    $('#result-mailchimp').html('Lo sentimos, a ocurrido un error, intenta nuevamente.');
+				  }
+				}
+				</script>
+			</div>
+		</div> 
+	</div>
+</div>

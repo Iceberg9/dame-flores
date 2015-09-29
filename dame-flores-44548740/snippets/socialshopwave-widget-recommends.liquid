@@ -1,0 +1,24 @@
+{% if template contains 'product' and product %}
+<div id="ssw-widget-recommends-html"></div>
+<script type="text/javascript">
+  if(typeof sswWidgetRecommendsInterval == 'undefined'){
+    var sswWidgetRecommendsInterval = setInterval(function(){
+      if(typeof userChecked != 'undefined' && userChecked){
+        clearInterval(sswWidgetRecommendsInterval);
+        var data = {
+          'product_id': {{ product.id }},
+          '_sid': sswCookie('hesid')
+        };
+        ssw.get(sswProxyUrl + '/lite2/review/index', data, function(response){
+          ssw('#ssw-widget-recommends-html').html(response);
+          if(ssw('#site-body').length){
+            ssw('#recommend_modal').appendTo('#site-body');
+          }else{
+            ssw('#recommend_modal').appendTo('body');
+          }
+        });
+      }
+    }, 300);
+  }
+</script>
+{% endif %}

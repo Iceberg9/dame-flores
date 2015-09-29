@@ -1,0 +1,778 @@
+{{ 'ssw-login.css'| asset_url | stylesheet_tag }}
+{% capture socialshopwave_fb %}{% include 'socialshopwave-fb' %}{% endcapture %}
+{% unless socialshopwave_fb contains 'Liquid error' %}
+	{{ socialshopwave_fb }}
+{% endunless %}
+{% capture socialshopwave_gplus %}{% include 'socialshopwave-gplus' %}{% endcapture %}
+{% unless socialshopwave_gplus contains 'Liquid error' %}
+	{{ socialshopwave_gplus }}
+{% endunless %}
+
+{% unless customer %}
+<div role="modal" class="ssw-modal ssw-fade" id="social_exist_modal" aria-hidden="true">
+  <div class="ssw-modal-dialog">
+    <div class="ssw-modal-content">
+      <div class="ssw-modal-body">
+        <button class="ssw-close" aria-hidden="true" data-dismiss="ssw-modal" type="button">×</button>
+        <br />
+        <h3 style="text-align: center">{{ 'socialshopwave.log_in_to_account' | t }}</h3>
+        <br />
+        <div style="margin: 0 auto; width: 220px;">
+          <span class="ssw-thumb"><img class="ssw-img-circle" src=""></span>
+          <span id="sem_name" style="font-size: 120%; line-height: 250%;"></span>
+        </div>
+        <div class="clearfix"></div>
+        <div id="sem_text" style="padding: 10px"></div>
+        <form method="post" id="sem_modal_form">
+          <input id="sem_email" type="hidden" value="client" name="user">
+          <div class="ssw-control-group">
+            <input name="password" id="sem_password" type="password" required="required" placeholder="{{ 'socialshopwave.password' | t }}"><br>
+          </div>
+          <a id='sem_forgot' style="margin-right: 38px;" href="/account/login#recover-password">{{ 'socialshopwave.forgot_password' | t }}</a>
+          <div class="ssw-control-group">
+            <input id="sem_btn" type="submit" class="btn button" value="{{ 'socialshopwave.log_in' | t }}">
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="set-email-modal" class="ssw-modal ssw-fade" aria-hidden="true" role="modal">
+  <div class="ssw-modal-dialog">
+    <div class="ssw-modal-content">
+      <div class="ssw-modal-body">
+        <button type="button" class="ssw-close" data-dismiss="ssw-modal" aria-hidden="true">&times;</button>
+        <h3>{{ 'socialshopwave.enter_your_email' | t }}</h3>
+        <div id="set-email-error" class="ssw-alert ssw-alert-warning login-failed" style="display: none"></div>
+        <div class="he-login">
+          <form id="set-email-form" method="post">
+            <input id="service_id" type="hidden" name="service_id" value="">
+            <div class="ssw-control-group">
+              <input id="set-email-input" name="email" tabindex="1"  type="email" required="required" placeholder="{{ 'socialshopwave.email_address' | t }}" class="ssw-span3">
+            </div>
+            <div class="ssw-control-group">
+              <input type="submit" class="btn button" value="{{ 'socialshopwave.set' | t }}">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="login_modal" class="ssw-login ssw-modal ssw-fade" aria-hidden="true" role="modal">
+  <div class="ssw-modal-dialog">
+    <div class="ssw-modal-content">
+      <div class="ssw-modal-body">
+        <button type="button" class="ssw-close" data-dismiss="ssw-modal" aria-hidden="true">&times;</button>
+        {% capture ssw_customer_login %}{% include 'ssw-customer-login' %}{% endcapture %}
+        {% unless ssw_customer_login contains 'Liquid error' %}
+        {{ ssw_customer_login }}
+        {% endunless %}
+        <div class="login-failed"></div>
+        <div class="ssw-socialconnect">
+          {% capture ssw_social_buttons %}{% include 'ssw-social-buttons' %}{% endcapture %}
+          {% unless ssw_social_buttons contains 'Liquid error' %}
+          {{ ssw_social_buttons }}
+          {% endunless %}
+        </div>
+        <div class="ssw-login-loading">
+          <span class="ssw-spin ssw-loader"></span>
+        </div>
+
+        <div class="he-login">
+          <form id="he_customer_login" action="/account/login" method="post" accept-charset="UTF-8">
+            <input type="hidden" value="client" name="user">
+
+            <div class="ssw-control-group">
+              <input id="ssw-customer-email" name="customer[email]" tabindex="1" autocomplete="on" type="email"
+                     placeholder="{{ 'socialshopwave.email_address' | t }}" class="ssw-span3">
+            </div>
+            <div class="ssw-control-group">
+              <input id="ssw-customer-password" name="customer[password]" tabindex="2" type="password"
+                     placeholder="{{ 'socialshopwave.password' | t }}" class="ssw-span3" minlength="6">
+            </div>
+            <div class="ssw-control-group">
+              <input id="hesy-login-submit" tabindex="3" type="submit" class="btn button" value="{{ 'socialshopwave.log_in' | t }}">
+            </div>
+            <div class="ssw-control-group">
+              <a href="/account/login#recover-password">{{ 'socialshopwave.forgot_password' | t }}</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="ssw-modal-footer">
+        {{ 'socialshopwave.no_account' | t }} <a href="#" onclick="ssw('#login_modal').sswModal('hide'); ssw('#signup_modal').sswModal('show', this);">{{ 'socialshopwave.sign_up' | t }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="signup_modal" class="ssw-login ssw-modal ssw-fade" aria-hidden="true" role="modal">
+  <div class="ssw-modal-dialog">
+    <div class="ssw-modal-content">
+      <div class="ssw-modal-body">
+        <button type="button" class="ssw-close" data-dismiss="ssw-modal" aria-hidden="true">&times;</button>
+        {% capture ssw_customer_signup %}{% include 'ssw-customer-signup' %}{% endcapture %}
+        {% unless ssw_customer_signup contains 'Liquid error' %}
+        {{ ssw_customer_signup }}
+        {% endunless %}
+        <div class="login-failed"></div>
+        <div class="ssw-socialconnect">
+          {% unless ssw_social_buttons contains 'Liquid error' %}
+          {{ ssw_social_buttons }}
+          {% endunless %}
+        </div>
+        <div class="ssw-signup-loading">
+          <span class="ssw-spin ssw-loader"></span>
+        </div>
+
+        <form id="he_create_customer" action="/account" method="post" accept-charset="UTF-8">
+          <div class="ssw-control-group">
+            <input id="email" tabindex="4"
+                   name="customer[email]" type="email" placeholder="{{ 'socialshopwave.email_address' | t }}"
+                   class="required email ssw-span3">
+          </div>
+          <div class="ssw-control-group">
+            <input id="password" tabindex="5" name="customer[password]" type="password" placeholder="{{ 'socialshopwave.password' | t }}"
+                   class="required ssw-span3" minlength="6">
+          </div>
+          <div class="ssw-control-group ssw-first-name" style="display:none;">
+            <input id="first_name" tabindex="6"
+                   name="customer[first_name]" type="text" placeholder="{{ 'socialshopwave.first_name' | t }}" class="required ssw-span3"
+                   minlength="2">
+          </div>
+          <div class="ssw-control-group ssw-last-name" style="display:none;">
+            <input id="last_name" tabindex="7"
+                   name="customer[last_name]" type="text" placeholder="{{ 'socialshopwave.last_name' | t }}" class="required ssw-span3"
+                   minlength="2">
+          </div>
+          <div class="ssw-action-bottom">
+            <input id="hesy-sign-up-submit" tabindex="8" type="submit" class="btn button" value="{{ 'socialshopwave.sign_up' | t }}">
+          </div>
+        </form>
+      </div>
+      <div class="ssw-modal-footer">
+        {{ 'socialshopwave.already_have_an_account' | t }} <a href="#"
+                                                              onclick="ssw('#signup_modal').sswModal('hide'); ssw('#login_modal').sswModal('show', this);">{{ 'socialshopwave.log_in' | t }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var service_id = 0, sl = 0, sswSocialLogin = 0;
+
+  function targetSEMModal(response, service_name) {
+    var name = '', lang;
+    if (response.first_name) {
+      name += response.first_name + " ";
+    }
+    if (response.last_name) {
+      name += response.last_name;
+    }
+    if (response.state == 'invited') {
+      ssw('#sem_btn').hide();
+      ssw('#sem_forgot').hide();
+      ssw('#sem_password').hide();
+      lang = sswLangs.t("already_registered_and_sended_invite_message", [response.email, service_name]);
+    } else if (response.state == 'disabled'){
+      ssw('#sem_btn').hide();
+      ssw('#sem_forgot').hide();
+      ssw('#sem_password').hide();
+      lang = sswLangs.t("already_registered_and_disabled_account", [response.email, service_name]);
+    } else {
+      lang = sswLangs.t("already_registered_to_social_service", [response.email, service_name]);
+    }
+    onOpenForm();
+    ssw('#social_exist_modal .ssw-img-circle').attr('src', response.photo_url);
+    ssw('#sem_name').html(name);
+    ssw('#sem_email').val(response.email);
+    ssw('#sem_text').html(lang);
+    ssw('#login_modal').sswModal('hide');
+    ssw('#social_exist_modal').sswModal();
+  }
+
+  function loginLoader(){
+    ssw('.ssw-modal').sswModal('hide');
+    ssw('body').prepend('<div style="background: none repeat scroll 0 0 rgba(255, 255, 255, 0.77);height: 100%;position: fixed;width: 100%;z-index: 999;"><div class="ssw-login-loading" id="ssw-login-loader"> <span class="ssw-spin ssw-loader"></span> </div> </div>');
+    ssw('#ssw-login-loader').css('opacity', 1);
+    ssw('#ssw-login-loader').css({'position': 'fixed', 'top': '50%', 'left':'50%'});
+  }
+
+  function loginLoaderCancel() {
+    ssw('#ssw-login-loader').parent().remove();
+  }
+
+  function addMessage2SetMailForm(message) {
+    var $setEmailError = ssw('#set-email-error');
+    $setEmailError.html(message);
+    $setEmailError.show();
+  }
+
+  var addMessage = function (selector, message, type) {
+    type = typeof type !== 'undefined' ? 'ssw-alert-' + type : '';
+    ssw(selector).prepend('<div class="ssw-alert ' + type + ' ssw-fade ssw-in"><button class="ssw-close" data-dismiss="ssw-alert">&times;</button>' + message + '</div>');
+  }
+
+  function onSubmitForm(){
+    ssw('.ssw-login form').css('opacity', '0.3');
+    ssw('.ssw-login form input').removeAttr('enabled').attr('disabled', 'disabled');
+    ssw('.ssw-signup-loading').show();
+    ssw('.he-login').css('opacity', '0.3');
+    ssw('.he-login input').removeAttr('enabled').attr('disabled', 'disabled');
+    ssw('.ssw-login-loading').show();
+  }
+
+  function onOpenForm(){
+    ssw('.ssw-login form').css('opacity', '1');
+    ssw('.ssw-login form input').removeAttr('disabled').attr('enabled', 'enabled');
+    ssw('.ssw-signup-loading').hide();
+    ssw('.he-login').css('opacity', '1');
+    ssw('.he-login input').removeAttr('disabled').attr('enabled', 'enabled');
+    ssw('.ssw-login-loading').hide();
+  }
+
+  function validateLogin(){
+
+    ssw('#sem_modal_form').validate({
+      rules: {
+        'password': {required: true}
+      },
+      highlight: function (element) {
+        ssw(element).closest('.ssw-control-group').addClass('ssw-error');
+      },
+      success: function (element) {
+        ssw(element).closest('.ssw-control-group').removeClass('ssw-error');
+      },
+      submitHandler: function (form) {
+        var shopifyLogin = new ShopifyLogin();
+        shopifyLogin.preLogin(ssw('#sem_email').val(), ssw('#sem_password').val());
+        shopifyLogin.login();
+      }
+    });
+    ssw('#set-email-form').validate({
+      rules: {
+        'email': {required: true, email: true}
+      },
+      highlight: function (element) {
+        ssw(element).closest('.ssw-control-group').addClass('ssw-error');
+      },
+      success: function (element) {
+        ssw(element).closest('.ssw-control-group').removeClass('ssw-error');
+      },
+      submitHandler: function (form) {
+        ssw.ajax({
+          type: 'POST',
+          url: sswProxyUrl + '/lite2/auth/setEmail',
+          data: {'_sid': ssw.cookie('hesid'), 'service_id': ssw('#service_id').val(), email: ssw('#set-email-input').val()},
+          success: function (response) {
+            switch (response.error) {
+              case 0 : var shopifyLogin = new ShopifyLogin();
+                shopifyLogin.preLogin(response.email, response.password);
+                shopifyLogin.login(); break;
+              case 1 :
+                if(response.user) {
+                  var selector4Hide = '';
+                  if(!response.user.twitter) {
+                    selector4Hide += '.ssw-twconnect, ';
+                  }
+
+                  if(!response.user.tumblr) {
+                    selector4Hide += '.ssw-tmconnect, ';
+                  }
+
+                  if(!response.user.instagram) {
+                    selector4Hide += '.ssw-inconnect';
+                  }
+
+                  var $loginModal = ssw('#login_modal');
+                  $loginModal.find(selector4Hide).hide();
+                  $loginModal.sswModal('show')
+                  addMessage('#login_modal .login-failed', "{{ 'socialshopwave.this_email_is_already_used' | t }}" , 'info');
+                  console.log(response.user);
+                }
+                break;
+              case 2 : addMessage2SetMailForm("{{ 'socialshopwave.incorrect_data' | t }}");break;
+              case 3 : addMessage2SetMailForm("{{ 'socialshopwave.tumblr_user_not_found' | t }}");break;
+              case 4 : addMessage2SetMailForm("{{ 'socialshopwave.not_created_customer_on_shopify' | t }}");break;
+              case 5 : addMessage2SetMailForm("{{ 'socialshopwave.problem_on_create_user' | t }}");break;
+            }
+          },
+          dataType: 'json'
+        });
+      }
+    });
+
+    ssw('#he_create_customer').validate({
+          rules: {
+            'email': {required: true, email: true}
+          },
+          highlight: function (element) {
+            ssw(element).closest('.ssw-control-group').addClass('ssw-error');
+          },
+          success: function (element) {
+            ssw(element).closest('.ssw-control-group').removeClass('ssw-error');
+          },
+          submitHandler: function (form) {
+            var signUp = new ShopifyLogin();
+            signUp.signUp();
+          }
+        }
+    );
+
+    ssw('#he_customer_login').validate({
+      rules: {
+        'customer[email]': {required: true, email: true},
+        'customer[password]': {required: true, minlength: 6}
+      },
+      highlight: function (element) {
+        ssw(element).closest('.ssw-control-group').addClass('ssw-error');
+      },
+
+      success: function (element) {
+        ssw(element).closest('.ssw-control-group').removeClass('ssw-error');
+      },
+      submitHandler: function (form) {
+        var shopifyLogin = new ShopifyLogin();
+        shopifyLogin.login();
+      }
+    });
+  }
+
+  if(typeof sswLoginInterval == 'undefined'){
+    var sswLoginInterval = setInterval(function(){
+      if(typeof sswJqLoaded != 'undefined' && sswJqLoaded){
+
+        clearInterval(sswLoginInterval);
+        validateLogin();
+        /*
+         TTI - Twitter, Tumblr, Instagram
+         * */
+        function shopCallback4TTI(connectAction, serviceName) {
+          onSubmitForm();
+          var controllerUri = sswProxyUrl + '/lite2/auth/';
+          var shopCallbackAction = 'shopCallback';
+          var path = controllerUri + connectAction + '?_sid=' + ssw.cookie('hesid') + "&shop=" + Shopify.shop;
+          ssw.oauthpopup({
+            path: path,
+            callback: function () {
+              ssw.ajax({
+                type: 'POST',
+                url: controllerUri + shopCallbackAction,
+                dataType: 'json',
+                data: {
+                  '_sid': ssw.cookie('hesid'),
+                  'hash_key': ssw.cookie('hash_key'),
+                  'service': serviceName
+                },
+                success: function (response) {
+                  sswSocialLogin = 1;
+                  if (ssw.isEmptyObject(response)) {
+                    onOpenForm();
+                  } else if (!response.password) {
+                    onOpenForm();
+                    ssw('#service_id').val(response.service_id);
+                    ssw('.ssw-modal').sswModal('hide');
+                    ssw('#set-email-modal').sswModal();
+                  } else {
+                    var shopifyLogin = new ShopifyLogin();
+                    shopifyLogin.preLogin(response.email, response.password);
+                    shopifyLogin.login();
+                  }
+                }
+              });
+            }
+          });
+
+        }
+
+        ssw(document).on('click', '.ssw-fbconnect', function(){
+          onSubmitForm();
+          {% capture ssw_fb_setting %}{% include 'ssw-fb-setting' %}{% endcapture %}
+          {% unless ssw_fb_setting contains 'Liquid error' %}
+          {{ ssw_fb_setting }}
+          {% endunless %}
+        });
+
+        var gplusData = {};
+        var gplusClicked = false;
+        ssw(document).on('click', '.ssw-gconnect', function(){
+          onSubmitForm();
+          {% capture ssw_gplus_setting %}{% include 'ssw-gplus-setting' %}{% endcapture %}
+          {% unless ssw_gplus_setting contains 'Liquid error' %}
+          {{ ssw_gplus_setting }}
+          {% endunless %}
+        });
+
+        ssw(document).on('click', '.ssw-yconnect', function(){
+          onSubmitForm();
+          var path = HE_DOMAIN + '/lite2/auth/yconnect?_sid=' + ssw.cookie('hesid') + "&shop=" + Shopify.shop;
+          ssw.oauthpopup({
+            path: path,
+            callback: function () {
+              ssw.ajax({
+                type: 'POST',
+                url: sswProxyUrl + '/lite2/auth/yshopcallback',
+                data: {'_sid': ssw.cookie('hesid'), 'hash_key': ssw.cookie('hash_key')},
+                success: function (response) {
+                  sswSocialLogin = 1;
+                  if (ssw.isEmptyObject(response)) {
+                    onOpenForm();
+                  } else {
+                    if (!response.password && response.email) {
+                      targetSEMModal(response, 'Yahoo');
+                    } else {
+                      if (response.password) {
+                        var shopifyLogin = new ShopifyLogin();
+                        shopifyLogin.preLogin(response.email, response.password);
+                        shopifyLogin.login();
+                      } else {
+                        addMessage('#login_modal .login-failed', sswLangs.t("already_registered_to_social_service2", [response.email]), 'warning');
+                        ssw('#login_modal').sswModal();
+                      }
+                    }
+                  }
+                },
+                dataType: 'json'
+              });
+              //window.location.reload();
+            }
+          });
+        });
+
+
+        ssw(document).on('click', '.ssw-twconnect', function(){
+          shopCallback4TTI('twconnect', 'twitter');
+        });
+
+        ssw(document).on('click', '.ssw-inconnect', function(){
+          shopCallback4TTI('inconnect', 'instagram');
+        });
+
+        ssw(document).on('click', '.ssw-tmconnect', function(){
+          shopCallback4TTI('tmconnect', 'tumblr');
+        });
+
+
+        ssw('#he_create_customer input').on('keyup change', function(){
+          if(ssw('#he_create_customer #email').val() != '' && ssw('#he_create_customer #password').val() != ''){
+            if(ssw('#he_create_customer .ssw-first-name:hidden').length){
+              ssw('#he_create_customer .ssw-first-name').slideDown();
+            }
+            else if(ssw('#he_create_customer #first_name').val() != '' && ssw('#he_create_customer .ssw-last-name:hidden').length){
+              ssw('#he_create_customer .ssw-last-name').slideDown();
+            }
+          }
+        });
+
+        ssw('#login_modal').on('shown.ssw.modal', function () {
+          ssw('#ssw-customer-email').focus();
+        });
+
+        ssw('#login_modal').on('show.ssw.modal', function () {
+          ssw('.ssw-modal:not(#login_modal)').sswModal('hide');
+        });
+
+        ssw('#signup_modal').on('shown.ssw.modal', function () {
+          ssw("#he_create_customer input").each(function (k, v) {
+            if (ssw(v).val() == "") {
+              ssw(v).focus();
+              return false;
+            }
+          });
+        });
+      }
+    }, 300);
+  }
+
+  function serviceUserChecker(user, service) {
+    ssw.ajax({
+      type: 'POST',
+      url: sswProxyUrl + '/lite2/auth/service',
+      data: {'user_id': user.authResponse.userID, 'service': service, 'access_token': user.authResponse.accessToken, 'hash_key': ssw.cookie('hash_key')},
+      success: function (json) {
+//        console.log(json);
+        var shopifyLogin = new ShopifyLogin();
+        if (json.status) {
+          sswSocialLogin = 1;
+          sl = 1;
+          shopifyLogin.preLogin(json.email, json.password);
+          shopifyLogin.login();
+        } else {
+          shopifyLogin.setServiceUser(user, 'facebook');
+        }
+      },
+      dataType: 'json'
+    });
+  }
+
+
+  var ShopifyLogin = function () {
+    var o = this;
+
+    this.preLogin = function (email, password) {
+      ssw('#ssw-customer-email').val(email);
+      ssw('#ssw-customer-password').val(password);
+    }
+
+    this.setServiceUser = function (user, service) {
+      FB.api('/me', function(response) {
+        ssw.ajax({
+          type: 'POST',
+          url: sswProxyUrl + '/lite2/auth/setService',
+          data: {'user_id': user.authResponse.userID, 'access_token': user.authResponse.accessToken, 'user': response, 'service': service, '_sid': ssw.cookie("hesid")},
+          success: function (json) {
+            service_id = json.service_id;
+            if (json.user_id == 0) {
+              onOpenForm();
+              ssw(ssw('.ssw-socialconnect')[1]).prev().remove();
+              ssw(ssw('.ssw-socialconnect')[1]).next().remove();
+              ssw(ssw('.ssw-socialconnect')[1]).next().remove();
+              ssw(ssw('.ssw-socialconnect')[1]).remove();
+              ssw('div.ssw-alert').remove();
+              ssw('#first_name').val(response.first_name);
+              ssw('#last_name').val(response.last_name);
+              ssw('#email').val(response.email);
+              ssw('#login_modal').sswModal('hide');
+              ssw('#signup_modal').sswModal('show');
+            } else {
+              if (!json.password && json.email) {
+                targetSEMModal(json);
+              } else {
+                o.preLogin(json.email, json.password);
+                o.login();
+              }
+            }
+          },
+          dataType: 'json'
+        });
+      });
+    }
+
+    this.login = function () {
+      onOpenForm();
+      loginLoader();
+      var serviceCheckId = 0;
+
+      if (service_id == 0 && sl == 1)
+        serviceCheckId = 1;
+      else
+        serviceCheckId = service_id;
+
+      var data = ssw('#he_customer_login').serialize() + '&_sid=' + ssw.cookie('hesid') + '&hash_key=' + ssw.cookie('hash_key') + '&service_id=' + sswSocialLogin;
+      if(typeof sswCookie('cart') != 'undefined'){
+        data = data + '&cart_token=' + sswCookie('cart');
+      }
+
+      var url = sswGetParameterByName('checkout_url');
+      if (url != "") {
+        var l = url.split('/');
+        data = 'form_type=customer_login&utf8=✓&checkout_url=' + encodeURIComponent(url) + '&cart=' + l[l.length - 1] + '&utf8=%E2%9C%93&customer%5Bemail%5D=' + ssw('#ssw-customer-email').val()  + '&customer%5Bpassword%5D=' + ssw('#he_customer_login #customer_password').val();
+      }
+      ssw.ajax({
+        type: 'POST',
+        url: '/account/login',
+        data: data,
+        beforeSend: function () {
+          onSubmitForm();
+          ssw('#hesy-login-submit').attr('disabled', 'disabled');
+          ssw('#login_modal .ssw-alert').sswAlert('close');
+        },
+        success: function (html) {
+          html = html.split('script').join('div');
+          var htmlElement = ssw('<div>').html(html);
+          var cid = htmlElement.find('#ssw_cid').val();
+          if (cid == 0) {
+            onOpenForm();
+            loginLoaderCancel();
+            ssw('#login_modal').sswModal('show');
+            if (sswSocialLogin) {
+              trackShopStats('invalid_social_login', 'all');
+            } else {
+              trackShopStats('invalid_email_login', 'all');
+            }
+
+            ssw('#hesy-login-submit').removeAttr('disabled').attr('enabled', 'enabled');
+            if (sl == 1) {
+              addMessage('#login_modal .login-failed', "{{ 'socialshopwave.not_able_to_log_in_you_socially' | t }}", 'warning');
+            } else {
+              addMessage('#login_modal .login-failed', "{{ 'socialshopwave.invalid_login_credentials' | t }}" , 'warning');
+            }
+          } else {
+            ssw.post(sswProxyUrl + '/lite2/auth/login', data, function (result) {
+              if (result.error) {
+                if (sswSocialLogin) {
+                  trackShopStats('invalid_social_login', 'all');
+                } else {
+                  trackShopStats('invalid_email_login', 'all');
+                }
+              } else {
+                if(typeof sswCookie('cart') == 'undefined' && result.cart){
+                  ssw.cookie('cart', result.cart, {
+                    expires: 14,
+                    path: '/'
+                  });
+                }
+                if (url != "") {
+                  location.href = '/?checkout_url=' + url;
+                } else {
+                  if (location.pathname.indexOf('account/login') != -1) {
+                    location.href = '/';
+                  } else {
+                    location.reload();
+                  }
+                }
+
+              }
+            }, 'json');
+          }
+          sl = 0;
+        },
+        dataType: 'html'
+      }).fail(function (err) {
+        ssw.ajax({
+          url: sswProxyUrl + '/lite2/auth/customeridpage',
+          success: function (rsp) {
+            ssw.cookie('ssw-userchecked', 0, {expires: -1});
+            var $temp_customer_page = ssw('<div>');
+            $temp_customer_page.html(rsp);
+            var customer_id = parseInt($temp_customer_page.find('#ssw-customer-id').html());
+            if (customer_id) {
+              if(typeof sswCookie('cart') == 'undefined'){
+                ssw.post(sswProxyUrl + '/lite2/auth/customerCart', { '_sid': sswCookie('hesid'), 'hash_key': sswCookie('hash_key'), 'customer_id': customer_id }, function(response){
+                  if(response.cart){
+                    ssw.cookie('cart', response.cart, {
+                      expires: 14,
+                      path: '/'
+                    });
+                  }
+                  if (url != "") {
+                    location.href = '/?checkout_url=' + url;
+                  } else {
+                    location.reload();
+                  }
+                }, 'json');
+
+              }
+              else{
+                if (url != "") {
+                  location.href = '/?checkout_url=' + url;
+                } else {
+                  location.reload();
+                }
+              }
+            }
+            else {
+              if (sswSocialLogin) {
+                trackShopStats('invalid_social_login', 'all');
+              } else {
+                trackShopStats('invalid_email_login', 'all');
+              }
+              onOpenForm();
+              loginLoaderCancel();
+              ssw('#login_modal').sswModal('show');
+              if (sl) {
+                addMessage('#login_modal .login-failed', "{{ 'socialshopwave.not_able_to_log_in_you_socially' | t }}", 'warning');
+              } else {
+                addMessage('#login_modal .login-failed', "{{ 'socialshopwave.invalid_login_credentials' | t }}", 'warning');
+              }
+              sl = 0;
+              ssw('#hesy-login-submit').removeAttr('disabled').attr('enabled', 'enabled');
+            }
+          },
+          dataType: 'html'
+        });
+      });
+      sswSocialLogin = false;
+    }
+
+    this.signUp = function () {
+      onOpenForm();
+      var data = ssw('#he_create_customer').serialize() + '&_sid=' + ssw.cookie('hesid') + '&service_id=' + service_id + '&hash_key=' + ssw.cookie('hash_key');
+      var url = sswGetParameterByName('checkout_url');
+      if (url != "") {
+        var l = url.split('/');
+        data += '&form_type=customer_login&utf8=✓&checkout_url=' + encodeURIComponent(url) + '&cart=' + l[l.length - 1];
+      }
+      ssw.ajax({
+        type: 'POST',
+        url: '/account',
+        data: data,
+        beforeSend: function () {
+          onSubmitForm();
+          ssw('#hesy-sign-up-submit').removeAttr('enabled').attr('disabled', 'disabled');
+          ssw('#signup_modal .ssw-alert').sswAlert('close');
+        },
+        success: function (html) {
+          html = html.split('script').join('div');
+          var htmlElement = ssw('<div>').html(html);
+          var errors = htmlElement.find('.errors li');
+          if (errors.length == 0) {
+            errors = htmlElement.find('.errors-list li');
+          }
+          if (errors.length) {
+            onOpenForm();
+            ssw('#hesy-sign-up-submit').removeAttr('disabled').attr('enabled', 'enabled');
+            errors.each(function () {
+              addMessage('#signup_modal .login-failed', ssw(this).text(), 'warning');
+            });
+          } else {
+            ssw.post(sswProxyUrl + '/lite2/auth/register', data, function (result) {
+              if (url != "") {
+                location.href = '/?checkout_url=' + url;
+              } else {
+                if (result.error == 0) {
+                  ssw.cookie('ssw-userchecked', 0, {expires: -1});
+                  location.reload();
+                } else {
+                  ssw('.login-failed').empty();
+                }
+              }
+            }, 'json');
+          }
+        },
+        dataType: 'html'
+      }).fail(function (err) {
+        ssw.ajax({
+          url: sswProxyUrl + '/lite2/auth/customeridpage',
+          success: function (rsp) {
+            ssw.cookie('ssw-userchecked', 0, {expires: -1});
+            var t = parseInt(ssw(rsp).text());
+            if (t > 0) {
+              data += '$customer_id=' + t;
+              ssw.post(sswProxyUrl + '/lite2/auth/register', data, function (result) {
+                if (url != "") {
+                  location.href = '/?checkout_url=' + url;
+                } else {
+                  if (result.error == 0) {
+                    ssw.cookie('ssw-userchecked', 0, {expires: -1});
+                    location.reload();
+                  } else {
+                    ssw('.login-failed').empty();
+                  }
+                }
+              }, 'json');
+//              }
+            }
+            else {
+              onOpenForm();
+              addMessage("{{ 'socialshopwave.email_is_already_associated' | t }}");
+            }
+          },
+          dataType: 'html'
+        });
+      });
+    }
+  }
+</script>
+{% endunless %}
+{% capture ssw_widget_login_bar %}{% include 'ssw-widget-login-bar' %}{% endcapture %}
+{% unless ssw_widget_login_bar contains 'Liquid error' %}
+	{{ ssw_widget_login_bar }}
+{% endunless %}
+{% capture ssw_auto_integrate %}{% include 'ssw-auto-integrate' %}{% endcapture %}
+{% unless ssw_auto_integrate contains 'Liquid error' %}
+	{{ ssw_auto_integrate }}
+{% endunless %}
