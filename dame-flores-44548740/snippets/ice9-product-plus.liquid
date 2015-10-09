@@ -1,44 +1,50 @@
 <div id="product-plus">
 	<p><strong>Personaliza:</strong></p>
 	<div class="row plus-box">
-		<div class="col-sm-3">
-			<img src="{{ 'globo-temp.jpg' | asset_url }}" class="img-thumbnail">
+		<div class="col-xs-3">
+			<div class="selector-image">
+				<img src="{{ 'globo-temp.jpg' | asset_url }}" id="globos-preview" class="img-thumbnail">
+			</div>
 		</div>
-		<div class="col-sm-9">
+		<div class="col-xs-9">
 			<label>Globos disponibles:</label>
-			<select class="form-control">
+			<select id="globos-selector" class="form-control">
 				<option value="none">-- Selecciona:</option>
-				<option value="globo-amor">Amor +MXN 70</option>
-				<option value="globo-graduacion">Graduación +MXN 70</option>
-				<option value="globo-mejorate">Que te mejores! +MXN 70</option>
+				{% for product in collections.globos.products %}
+					<option id="{{ product.id }}" value="{{ product.id }}" data-variant="{% for variant in product.variants %}{{ variant.id }}{% endfor %}" data-image="{{ product.featured_image | img_url: 'small' }}">{{ product.title }} +MXN {{ product.price | money_without_currency | remove: ',' }}</option>
+				{% endfor %}
 			</select>
 		</div>
 	</div>
 	<div class="row plus-box">
-		<div class="col-sm-3">
-			<img src="{{ 'oso-temp.png' | asset_url }}" class="img-thumbnail">
+		<div class="col-xs-3">
+			<div class="selector-image">
+				<img src="{{ 'oso-temp.png' | asset_url }}" id="peluches-preview" class="img-thumbnail">
+			</div>
 		</div>
-		<div class="col-sm-9">
-			<label>Osos disponibles:</label>
-			<select class="form-control">
+		<div class="col-xs-9">
+			<label>Peluches disponibles:</label>
+			<select id="peluches-selector" class="form-control">
 				<option value="none">-- Selecciona:</option>
-				<option value="globo-amor">Amor +MXN 70</option>
-				<option value="globo-graduacion">Graduación +MXN 70</option>
-				<option value="globo-mejorate">Que te mejores! +MXN 70</option>
+				{% for product in collections.peluches.products %}
+					<option id="{{ product.id }}" value="{{ product.id }}" data-variant="{% for variant in product.variants %}{{ variant.id }}{% endfor %}" data-image="{{ product.featured_image | img_url: 'small' }}">{{ product.title }} +MXN {{ product.price | money_without_currency | remove: ',' }}</option>
+				{% endfor %}
 			</select>
 		</div>
 	</div>
 	<div class="row plus-box">
-		<div class="col-sm-3">
-			<img src="{{ 'chocolate-temp.png' | asset_url }}" class="img-thumbnail">
+		<div class="col-xs-3">
+			<div class="selector-image">
+				<img src="{{ 'chocolate-temp.png' | asset_url }}" id="dulces-preview" class="img-thumbnail">
+			</div>
 		</div>
-		<div class="col-sm-9">
-			<label>Chocolates disponibles:</label>
-			<select class="form-control">
+		<div class="col-xs-9">
+			<label>Dulces disponibles:</label>
+			<select id="dulces-selector" class="form-control">
 				<option value="none">-- Selecciona:</option>
-				<option value="globo-amor">Amor +MXN 70</option>
-				<option value="globo-graduacion">Graduación +MXN 70</option>
-				<option value="globo-mejorate">Que te mejores! +MXN 70</option>
+				{% for product in collections.dulces.products %}
+					<option id="{{ product.id }}" value="{{ product.id }}" data-variant="{% for variant in product.variants %}{{ variant.id }}{% endfor %}" data-image="{{ product.featured_image | img_url: 'small' }}">{{ product.title }} +MXN {{ product.price | money_without_currency | remove: ',' }}</option>
+				{% endfor %}
 			</select>
 		</div>
 	</div>
