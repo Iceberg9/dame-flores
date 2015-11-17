@@ -1,0 +1,277 @@
+@import 'Variables.styl'
+
+/*[class*= 'container']{
+	background: #37474f;
+}
+	
+[class*= 'row']{
+	background: #f44336;
+}
+	
+[class*= 'col']{
+	background: #fff8e1;
+}*/
+
+html
+body
+	height 100%
+	width 100%
+	General()
+	
+
+/*! ////-------------------- Header ----- */
+
+/*! ////-------------------- Generales -- */
+
+.Opcion
+	padding-top 15px
+	/*margin-bottom 120px*/
+	
+	.IndicadorOpcion
+		padding-bottom 16px
+		padding-right 10px
+	
+	.TituloOpcion
+		
+		.ContTituloOpcion
+			cursor pointer
+			border-bottom 1px solid Gris_1
+			transition(color .2s ease)
+			
+			&:hover
+				color AzulHover	
+		
+			span
+				padding-bottom 15px
+				float left
+				display block
+				
+			.Titulo_1
+				/*Titulo()*/
+				width 90%
+				
+			.Done_1
+				width 10%
+				text-align right
+				
+	.ContenidoOpcion
+		padding-top 60px
+		
+		.Borde
+			border-bottom 1px solid Gris_1
+			padding-bottom 15px
+			
+			.NumMargBot
+			.NumMargBot_2
+				margin-bottom 45px
+			
+			.Numeralia
+			.Numeralia_2				
+				height 55px
+				position relative
+				transition(color .2s ease)
+								
+			.Numeralia:hover
+					color AzulHover
+					cursor pointer
+				
+				.NumNumero
+					height 55px
+					width 111px
+					float left
+					font-size 75px
+					line-height 53px
+					
+				.NumText
+					height 55px
+					width 150px
+					float left
+					
+				.NumSelect
+					height 55px
+					line-height 55px
+					float right	
+					
+			.ContenidoFlores
+				
+				.ContTiempo
+					margin-bottom 30px
+				
+					.Tiempo
+						width 111px
+						float left
+						text-decoration underline
+						
+					.NavCarrusel
+						float left
+						
+						span
+							cursor pointer
+							
+							&:hover
+								color AzulHover
+						
+				.ContDiasFlores
+					
+					.ContDias
+						width 111px
+						min-height 344px
+						float left
+						
+						ul							
+							margin 0
+							padding 0
+							list-style none
+							
+							li
+								DescricpcionItalic()
+								font-size 16px
+								margin-bottom 10px
+								cursor pointer								
+								
+								&:last-child
+									margin-bottom 0
+									
+								&:hover
+									color AzulHover
+									
+				.ContCarrusel
+					margin-bottom 15px
+					
+					.SlidesCarrusel
+						
+						.Slides
+							padding-right 2px
+							cursor pointer
+							
+							img
+								/*border 2px solid Gris_1*/
+								transition(border .2s ease)
+								
+								&:hover
+									border 1px solid AzulHover
+									
+				.ContCarruselText
+					
+					.SlidesCarruselText
+						
+						.SlidesText
+							padding-right 2px
+							
+							.SlidesTextTitulo
+								Descricpcion()
+								display block
+								
+
+			.ContSelect
+				
+				select
+					width 100%
+					border none
+					border-bottom 1px solid Gris_1
+					padding-bottom 15px
+					margin-bottom 45px
+					
+					&:focus
+						outline none
+						color AzulHover
+						
+			.AceptarTerminos
+				margin-bottom 45px
+				transition(color .2s ease)
+				
+				&:hover
+					cursor pointer
+					color AzulHover
+				
+				.CheckTerminos
+					float left
+					line-height 23px
+					margin-right 15px
+					
+				.TextTerminos
+					float left
+					
+					a				
+						DescricpcionItalic()
+						color inherit
+						
+						&:hover
+							color inherit
+					
+			.BotonEnviar
+				float left
+				
+				button
+					margin 0
+					padding 0
+					border 0
+					background none
+					Titulo()
+					transition(color .2s ease)
+					
+					&:hover
+						color AzulHover
+						
+					&:focus
+						outline none
+						color AzulHover
+						
+			.AvisoFaltante
+				color AzulHover
+				float right
+
+.InactivoCarrusel
+	display none
+
+.ActivoCarrusel
+	display block
+	
+.BordeAzul
+	border 2px solid AzulHover !important
+	
+.BordeGris
+	border 1px solid Gris_1
+	
+#FormularioPlan_1
+#FormularioPlan_2
+	display none
+		
+#Boton_1
+#Boton_2
+	display none
+	
+
+
+#SeccionMembresia
+	margin-bottom 0
+	transition(margin-bottom  1s ease)
+	/*background: #37474f;*/
+	
+	.ContenidoOpcion
+		max-height 0
+		overflow hidden
+		transition(max-height 1s ease)
+	
+#SeccionFlores
+	margin-bottom 0
+	transition(margin-bottom  1s ease)
+	/*background: #f44336;*/
+	
+	.ContenidoOpcion
+		max-height 0
+		overflow hidden
+		transition(max-height 1s ease)
+	
+#SeccionConfirma
+	margin-bottom 0
+	transition(margin-bottom  1s ease)	
+	/*background: salmon;*/
+	
+	.ContenidoOpcion
+		max-height 0
+		overflow hidden
+		transition(max-height 1s ease)
+
+
+/*! ////-------------------- Footer ----- */

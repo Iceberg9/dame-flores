@@ -1,0 +1,364 @@
+/*
+
+------------ Nombre de la web:
+------------ Descripción:
+------------ Autor:
+------------ Versión:
+
+*/
+/* // --------- Librerias externas (CDN)  */
+@import '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,300italic");
+/* // --------- Estilos Movil (0px --> 767px)  */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* ////-------------------- Header ----- */
+/* ////-------------------- Generales -- */
+.Opcion {
+  padding-top: 15px;
+/*margin-bottom 120px*/
+}
+.Opcion .IndicadorOpcion {
+  padding-bottom: 16px;
+  padding-right: 10px;
+}
+.Opcion .TituloOpcion .ContTituloOpcion {
+  cursor: pointer;
+  border-bottom: 1px solid #424242;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .TituloOpcion .ContTituloOpcion:hover {
+  color: #00acc1;
+}
+.Opcion .TituloOpcion .ContTituloOpcion span {
+  padding-bottom: 15px;
+  float: left;
+  display: block;
+}
+.Opcion .TituloOpcion .ContTituloOpcion .Titulo_1 {
+/*Titulo()*/
+  width: 90%;
+}
+.Opcion .TituloOpcion .ContTituloOpcion .Done_1 {
+  width: 10%;
+  text-align: right;
+}
+.Opcion .ContenidoOpcion {
+  padding-top: 60px;
+}
+.Opcion .ContenidoOpcion .Borde {
+  border-bottom: 1px solid #424242;
+  padding-bottom: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .NumMargBot,
+.Opcion .ContenidoOpcion .Borde .NumMargBot_2 {
+  margin-bottom: 45px;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 {
+  height: 55px;
+  position: relative;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia:hover {
+  color: #00acc1;
+  cursor: pointer;
+}
+.Opcion .ContenidoOpcion .Borde .NumNumero {
+  height: 55px;
+  width: 111px;
+  float: left;
+  font-size: 75px;
+  line-height: 53px;
+}
+.Opcion .ContenidoOpcion .Borde .NumText {
+  height: 55px;
+  width: 150px;
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .NumSelect {
+  height: 55px;
+  line-height: 55px;
+  float: right;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo {
+  margin-bottom: 30px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .Tiempo {
+  width: 111px;
+  float: left;
+  text-decoration: underline;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .NavCarrusel {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .NavCarrusel span {
+  cursor: pointer;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .NavCarrusel span:hover {
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias {
+  width: 111px;
+  min-height: 344px;
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul li {
+  color: #000;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 125%;
+  font-style: italic;
+/*transition(color .2s ease)*/
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul li:last-child {
+  margin-bottom: 0;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul li:hover {
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel {
+  margin-bottom: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides {
+  padding-right: 2px;
+  cursor: pointer;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides img {
+/*border 2px solid Gris_1*/
+  -webkit-transition: border 0.2s ease;
+  -moz-transition: border 0.2s ease;
+  -o-transition: border 0.2s ease;
+  -ms-transition: border 0.2s ease;
+  transition: border 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides img:hover {
+  border: 1px solid #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarruselText .SlidesCarruselText .SlidesText {
+  padding-right: 2px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarruselText .SlidesCarruselText .SlidesText .SlidesTextTitulo {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  display: block;
+}
+.Opcion .ContenidoOpcion .Borde .ContSelect select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #424242;
+  padding-bottom: 15px;
+  margin-bottom: 45px;
+}
+.Opcion .ContenidoOpcion .Borde .ContSelect select:focus {
+  outline: none;
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos {
+  margin-bottom: 45px;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos:hover {
+  cursor: pointer;
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .CheckTerminos {
+  float: left;
+  line-height: 23px;
+  margin-right: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .TextTerminos {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .TextTerminos a {
+  color: #000;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 125%;
+  font-style: italic;
+/*transition(color .2s ease)*/
+  color: inherit;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .TextTerminos a:hover {
+  color: inherit;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar button:hover {
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar button:focus {
+  outline: none;
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .AvisoFaltante {
+  color: #00acc1;
+  float: right;
+}
+.InactivoCarrusel {
+  display: none;
+}
+.ActivoCarrusel {
+  display: block;
+}
+.BordeAzul {
+  border: 2px solid #00acc1 !important;
+}
+.BordeGris {
+  border: 1px solid #424242;
+}
+#FormularioPlan_1,
+#FormularioPlan_2 {
+  display: none;
+}
+#Boton_1,
+#Boton_2 {
+  display: none;
+}
+#SeccionMembresia {
+  margin-bottom: 0;
+  -webkit-transition: margin-bottom 1s ease;
+  -moz-transition: margin-bottom 1s ease;
+  -o-transition: margin-bottom 1s ease;
+  -ms-transition: margin-bottom 1s ease;
+  transition: margin-bottom 1s ease;
+/*background: #37474f;*/
+}
+#SeccionMembresia .ContenidoOpcion {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionFlores {
+  margin-bottom: 0;
+  -webkit-transition: margin-bottom 1s ease;
+  -moz-transition: margin-bottom 1s ease;
+  -o-transition: margin-bottom 1s ease;
+  -ms-transition: margin-bottom 1s ease;
+  transition: margin-bottom 1s ease;
+/*background: #f44336;*/
+}
+#SeccionFlores .ContenidoOpcion {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionConfirma {
+  margin-bottom: 0;
+  -webkit-transition: margin-bottom 1s ease;
+  -moz-transition: margin-bottom 1s ease;
+  -o-transition: margin-bottom 1s ease;
+  -ms-transition: margin-bottom 1s ease;
+  transition: margin-bottom 1s ease;
+/*background: salmon;*/
+}
+#SeccionConfirma .ContenidoOpcion {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+/* ////-------------------- Footer ----- */
+/* // --------- Estilos Tablet (768px --> 991px)  */
+@media screen and (min-width: 768px) {
+  /* ////-------------------- Header ----- */
+  /* ////-------------------- Generales -- */
+  .Opcion .IndicadorOpcion {
+    padding-right: 15px;
+  }
+}
+/* // --------- Estilos Escritorio Chico (992px --> 1199px)  */
+@media screen and (min-width: 992px) {
+  /* ////-------------------- Header ----- */
+  /* ////-------------------- Generales -- */
+  .Opcion .ContenidoOpcion .Borde .NumMargBot {
+    margin-bottom: 0;
+  }
+  .Opcion .ContenidoOpcion .Borde .Numeralia .NumSelect {
+    margin-right: 60px;
+  }
+  /* ////-------------------- Footer ----- */
+}
+/* // --------- Estilos Escritorio Grande (1200px en adelante)  */
+@media screen and (min-width: 1200px) {
+  /* ////-------------------- Header ----- */
+  /* ////-------------------- Generales -- */
+  .Opcion .ContenidoOpcion .Borde .Numeralia .NumSelect {
+    margin-right: 100px;
+  }
+  /* ////-------------------- Footer ----- */
+}
