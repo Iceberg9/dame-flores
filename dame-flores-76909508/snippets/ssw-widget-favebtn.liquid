@@ -1,0 +1,55 @@
+{% if shop.customer_accounts_enabled %}
+  {% assign productId = ssw-widget-favebtn %}
+  <script>
+    if (typeof sswProductFavesData == 'undefined')
+      var sswProductFavesData = [];
+
+    sswProductFavesData.push({{ productId }});
+    if (typeof sswFaveCheckInterval == 'undefined') {
+      var sswFaveCheckInterval = setInterval(function () {
+        if (typeof userChecked != 'undefined' && userChecked) {
+          clearInterval(sswFaveCheckInterval);
+          function sswCheckFavesData() {
+            setInterval(function () {
+              if (typeof sswProductFavesData != 'undefined' && sswProductFavesData.length > 0) {
+                var getFaveData = sswProductFavesData;
+                sswProductFavesData = [];
+                ssw.get(sswProxyUrl + '/lite2/feed/getFaves', {
+                  ids: getFaveData,
+                  _sid: ssw.cookie('hesid')
+                }, function (response) {
+                  for (var i = 0; i < getFaveData.length; i++) {
+                    ssw('.sswfavebtn' + getFaveData[i]).removeClass('ssw-not-synch');
+                    if(typeof response.products_info != 'undefined' && typeof typeof response.products_info[getFaveData[i]] != 'undefined'){
+                      var params = ssw('.sswfavebtn' + getFaveData[i]).data('params');
+                      params = ssw.extend({}, params, response.products_info[getFaveData[i]]);
+                      ssw('.sswfavebtn' + getFaveData[i]).data('params', params);
+                      ssw('.sswfavebtn' + getFaveData[i]).attr('data-params', JSON.stringify(params));
+                    }
+                    if (typeof response.product_faves[getFaveData[i]] != 'undefined') {
+                      ssw('.sswfavebtn' + getFaveData[i]).data('count', response.product_faves[getFaveData[i]]);
+                      ssw('.sswfavebtn' + getFaveData[i]).attr('data-count', response.product_faves[getFaveData[i]]);
+                      if (typeof response.viewer_faves[getFaveData[i]] != 'undefined')
+                        ssw('.sswfavebtn' + getFaveData[i]).addClass('ssw-active').html('<i class="ssw-icon-heart"></i>' + "{{ 'socialshopwave.faved' | t }}");
+                    } else {
+                      ssw('.sswfavebtn' + getFaveData[i]).data('count', 0);
+                      ssw('.sswfavebtn' + getFaveData[i]).attr('data-count', 0);
+                    }
+                  }
+                  window._sswFaveNotSync = true;
+                }, 'json');
+              }
+            }, 1000);
+          }
+
+          sswCheckFavesData();
+        }
+      }, 200);
+    }
+  </script>
+  <div class="ssw-faveappbtn ssw-faveappbtn-counter ssw-faveappbtn2 ssw-fave-btn sswfavebtn{{ productId }} ssw-not-synch"
+       data-count="..." data-pending="0" data-product-id="{{ productId }}"
+       data-params='{"product_id":"{{ productId }}","event":"fave","page":"product_profile"}'>
+    <i class="ssw-icon-heart-o"></i>{{ 'socialshopwave.fave' | t }}
+  </div>
+{% endif %}

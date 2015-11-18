@@ -1,0 +1,40 @@
+{{ '//cdn.shopify.com/s/files/1/0750/3211/t/3/assets/jquery-1.11.0.min.js?16398849154368217895' | script_tag }}
+{{ 'http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css' | stylesheet_tag }}
+{{ '//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js' | script_tag }}
+
+<div id="box-calendar">
+  {% comment %}
+  <div id="datepicker"></div>
+  {% endcomment %}
+  <h5>Selecciona una fecha para tu entrega:</h5>
+  <input id="datepicker" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" required>
+  <i id="icon-calendar" class="fa fa-calendar"></i>
+  <div id="box-phone">
+    <p class="cart-attribute__field">
+      <h5>Teléfono de quien envía el arreglo: </h5>
+      <input id="ingresa-un-num-de-telefono" type="text" name="attributes[Teléfono de quien envía:]" value="{{ cart.attributes["Ingresa un Num. de Télefono"] }}" placeholder="ej. 55 5516 6090" class="form-control" required>
+    </p>
+  </div>
+</div>
+
+<div id="box-hora">
+	<p class="cart-attribute__field">
+	  <h5>Horarios:</h5>
+	  <input required class="required" type="radio" name="attributes[Hora de entrega]" value="7 - 12 hrs"{% if cart.attributes["Hora de entrega"] == "7 - 12 hrs" %} checked{% endif %}> <span>7 - 12 hrs</span><br>
+	  <input required class="required" type="radio" name="attributes[Hora de entrega]" value="12 - 17 hrs"{% if cart.attributes["Hora de entrega"] == "12 - 17 hrs" %} checked{% endif %}> <span>12 - 17 hrs</span><br>
+	  <input required class="required" type="radio" name="attributes[Hora de entrega]" value="17 - 22 hrs"{% if cart.attributes["Hora de entrega"] == "17 - 22 hrs" %} checked{% endif %}> <span>17 - 22 hrs</span><br>
+	</p>
+</div>
+<div class="clear"></div>
+
+<script>
+(function($){
+  $(function() {
+    $("#datepicker").datepicker({ 
+      minDate: 0,
+      //required: true,
+      maxDate: "+2W"
+    });
+  });
+})(jQuery);
+</script>

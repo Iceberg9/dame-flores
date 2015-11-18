@@ -1,0 +1,19 @@
+{% if template contains 'product' and product and shop.customer_accounts_enabled %}
+  <div id="widget-comment-html"></div>
+  <script type="text/javascript">
+    if (typeof sswWidgetCommentsInterval == 'undefined') {
+      var sswWidgetCommentsInterval = setInterval(function () {
+        if (typeof userChecked != 'undefined' && userChecked) {
+          clearInterval(sswWidgetCommentsInterval);
+          var data = {
+            'product_id': {{ product.id }},
+            '_sid': sswCookie('hesid')
+          };
+          ssw.get(sswProxyUrl + '/lite2/comment', data, function (response) {
+            ssw('#widget-comment-html').html(response);
+          });
+        }
+      }, 300);
+    }
+  </script>
+{% endif %}

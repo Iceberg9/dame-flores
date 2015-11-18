@@ -1,0 +1,91 @@
+{{ 'ssw-fave.css'| asset_url | stylesheet_tag }}
+<script src="//{{ ssw_domain }}/public/assets/fave.js?shop={{ shop.domain }}"></script>
+<script>
+  // Instant run code
+  (function () {
+    var options =
+    {% if shop.customer_accounts_enabled and customer %}
+      {
+        customer: {
+          id: {{ customer.id }},
+          fitst_name: '{{ customer.fitst_name }}'
+        }
+      };
+    {% else %}
+      {
+        money_format: '{{ shop.money_format }}'
+      };
+    {% endif %}
+    Ssw.Fave.init(options);
+  })();
+</script>
+<div id="ssw-fave-list-widget" class="ssw-fave-list-hide" style="display:none;">
+  <div id="ssw-fave-drag-image"></div>
+  <div id="ssw-fave-side-backdrop" class="ssw-fave-action">
+    <div id="ssw-fave-remove">
+      <div id="ssw-fave-remove-button">
+        <span id="ssw-fave-remove-icon">&times;</span>
+        <br>
+        drop to remove
+      </div>
+    </div>
+  </div>
+  <div id="ssw-fave-side-button-wrapper">
+    <div id="ssw-fave-side-button" class="ssw-fave-action" data-event="click" data-action="toggleWidget">
+      <div class="ssw-fave-caption"><i class="ssw-icon-heart"></i> <span>{{ 'socialshopwave.Faves' | t }}</span></div>
+    </div>
+  </div>
+  <div id="ssw-fave-side-bar">
+    <div id="ssw-fave-side-bar-header">
+      <div class="h3">{{ 'socialshopwave.Faves' | t }} <span id="ssw-fave-item-count"> <i class="ssw-icon-heart"></i> <span></span></span></div>
+    </div>
+    <form id="ssw-fave-lists" onsubmit="return false">
+      <div id="ssw-fave-create-list" class="ssw-fave-list ssw-fave-action" data-event="click" data-action="createList"
+           draggable="true" data-text-dragenter="{{ 'socialshopwave.drop_to_add' | t }}"  data-text-dragleave="{{ 'socialshopwave.add_new_favelist' | t }}">
+        <i class="ssw-icon-plus"></i> {{ 'socialshopwave.add_new_favelist' | t }}
+      </div>
+      <div id="ssw-fave-lists-wrapper">
+        <div id="ssw-fave-list-0" class="ssw-fave-list" style="display: none">
+          <div class="ssw-fave-list-header">
+            <i class="ssw-icon-times ssw-fave-header-button ssw-fave-action" data-event="click"
+               data-action="removeList" title="{{ 'socialshopwave.remove_this_board' | t }}"></i>
+            <input class="ssw-fave-list-title" type="text" name="list_title_default" data-event="blur" data-action="editList" data-id="0"
+                   placeholder="{{ 'socialshopwave.favelist_title_placeholder' | t }}"
+                   disabled value="{{ 'socialshopwave.favelist_default' | t }}"/>
+            <i class="ssw-icon-up-open-big ssw-fave-header-button ssw-fave-action" data-event="click"
+               data-action="collapseList"></i>
+          </div>
+          <div class="ssw-fave-list-container" data-text-dragleave="{{ 'socialshopwave.fave_empty_board' | t }}" draggable="true"
+               data-text-dragenter="{{ 'socialshopwave.drop_to_add' | t }}"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="ssw-fave-templates">
+    <div class="ssw-fave-list-header">
+      <i class="ssw-icon-times ssw-fave-header-button ssw-fave-action" data-event="click"
+         data-action="removeList"  title="{{ 'socialshopwave.remove_this_board' | t }}"></i>
+      <input class="ssw-fave-list-title" type="text" name="list_title[]"
+             placeholder="{{ 'socialshopwave.untitled_favelist' | t }}"
+             data-event="blur" data-action="editList" value=""/>
+      <i class="ssw-icon-up-open-big ssw-fave-header-button ssw-fave-action" data-event="click"
+         data-action="collapseList"></i>
+      <input type="hidden" name="list_id[]" value=""/>
+    </div>
+    <div class="ssw-fave-item" draggable="true">
+      <a href="" class="ssw-fave-product-avatar ssw-product-link" draggable="false"></a>
+
+      <div class="ssw-fave-product-info">
+        <a href="" class="ssw-fave-product-title ssw-product-link" draggable="false"></a>
+        <span class="ssw-fave-product-price"></span>
+      </div>
+      <input type="hidden" name="product_id[]" value=""/>
+    </div>
+
+    <div class="ssw-fave-list">
+      <div class="ssw-fave-list-container" data-text-dragleave="{{ 'socialshopwave.fave_empty_board' | t }}" draggable="true"
+           data-text-dragenter="{{ 'socialshopwave.drop_to_add' | t }}">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+	<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+	<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+	<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+	<head>
+      <meta name="google-site-verification" content="YnjNbowVOVrY-6ucVD5yKNz_StFT8OhHbKRyiHliP9Y" />
+      <meta name="google-site-verification" content="BBqpIyY3AQu23XqNJrkYMnEKjwgByU8mTpLc-gp_L-A" />
+      <script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '645184705622681']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=645184705622681&amp;ev=PixelInitialized" /></noscript>
+		<meta charset="utf-8">
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		{% if template == 'index' %}
+			<title>{{ shop.name }}{% if settings.title_text != empty %} | {{ settings.title_text }}{% endif %}</title>
+		{% elsif template == '404' %}
+			<title>Page Not Found | {{ shop.name }}</title>
+		{% else %}
+			<title>{{ page_title }} | {{ shop.name }}</title>
+		{% endif %}
+
+		{% if page_description %}
+			<meta name="description" content="{{ page_description }}" />
+            <meta name="keywords" content="flores a domicilio,florería DF,envío de flores,envio de flores,flores online,envio de arreglos florales" />
+		{% endif %}
+
+		{% if template == "product" %}
+			<meta name="keywords" content="{% for tag in product.tags %}{{tag}}, {% endfor %}" />
+		{% else %}
+			<meta name="keywords" content="{{ settings.meta_keywords }}">
+		{% endif %}
+
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		{% if settings.block_pinterest %}
+			<meta name="pinterest" content="nopin" />
+		{% endif %}
+
+		<link rel="canonical" href="{{ canonical_url }}" />
+
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- CSS -->
+		{{ 'style.css' | asset_url | stylesheet_tag }}
+		{{ '//fonts.googleapis.com/css?family=Montserrat' | stylesheet_tag }}
+
+		{% case settings.typography-heading-font %}
+
+			{% when 'typography-heading-bree-serif' %}
+				{{ '//fonts.googleapis.com/css?family=Bree+Serif' | stylesheet_tag }}
+
+			{% when 'typography-heading-raleway' %}
+				{{ '//fonts.googleapis.com/css?family=Raleway' | stylesheet_tag }}
+
+			{% when 'typography-heading-lato' %}
+				{{ '//fonts.googleapis.com/css?family=Lato' | stylesheet_tag }}
+
+			{% when 'typography-heading-bevan' %}
+				{{ '//fonts.googleapis.com/css?family=Bevan' | stylesheet_tag }}
+
+			{% when 'typography-heading-abril-fatface' %}
+				{{ '//fonts.googleapis.com/css?family=Abril+Fatface' | stylesheet_tag }}
+
+			{% when 'typography-heading-playfair-display' %}
+				{{ '//fonts.googleapis.com/css?family=Playfair+Display' | stylesheet_tag }}
+
+			{% when 'typography-heading-sansita-one' %}
+				{{ '//fonts.googleapis.com/css?family=Sansita+One' | stylesheet_tag }}
+
+			{% when 'typography-heading-istok-web' %}
+				{{ '//fonts.googleapis.com/css?family=Istok+Web' | stylesheet_tag }}
+
+			{% when 'typography-heading-pacifico' %}
+				{{ '//fonts.googleapis.com/css?family=Pacifico' | stylesheet_tag }}
+
+			{% when 'typography-heading-nixie-one' %}
+				{{ '//fonts.googleapis.com/css?family=Nixie+One' | stylesheet_tag }}
+
+			{% when 'typography-heading-cantana-one' %}
+				{{ '//fonts.googleapis.com/css?family=Cantata+One' | stylesheet_tag }}
+
+			{% when 'typography-heading-rancho' %}
+				{{ '//fonts.googleapis.com/css?family=Rancho' | stylesheet_tag }}
+
+			{% when 'typography-heading-roboto' %}
+				{{ '//fonts.googleapis.com/css?family=Roboto:400,700,400italic,900' | stylesheet_tag }}
+
+		{% endcase %}
+
+		{% case settings.typography-body-font %}
+			{% when 'typography-body-open-sans' %}
+				{{ '//fonts.googleapis.com/css?family=Open+Sans' | stylesheet_tag }}
+
+			{% when 'typography-body-lato' %}
+				{{ '//fonts.googleapis.com/css?family=Lato' | stylesheet_tag }}
+
+			{% when 'typography-body-pontano-sans' %}
+				{{ '//fonts.googleapis.com/css?family=Pontano+Sans' | stylesheet_tag }}
+
+			{% when 'typography-body-average' %}
+				{{ '//fonts.googleapis.com/css?family=Average' | stylesheet_tag }}
+
+			{% when 'typography-body-muli' %}
+				{{ '//fonts.googleapis.com/css?family=Muli' | stylesheet_tag }}
+
+			{% when 'typography-body-kameron' %}
+				{{ '//fonts.googleapis.com/css?family=Kameron' | stylesheet_tag }}
+
+			{% when 'typography-body-lora' %}
+				{{ '//fonts.googleapis.com/css?family=Lora' | stylesheet_tag }}
+
+			{% when 'typography-body-arimo' %}
+				{{ '//fonts.googleapis.com/css?family=Arimo' | stylesheet_tag }}
+
+			{% when 'typography-body-ledger' %}
+				{{ '//fonts.googleapis.com/css?family=Ledger' | stylesheet_tag }}
+
+			{% when 'typography-body-imprima' %}
+				{{ '//fonts.googleapis.com/css?family=Imprima' | stylesheet_tag }}
+
+			{% when 'typography-body-gudea' %}
+				{{ '//fonts.googleapis.com/css?family=Gudea' | stylesheet_tag }}
+
+			{% when 'typography-body-roboto' %}
+				{{ '//fonts.googleapis.com/css?family=Roboto:400,700,400italic,900' | stylesheet_tag }}
+
+		{% endcase %}
+
+		<link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
+		<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+		{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+		{{ content_for_header }}
+
+		{% if template contains 'customers' %}
+			{{ "shopify_common.js" | shopify_asset_url | script_tag }}
+			{{ "customer_area.js"  | shopify_asset_url | script_tag }}
+		{% endif %}
+
+    <!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+    {% comment %}
+    {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' | script_tag }}
+    {{ 'cart.min.js' | asset_url | script_tag }}
+    {% endcomment %}
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    {{ 'rivets-cart-compatibility.min.js' | asset_url | script_tag }}
+    <script type="text/javascript">
+    $(document).ready(function(){
+      jQuery(function() {
+          CartJS.init({{ cart | json }}, {
+              "dataAPI": false,
+              "requestBodyClass": "loading"
+          });
+      });
+    });
+    </script>
+	</head>
+	<body>
+{% capture the_snippet_content %}{% include 'socialshopwave-helper' %}{% endcapture %}
+{% unless the_snippet_content contains 'Liquid error' %}
+  {% include 'socialshopwave-helper' %}
+{% endunless %}
+      <div id="sidr" style="display: none;">
+        <!-- Your content -->
+        <div>
+          <h4><span class="cart-item-count">{{ cart.item_count }}</span></h4>
+          <span class="cart-item-count-text">{{ 'layout.cart.item_count' | t: count: cart.item_count }}</span>
+        </div>
+
+        <div>
+          <h4><span class="cart-item-price">{{ cart.total_price | money }}</span></h4>
+          <span class="cart-item-price-text">{{ 'layout.cart.total_cart_value' | t }}</span>
+        </div>
+
+        <div class="slide-checkout-buttons">
+          <a href="#sidr" class="btn btn-default slide-menu">{{ 'layout.cart.continue_shopping' | t }}</a><br />
+          <a href="/cart" class="btn btn-default">{{ 'cart.general.title' | t }}</a>
+        </div>
+        <p>Entregas en DF y área metropolitana.</p>
+      </div>
+      <div id="sidr-left" style="display: none;">
+        <!-- Your content -->
+        <div>
+          <h4><span class="cart-item-count">{{ cart.item_count }}</span></h4>
+          <span class="cart-item-count-text">{{ 'layout.cart.item_count' | t: count: cart.item_count }}</span>
+        </div>
+
+        <div>
+          <h4><span class="cart-item-price">{{ cart.total_price | money }}</span></h4>
+          <span class="cart-item-price-text">{{ 'layout.cart.total_cart_value' | t }}</span>
+        </div>
+
+        <div class="slide-checkout-buttons">
+          <a href="#sidr" class="btn btn-default slide-menu">{{ 'layout.cart.continue_shopping' | t }}</a><br />
+          <a href="/cart" class="btn btn-default">{{ 'cart.general.title' | t }}</a>
+        </div>
+        <p>Entregas en DF y área metropolitana.</p>
+      </div>
+      <div id="sidr-conocenos" style="display: none;">
+        <ul class="sidr-class-nav">
+          {% for link in linklists.conocenos.links %}
+          {% assign child_list_handle = link.title | handleize %}
+
+          {% if linklists[child_list_handle].links != blank %}
+
+          {% for childlink in linklists[child_list_handle].links %}
+          <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+          {% endfor %}
+          {% else %}
+          <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div id="sidr-filter" style="display: none;">
+        <ul class="nav nav-pills">
+          {% for link in linklists[settings.which-linklist-main-menu].links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+          <li>
+            <span class="nav-label">{{ link.title | escape }}</span>
+            <select  onChange="window.location.href=this.value" >
+              {% for childlink in linklists[child_list_handle].links %}
+              <option value="{{ childlink.url }}">{{ childlink.title | escape }}</option>
+              {% endfor %}
+            </select>
+          </li>
+          {% else %}
+          <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+          {% endif %}
+          {% endfor %}
+          <li>
+            <form method="get" action="/search">
+              <input type="text" name="q" />
+              <button  type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div id="sidr-mobile" style="display: none;">
+        <nav class="nav">
+          <ul>
+            {% comment %}<li><strong><a href="/cart">{{ 'cart.general.checkout_mobile' | t }}</a></strong></li>{% endcomment %}
+            <li><a href="/">Inicio</a></li>
+                      {% if shop.customer_accounts_enabled %}
+
+            {% capture the_snippet_auth %}{% include 'socialshopwave-widget-auth' %}{% endcapture %}
+          {% if the_snippet_auth contains 'Liquid error' %}
+            {% if customer %}
+            <li><a href="http://dame-flores.myshopify.com/account" class="">
+              Mi cuenta1
+              </a></li>
+            {% else %}
+            <li><a href="http://dame-flores.myshopify.com/account/login" class="">
+              Mi cuenta2
+              </a></li>
+            {% endif %}
+            {% else %}
+               <li>{{ the_snippet_auth }}</li>
+          {% endif %}
+            {% endif %}
+            <nav class="navbar" role="navigation">
+              <div>
+                <ul class="nav navbar-nav">
+                  {% for link in linklists.main-menu.links %}
+                  {% assign child_list_handle = link.title | handleize %}
+                  {% if link.title == 'Conócenos' %}
+
+
+                  {% if linklists[child_list_handle].links != blank %}
+
+                  {% for childlink in linklists[child_list_handle].links %}
+                  <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+                  {% endfor %}
+
+                  {% else %}
+                  <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+
+                </ul>
+              </div>
+            </nav>
+            {% comment %}<li><a href="#">Mi cuenta5</a></li>{% endcomment %}
+            {% comment %}{% if settings.which-linklist-mobile-menu != '' %}
+            {% for link in linklists[settings.which-linklist-mobile-menu].links %}
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+            <li>
+              <a href="{{ link.url }}">
+                <span class="nav-label">{{ link.title | escape }}</span><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                {% for childlink in linklists[child_list_handle].links %}
+                <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% else %}
+            <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% if shop.customer_accounts_enabled %}
+            {% comment %}
+            <li><a href="/account">{{ 'customer.account.title' | t }}</a></li>
+            {% endcomment %}
+            <li>{{ 'layout.customer.log_out' | t | customer_logout_link }}</li>
+            {% endif %}{% endcomment %}
+          </ul>
+        </nav>
+      </div>
+      <div class="wrapper" id="wrapper-sidr-mobile">	
+		<div id="mobile-navigation">
+			<nav class="nav">
+				<ul>
+					{% comment %}<li><strong><a href="/cart">{{ 'cart.general.checkout_mobile' | t }}</a></strong></li>{% endcomment %}
+					<li><a href="/">Inicio</a></li>
+					{% if customer %}
+                 		<li><a href="http://dame-flores.myshopify.com/account" class="">
+                    		Mi cuenta6
+                          </a></li>
+                  	{% else %}
+                  		<li><a href="http://dame-flores.myshopify.com/account/login" class="">
+                    		Mi cuenta7
+                        </a></li>
+                  	{% endif %}
+                 	<nav class="navbar" role="navigation">
+                      <div>
+                        <ul class="nav navbar-nav">
+                          {% for link in linklists.main-menu.links %}
+                            {% assign child_list_handle = link.title | handleize %}
+                            {% if link.title == 'Conócenos' %}
+
+
+                              {% if linklists[child_list_handle].links != blank %}
+
+                                  {% for childlink in linklists[child_list_handle].links %}
+                                  	<li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+                                  {% endfor %}
+
+                              {% else %}
+                              	<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+
+                        </ul>
+                      </div>
+                 	</nav>
+					{% comment %}<li><a href="#">Mi cuenta8</a></li>{% endcomment %}
+					{% comment %}{% if settings.which-linklist-mobile-menu != '' %}
+						{% for link in linklists[settings.which-linklist-mobile-menu].links %}
+							{% assign child_list_handle = link.title | handleize %}
+							{% if linklists[child_list_handle].links != blank %}
+							<li>
+								<a href="{{ link.url }}">
+									<span class="nav-label">{{ link.title | escape }}</span><span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									{% for childlink in linklists[child_list_handle].links %}
+										<li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+									{% endfor %}
+								</ul>
+							</li>
+							{% else %}
+								<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+					{% if shop.customer_accounts_enabled %}
+						{% comment %}
+                  		<li><a href="/account">{{ 'customer.account.title' | t }}</a></li>
+	                    {% endcomment %}
+						<li>{{ 'layout.customer.log_out' | t | customer_logout_link }}</li>
+					{% endif %}{% endcomment %}
+				</ul>
+			</nav>
+		</div>
+		{% if shop.customer_accounts_enabled %}
+			{% if customer %}
+				<div id="customer-top-header">
+					<div class="container">
+						<div class="row">
+							<div class="sixteen columns">
+								<ul>
+									<li><h4>{{ 'layout.customer.welcome' | t: name: customer.first_name }}</h4></li>
+                                    {% comment %}
+									<li><h4><a href="/account">{{ 'customer.account.title' | t }}</a></h4></li>
+                                    {% endcomment %}
+									<li><h4>{{ 'layout.customer.log_out' | t | customer_logout_link }}</h4></li>
+									<li class="visible-xs"><a href="/cart">{{ 'cart.general.checkout_mobile' | t }}</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div><!-- #customer-top-header -->
+			{% endif %}
+		{% endif %}
+		<header id="site-header" class="clearfix custom-font">
+			<div class="container visible-xs">
+				<div class="[ row ]">
+					<div class="[ col-xs-4 ][ menu__item ]">
+            {% comment %}
+            <a id="ice-trigger-open" href="#"><i class="fa fa-bars fa-2x"></i></a>
+            <a id="ice-trigger-close" href="#" style="display:none"><i class="fa fa-bars fa-2x"></i></a>
+            {% endcomment %}
+						<a id="responsive-menu-button" href="#sidr-mobile">
+							<i class="fa fa-bars fa-2x"></i>
+						</a>
+            <span>&nbsp;&nbsp;</span>
+            <a id="responsive-filter-button" href="#sidr-filter">
+    					<i class="fa fa-search fa-2x"></i>
+						</a>
+					</div>
+					<div class="[ col-xs-4 ] [ text-center ]">
+						<h1 id="site-title">
+							<a href="/" title="Home">
+							{% if settings.logo_image == "logo.png" %}
+								<img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name | escape }}" />
+							{% else %}
+								{{ shop.name | escape }}
+							{% endif %}
+							</a>
+						</h1>
+					</div>
+					<div class="[ col-xs-4 ][ right ][ text-right ][ menu__item ]">
+						<a href="tel:{{settings.tel_number}}">
+							<i class="fa fa-phone"></i>
+						</a>
+						<span>&nbsp;&nbsp;</span>
+						<a href="#sidr" class="custom-font slide-menu">
+							<i class="fa fa-shopping-cart fa-3x"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="container hidden-xs">
+				<div class="[ row ][ no-gutter ]">
+					{% if settings.which-linklist-header-menu != '' %}
+						<div class="col-md-7 col-sm-12">
+							<nav class="navbar" role="navigation">
+								<div>
+									<ul class="nav navbar-nav">
+										{% for link in linklists[settings.which-linklist-header-menu].links %}
+											{% assign child_list_handle = link.title | handleize %}
+											{% if linklists[child_list_handle].links != blank %}
+												<li class="dropdown">
+													<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+														<span class="nav-label">{{ link.title | escape }}</span><span class="caret"></span>
+													</a>
+													<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+														{% for childlink in linklists[child_list_handle].links %}
+															<li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+														{% endfor %}
+													</ul>
+												</li>
+											{% else %}
+												<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+											{% endif %}
+										{% endfor %}
+		
+									</ul>
+								</div>
+							</nav>
+						</div>
+					{% endif %}
+					<div class="[ col-xs-2 ][][ text-left ][ menu__item ]">
+						<a href="/" class="">
+							Inicio
+						</a>
+					</div>
+					<div class="[ col-xs-3 ][][ text-center ][ menu__item ]">
+                      	<!-- <div>
+                            <ul class="nav navbar-nav">
+                              {% for link in linklists.main-menu.links %}
+                                {% assign child_list_handle = link.title | handleize %}
+								{% if link.title == 'Conócenos' %}
+                              	
+                                {% if linklists[child_list_handle].links != blank %}
+                                  <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                      <span class="nav-label">{{ link.title | escape }}</span><span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                      {% for childlink in linklists[child_list_handle].links %}
+                                          <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+                                      {% endfor %}
+                                    </ul>
+                                  </li>
+                                {% else %}
+                                	<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                                {% endif %}
+                              {% endif %}
+                              {% endfor %}
+                              
+                            </ul>
+                        </div> -->
+						<a href="" class="" id="conocenos-menu-button">
+							Conócenos
+                      	</a>
+					</div>
+					<div class="[ col-xs-2 ]">
+						<h1 id="site-title">
+							<a href="/" title="Home">
+							{% if settings.logo_image == "logo.png" %}
+								<img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name | escape }}" />
+							{% else %}
+								{{ shop.name | escape }}
+							{% endif %}
+							</a>
+						</h1>
+					</div>
+                  
+              		<div class="[ col-xs-3 ][][ text-center ][ menu__item ]">
+                      {% if shop.customer_accounts_enabled %}
+{% capture the_snippet_auth %}{% include 'socialshopwave-widget-auth' %}{% endcapture %}
+          {% if the_snippet_auth contains 'Liquid error' %}
+                      {% if customer %}
+                      		<a href="http://dame-flores.myshopify.com/account" class="">
+								Mi cuenta
+							</a>
+                      	{% else %}
+                      		<a href="http://dame-flores.myshopify.com/account/login" class="">
+								Mi cuenta
+							</a>
+                        {% endif %}
+          {% else %}
+               {{ the_snippet_auth }}
+          {% endif %}
+          {% endif %}
+						
+					</div>
+					<div class="[ col-xs-2 ][ ][ text-right ][ menu__item ]">
+                      	<p class="[ text-center ]">¡Llámanos!<br/>6348 4625</p>
+						<a href="#sidr" class="custom-font slide-menu">
+							<i class="fa fa-shopping-cart fa-3x"></i>
+						</a>
+					</div>
+				</div>
+			</div><!-- .container -->
+		</header>
+		
+		<div id="main" role="main">
+			<div class="container">
+				{% if template == 'list-collections' %}
+					{% include 'collection-listing' %}
+				{% else %}
+					{{ content_for_layout }}
+				{% endif %}
+			</div>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-3 links-footer">
+						<h3>{{ 'layout.footer.linklist_title' | t }}</h3>
+						<ul>
+							{% for link in linklists[settings.which-linklist-footer-menu].links %}
+								<li {% if link.object.tags and link.object.tags.size > 0 %} class="children"{% endif %}>
+									<a href="{{link.url}}">{{link.title}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="clearfix">
+						<div class="[ col-xs-12 col-sm-4 ]">
+							{% if settings.show_amex or settings.show_discover or settings.show_visa or settings.show_mastercard or settings.show_maestro or settings.show_cirrus or settings.show_paypal or settings.show_google %}
+								<h3>Métodos de pago</h3>
+								<div id="footer-payment-methods">
+                  <img src="{{ 'logosdm-01.png' | asset_url }}" class="img-responsive">
+                  {% comment %}
+									{% if settings.show_amex %}       {{ 'card-american-express.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_discover %}   {{ 'card-discover.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_visa %}       {{ 'card-visa.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_mastercard %} {{ 'card-mastercard.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_maestro %}    {{ 'card-maestro.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_cirrus %}     {{ 'card-cirrus.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_paypal %}     {{ 'card-paypal.png' | asset_url | img_tag }} {% endif %}
+									{% if settings.show_google %}     {{ 'card-google.png' | asset_url | img_tag }} {% endif %}
+                  <img src="{{ 'oxxo-ico.png' | asset_url }}">
+                  <img src="{{ 'spei-ico.png' | asset_url }}">
+                  {% endcomment %}
+								</div>
+							{% endif %}
+              <a href="http://es.shopify.com/?ref=iceberg9" title="Esta tienda en línea está asegurada por Shopify" target="_blank"><img src="//cdn.shopify.com/s/images/badges/shopify-secure-badge-light-shadow.png" alt="Shopify insignia segura" /></a>
+              <!-- PayPal Logo --><a href="#" onclick="javascript:window.open('https://www.paypal.com/mx/cgi-bin/webscr?cmd=xpt/Marketing/general/WIPaypal-outside','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700, height=600');"|a href="#" onclick="javascript:window.open('https://www.paypal.com/mx/cgi-bin/webscr?cmd=xpt/Marketing/general/WIPaypal-outside','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=700, height=600');"><img  src="https://www.paypal.com/es_XC/Marketing/i/banner/securepayment_by_pp_2line.png" border="0" alt="Pagos por PayPal"|img  src="https://www.paypal.com/es_XC/Marketing/i/banner/securepayment_by_pp_2line.png" border="0" alt="Pagos por PayPal"></a>
+              <span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=BFpeuMWQuwCT8oGW4GnLGRbA4FiUrql8zwl4p4JxIcUsbA60TQjfuwX5Y7Yr"></script></span>
+						</div>
+						<div class="[ col-xs-12 col-sm-2 ]">
+							{%if settings.sm_facebook or settings.sm_twitter or settings.sm_youtube or settings.sm_flickr or settings.sm_pinterest %}
+								<h3>Síguenos</h3>
+								<div id="footer-right">
+									<ul id="sm-icons" class="clearfix">
+										{%if settings.sm_twitter %}<li id="sm-twitter"><a href="{{settings.sm_twitter_link}}" class="ir">&nbsp;</a></li>{% endif %}
+										{%if settings.sm_facebook %}<li id="sm-facebook"><a href="{{settings.sm_facebook_link}}" class="ir">&nbsp;</a></li>{% endif %}
+										{%if settings.sm_pinterest %}<li id="sm-pinterest"><a href="{{settings.sm_pinterest_link}}" class="ir">&nbsp;</a></li>{% endif %}
+										{%if settings.sm_youtube %}<li id="sm-youtube"><a href="{{settings.sm_youtube_link}}" class="ir">&nbsp;</a></li>{% endif %}
+										{%if settings.sm_flickr %}<li id="sm-flickr"><a href="{{settings.sm_flickr_link}}" class="ir">&nbsp;</a></li>{% endif %}
+										{%if settings.sm_instagram %}<li id="sm-instagram"><a href="{{settings.sm_instagram_link}}" class="ir">&nbsp;</a></li>{% endif %}
+									</ul>
+								</div>
+							{% endif %}
+						</div>
+                        <div class="[ col-xs-12 col-sm-3 ][ links-footer ]">
+                          <h3>Contáctanos</h3>
+                      		<ul>
+                              <li>Teléfono: (55) 6348 4625</li>
+                              <li>Llamadas internacionales: <br/>0052 (55) 6348 4625</li>
+                              <li>Whatsapp: (55) 6348 4625</li>
+                              <li>contacto@dameflores.com</li>
+                          	</ul>	
+                        </div>
+					</div>
+				</div><!-- .row -->
+			</div><!-- container -->
+		</footer>
+       </div><!-- wrapper -->
+		{% comment %}<div class="bottom-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<p>
+							<a href="/">{{ shop.name }}</a> | {{ powered_by_link }} | {% if settings.show_designed_by %}{{ 'layout.footer.designed_by' | t }} <a href="http://www.wetheme.com" title="Designed by WeTheme">WeTheme</a>{% endif %}
+						</p>
+					</div>
+				</div><!-- row -->
+			</div><!-- container -->
+		</div><!-- bottom-footer -->{% endcomment %}
+		
+		{{ 'plugins.js' | asset_url | script_tag }}
+    {{ 'custom.js' | asset_url | script_tag }}
+		{{ 'jquery.cookie.pack.js' | asset_url | script_tag }}
+    {{ 'code.js' | asset_url | script_tag }}
+		{% if settings.pop-up-selection == "text" %}
+			<div style="display:none;">
+				<div id="envy-auto-popup">
+					<h3 class="custom-font">{{ settings.pop-up-text-header-text }}</h3>
+					{% if settings.pop-up-text-description-text != empty %}
+						<p>{{ settings.pop-up-text-description-text }}</p>
+					{% endif %}
+					{% if settings.pop-up-mailchimp-url != empty %}
+					<div id="subs-container" class="clearfix">
+						<div id="mc_embed_signup">
+							<form action="{{ settings.pop-up-mailchimp-url }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+								<input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_text' | t }}" required>
+								<input type="submit" value="{{ 'general.newsletter_form.submit' | t }}" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default">
+							</form>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			<script type="text/javascript">
+				if($(window).width() > 768){
+					$(document).ready(function(){
+						var check_cookie = $.cookie('envy-welcome-popup');
+						if(check_cookie == null){
+							$.cookie('envy-welcome-popup', 'true', { expires: 7 });
+							$.fancybox({
+								href: "#envy-auto-popup"
+							});
+						}
+					});
+				};
+			</script>
+		{% endif %}
+		{% if settings.pop-up-selection == "image" %}
+			<script type="text/javascript">
+				if($(window).width() > 768){
+					$(document).ready(function(){
+						var check_cookie = $.cookie('envy-welcome-popup');
+						if(check_cookie == null){
+							$.cookie('envy-welcome-popup', 'true', { expires: 7 });
+							$.fancybox.open([
+								{
+									href : '{{ 'pop-up-graphic.jpg' | asset_url }}'
+								}
+							], {
+								padding : 0
+								});
+							}
+					});
+				};
+			</script>
+		{% endif %}
+		{% if settings.show-instagram-homepage %}
+			{% assign instaimage = '{{image}}' %}
+			{% assign instaurl = '{{link}}' %}
+			<script type="text/javascript">
+				var userFeed = new Instafeed({
+					get: 'user',
+					userId: {{ settings.instagram-user-id }},
+					accessToken: '{{ settings.instagram-access-token }}',
+					template: '<div class="col-md-2 col-sm-2 col-xs-6"><a class="fancybox-instagram" href="{{instaimage}}"><img src="{{instaimage}}" class="img-responsive"/></a></div>',
+					limit: 6,
+					resolution: 'standard_resolution'
+				});
+				userFeed.run();
+			</script>
+		{% endif %}
+		{% if settings.blogfeed_facebook %}
+		<!-- Blog Facebook Like Box -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		{% endif %}
+		{% if product.variants.size > 1 %}
+			<script type="text/javascript">
+				// <![CDATA[
+				var selectCallback = function(variant, selector) {
+				var comparePrice = $('.compare-at-price');
+					if (variant && variant.available == true) {
+						// selected a valid variant
+						jQuery('#purchase').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+						jQuery('#price-field').html(Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}"));  // update price field
+					} else {
+						// variant doesn't exist
+						jQuery('#purchase').addClass('disabled').attr('disabled', 'disabled');      // set add-to-cart button to unavailable class and disable button
+						var message = variant ? {{ 'products.product.sold_out' | t | json }} : {{ 'products.product.unavailable' | t | json }};
+						comparePrice.hide();
+						jQuery('#price-field').text(message); // update price-field message
+					}
+					if (variant && variant.available == true) {
+						if ( variant.compare_at_price > variant.price ) {
+							comparePrice
+							.html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}"))
+							.show();
+						} else {
+							comparePrice.hide();
+						}
+					}
+					if (variant && variant.featured_image) {
+						var originalImage = $(".featured-image-div img");
+						var newImage = variant.featured_image;
+						var element = originalImage[0];
+						Shopify.Image.switchImage(newImage, element, function (newImageSizedSrc, newImage, element) {
+							$( '.featured-image-div img' ).attr('src', newImageSizedSrc);
+						});
+					}
+				};
+				// initialize multi selector for product
+				jQuery(function() {
+					new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback, enableHistoryState: true });
+					$("#product-variants .selector-wrapper select").selectOrDie({
+						customClass: "custom",
+						customID:    "custom"
+					});
+				});
+				// ]]>
+				Shopify.Image.preload({{ product.images | json }}, '1024x1024');
+			</script>
+		{% endif %}
+		<script type="text/javascript" charset="utf-8">
+			//<![CDATA[
+			jQuery(function() {
+			  jQuery('nav a').each(function() {
+				if (jQuery(this).attr('href') === window.location.pathname) {
+				  jQuery(this).addClass('current');
+				}
+			  });
+			});
+			//]]>
+		</script>
+    {% if template == 'index' %}
+      <script type="text/javascript">
+        $(document).ready(function() {
+
+          $(window).scroll(function () {
+
+          if ($(document).scrollTop() > 620 ) {
+          $('#header-filter').show();
+          } else {
+          $('#header-filter').hide();
+          };
+          //return false;
+          });
+
+        });
+      </script>
+    {% endif %}
+    {% include 'ice9-modal-pop' %}
+	</body>
+</html>
