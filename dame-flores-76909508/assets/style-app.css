@@ -1,0 +1,600 @@
+/*
+
+------------ Nombre de la web:
+------------ Descripción:
+------------ Autor:
+------------ Versión:
+
+*/
+/* // --------- Librerias externas (CDN)  */
+@import '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300italic");
+/* // --------- Estilos Movil (0px --> 767px)  */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* ////-------------------- Header ----- */
+/* ////-------------------- Generales -- */
+.Opcion {
+  padding-top: 15px;
+}
+.Opcion .IndicadorOpcion {
+  padding-bottom: 16px;
+  padding-right: 10px;
+}
+.Opcion .TituloOpcion .ContTituloOpcion {
+  border-bottom: 1px solid #91a0b6;
+  padding-bottom: 30px;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .TituloOpcion .ContTituloOpcion .Titulo_1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .TituloOpcion .ContTituloOpcion .Done_1 {
+  color: #73b638;
+  font-size: 20px;
+  padding-left: 15px;
+}
+.Opcion .TituloOpcion .Acalracion {
+  display: none;
+}
+.Opcion .ContenidoOpcion {
+  max-height: 0;
+  padding-top: 60px;
+}
+.Opcion .ContenidoOpcion .Borde {
+  padding-bottom: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 {
+  text-align: center;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  border: 2px solid #91a0b6;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: border 0.2s ease;
+  -moz-transition: border 0.2s ease;
+  -o-transition: border 0.2s ease;
+  -ms-transition: border 0.2s ease;
+  transition: border 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono:hover,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono:hover,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono:hover,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono:hover {
+  cursor: pointer;
+  border: 2px solid #73b638;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono .IconoSelect,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono .IconoSelect,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono .IconoSelect,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono .IconoSelect {
+  display: none;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono .ImgIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono .ImgIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono .ImgIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono .ImgIcono {
+  height: 60%;
+  padding-top: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono .TextIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono .TextIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono .TextIcono,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono .TextIcono {
+  height: 40%;
+  padding-top: 8px;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono .TextIcono span,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono .TextIcono span,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono .TextIcono span,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono .TextIcono span {
+  display: block;
+  max-width: 130px;
+  color: #91a0b6;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha .ContIcono .TextIcono span:first-child,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueDerecha .ContIcono .TextIcono span:first-child,
+.Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda .ContIcono .TextIcono span:first-child,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .BloqueIzquierda .ContIcono .TextIcono span:first-child {
+  font-weight: 900;
+}
+.Opcion .ContenidoOpcion .Borde .Numeralia .NumText,
+.Opcion .ContenidoOpcion .Borde .Numeralia_2 .NumText {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: #91a0b6;
+}
+.Opcion .ContenidoOpcion .Borde .TextOpcion {
+  color: #91a0b6;
+  font-size: 46px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+  line-height: 100px;
+}
+.Opcion .ContenidoOpcion .Borde .ContinuarBoton {
+  height: 40px;
+  width: 145px;
+  color: #aaa;
+  text-align: center;
+  line-height: 38px;
+  background: #e9e9e9;
+  margin-top: 60px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo {
+  margin-bottom: 30px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .Tiempo {
+  width: 120px;
+  float: left;
+  font-size: 18px;
+  font-weight: 900;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .NavCarrusel {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .NavCarrusel span {
+  cursor: pointer;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContTiempo .NavCarrusel span:hover {
+  color: #73b638;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias {
+  width: 120px;
+  min-height: 344px;
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-height: 373px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul li {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  list-style: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul li:last-child {
+  margin-bottom: 0;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContDiasFlores .ContDias ul li:hover {
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel {
+  margin-bottom: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides {
+  padding-right: 5px;
+  cursor: pointer;
+  position: relative !important;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides img {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: border 0.2s ease;
+  -moz-transition: border 0.2s ease;
+  -o-transition: border 0.2s ease;
+  -ms-transition: border 0.2s ease;
+  transition: border 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides img:hover {
+  border: 2px solid #73b638;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides .ContSelect {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: block;
+  padding-right: 5px;
+  position: absolute;
+  z-index: 1;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides .ContSelect .IconoSelect {
+  position: relative;
+  text-align: center;
+  line-height: 0;
+  border: 2px solid #73b638;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides .ContSelect .IconoSelect i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides .SelectOn {
+  display: block;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarrusel .SlidesCarrusel .Slides .SelectOff {
+  display: none;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarruselText .SlidesCarruselText .SlidesText {
+  padding-right: 2px;
+}
+.Opcion .ContenidoOpcion .Borde .ContenidoFlores .ContCarruselText .SlidesCarruselText .SlidesText .SlidesTextTitulo {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  display: block;
+}
+.Opcion .ContenidoOpcion .Borde .ContTituloTabla {
+  height: 25px;
+  border-bottom: 1px solid #91a0b6;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.Opcion .ContenidoOpcion .Borde .ContTituloTabla .row div {
+  text-align: center;
+}
+.Opcion .ContenidoOpcion .Borde .ContTituloTabla .row div:first-child {
+  text-align: left;
+}
+.Opcion .ContenidoOpcion .Borde .IconoConfirmacion {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .IconoTextConf {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .IconoTextConf .MemDescricion {
+  padding-top: 25px;
+  padding-left: 15px;
+  max-width: 450px;
+}
+.Opcion .ContenidoOpcion .Borde .IconoTextConf .MemDescricion .Desc_1 {
+  color: #91a0b6;
+  font-size: 18px;
+  font-weight: 400;
+}
+.Opcion .ContenidoOpcion .Borde .IconoTextConf .MemDescricion .Desc_2 {
+  color: #91a0b6;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+}
+.Opcion .ContenidoOpcion .Borde .ContSelect select {
+  width: 100%;
+  border: none;
+  border: 3px solid #91a0b6;
+  padding: 6px;
+  margin-top: 25px;
+  background: none;
+  color: #91a0b6;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.Opcion .ContenidoOpcion .Borde .ContSelect select:focus {
+  outline: none;
+  color: #73b638;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos {
+  margin-bottom: 45px;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos:hover {
+  cursor: pointer;
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .CheckTerminos {
+  float: left;
+  line-height: 23px;
+  margin-right: 15px;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .TextTerminos {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .TextTerminos a {
+  color: #000;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 125%;
+  font-style: italic;
+/*transition(color .2s ease)*/
+  color: inherit;
+}
+.Opcion .ContenidoOpcion .Borde .AceptarTerminos .TextTerminos a:hover {
+  color: inherit;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar {
+  float: left;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 125%;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar button:hover {
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .BotonEnviar button:focus {
+  outline: none;
+  color: #00acc1;
+}
+.Opcion .ContenidoOpcion .Borde .AvisoFaltante {
+  color: #00acc1;
+  float: right;
+}
+.ContenidoOpcion .Borde {
+  margin-bottom: 60px;
+}
+.ContenidoOpcion .Formulario {
+  padding: 0 35px 0 35px;
+}
+.ContenidoOpcion .Formulario .ContFormulario .TituloFormulario {
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid #91a0b6;
+  margin-bottom: 15px;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos {
+  font-size: 12px;
+  font-weight: 700;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos div {
+  margin-bottom: 15px;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos input,
+.ContenidoOpcion .Formulario .ContFormulario .Campos select {
+  width: 100%;
+  padding: 6px;
+  display: block;
+  border: 1px solid #91a0b6;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #9daabe;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos input:focus,
+.ContenidoOpcion .Formulario .ContFormulario .Campos select:focus {
+  outline: none;
+  border: 1px solid #73b638;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos .IconosTarejtas {
+  height: 54px;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos .IconosTarejtas img {
+  height: 32px;
+  margin-top: 20px;
+}
+.ContenidoOpcion .Formulario .ContFormulario .Campos .Disponibles {
+  font-size: 12px;
+  font-weight: 400;
+}
+.ContBoton {
+  float: right;
+}
+.ContBoton .CostoTotal {
+  font-size: 25px;
+  font-weight: 400;
+}
+.ContBoton .CostoTotal span {
+  color: #73b638;
+}
+.ContBoton .EnviarForm {
+  height: 40px;
+  width: 145px;
+  color: #aaa;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 38px;
+  background: #e9e9e9;
+  margin-top: 22px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.IconoSelect {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: #73b638;
+  line-height: 200px;
+  font-size: 50px;
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.5);
+  display: block;
+}
+.InactivoCarrusel {
+  display: none;
+}
+.ActivoCarrusel {
+  display: block;
+}
+.BordeAzul {
+  border: 2px solid #73b638 !important;
+}
+.BordeGris {
+  border: 2px solid #91a0b6;
+}
+#FormularioPlan_1,
+#FormularioPlan_2 {
+  display: none;
+}
+#FormularioPlan_1 input,
+#FormularioPlan_2 input {
+  width: 100%;
+}
+#Boton_1,
+#Boton_2 {
+  display: none;
+}
+#SeccionMembresia {
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionMembresia .ContenidoOpcion {
+  max-height: 1000px;
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionMembresia .ContTituloOpcion {
+  border-bottom: 1px solid #fff;
+}
+#SeccionFlores {
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionFlores .ContenidoOpcion {
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionConfirma .ContenidoOpcion {
+  overflow: hidden;
+  -webkit-transition: max-height 1s ease;
+  -moz-transition: max-height 1s ease;
+  -o-transition: max-height 1s ease;
+  -ms-transition: max-height 1s ease;
+  transition: max-height 1s ease;
+}
+#SeccionConfirma .ContenidoOpcion .Borde {
+  border-bottom: 1px solid #aaa;
+}
+.GrisOn {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.GrisOff {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+#BotonMensual {
+  display: none;
+}
+#Formulario {
+  display: none;
+}
+/* ////-------------------- Footer ----- */
+/* // --------- Estilos Tablet (768px --> 991px)  */
+@media screen and (min-width: 768px) {
+  /* ////-------------------- Header ----- */
+  /* ////-------------------- Generales -- */
+  .Opcion .ContenidoOpcion .Borde .Numeralia .BloqueDerecha {
+    float: right;
+  }
+  .Opcion .ContenidoOpcion .Borde .Numeralia .BloqueIzquierda {
+    float: left;
+  }
+  .Opcion .ContenidoOpcion .Borde .TextOpcion {
+    line-height: 200px;
+  }
+  /* ////-------------------- Footer ----- */
+}
+/* // --------- Estilos Escritorio Chico (992px --> 1199px)  */
+/* // --------- Estilos Escritorio Grande (1200px en adelante)  */

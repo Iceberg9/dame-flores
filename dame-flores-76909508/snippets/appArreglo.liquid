@@ -1,0 +1,2089 @@
+<!-- Contenedor general  -->
+
+<div class="ContenedorGeneral">
+
+	<!-- Contenedor contenido -->
+
+	<div class="container">
+
+		<!-- Sección  Uno-->
+
+		<div id="SeccionMembresia" class="Opcion row">
+
+			<!-- Titulo Opción -->
+
+			<div id="TituloEscogeMembresia" class="TituloOpcion col-xs-12">
+
+				<div class="ContTituloOpcion Borde">
+
+					<span class="Titulo_1">1. Escoge tú Membresía</span>
+
+					<span class="Done_1 hidden"><i class="fa fa-check"></i></span>
+
+				</div>
+
+				<div class="Acalracion"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacinia neque nulla, a auctor nulla blandit eu</p></div>
+				
+			</div>
+
+			<!-- Contenido Opción -->
+
+			<div class="ContenidoOpcion col-xs-12">
+
+				<div class="Borde">
+
+					<div class="row">
+
+						<div class="col-xs-12 col-sm-5">
+
+							<div class="Numeralia NumMargBot" data-plan="Mensual">
+                              
+                              <div class="BloqueDerecha Bloque">
+
+                                  <div class="ContIcono center-block">
+
+                                      <div class="ImgIcono"><img src="https://cdn.shopify.com/s/files/1/0750/3211/files/IconoMensual.png?5893053799090096079" alt="" class="center-block"></div>
+
+                                      <div class="TextIcono">
+
+                                          <span class="center-block">1</span>
+
+                                          <span class="center-block">producto semanal por un mes</span>
+
+                                      </div>
+
+                                      <div class="IconoSelect">
+
+                                          <i class="fa fa-check"></i>
+
+                                      </div>
+
+                                  </div>
+
+                                  <div class="NumText">4 arreglos en total</div>
+                                
+                              </div>
+                              
+                              <div class="clearfix"></div>
+
+							</div>
+							
+						</div>
+
+						<div class="col-xs-12 col-sm-2">
+
+							<div class="TextOpcion">ó</div>
+							
+						</div>
+
+						<div class="col-xs-12 col-sm-5">
+
+							<div class="Numeralia" data-plan="Anual">
+                              
+                              <div class="BloqueIzquierda Bloque">
+
+                                  <div class="ContIcono center-block">
+
+                                      <div class="ImgIcono"><img src="https://cdn.shopify.com/s/files/1/0750/3211/files/IconoAnual.png?589305379" alt="" class="center-block"></div>
+
+                                      <div class="TextIcono">
+
+                                          <span class="center-block">1</span>
+
+                                          <span class="center-block">producto mensual por un año</span>
+
+                                      </div>
+
+                                      <div class="IconoSelect">
+
+                                          <i class="fa fa-check"></i>
+
+                                      </div>
+
+                                  </div>
+
+                                  <div class="NumText">12 arreglos en total</div>
+                                
+                              </div>
+                              
+                              <div class="clearfix"></div>
+
+							</div>
+							
+						</div>
+
+						<div class="col-xs-12">
+
+							<div id="ContinuarSeccionMembresia">
+
+								<div class="ContinuarBoton center-block">Continuar</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- Sección  Dos-->
+
+		<div id="SeccionFlores" class="Opcion row">
+
+			<!-- Titulo Opción -->
+
+			<div id="TituloEscogeFlores" class="TituloOpcion col-xs-12">
+
+				<div class="ContTituloOpcion Borde">
+
+					<span class="Titulo_1">2. Escoge tus Flores</span>
+
+					<span class="Done_1 hidden"><i class="fa fa-check"></i></span>
+
+				</div>
+
+				<div class="Acalracion"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacinia neque nulla, a auctor nulla blandit eu</p></div>
+				
+			</div>
+
+			<!-- Contenido Opción -->
+
+			<div class="ContenidoOpcion col-xs-12">
+
+				<div class="Borde">
+
+					<div class="ContenidoFlores">
+
+						<div class="ContTiempo">
+
+							<div class="Tiempo">Arreglos</div>
+
+							<div class="NavCarrusel"><span id="PrevCarrusel">Anterior</span> | <span id="NextCarrusel">Siguiente</span></div>
+
+							<div class="clearfix"></div>
+
+						</div>
+
+						<div class="ContDiasFlores">
+
+							<div class="ContDias"></div>
+
+							<div class="ContCarrusel">
+
+								<!-- Carrusel Plan Mensual --> 
+
+								{% for i in (0..3) %}
+
+									{% if i == 0 %}
+
+										{% capture collectionNumeral %}1{% endcapture %}
+
+									{% elsif i == 1 %}
+
+										{% capture collectionNumeral %}2{% endcapture %}
+
+									{% elsif i == 2 %}
+
+										{% capture collectionNumeral %}3{% endcapture %}
+
+									{% elsif i == 3 %}
+
+										{% capture collectionNumeral %}4{% endcapture %}
+
+									{% endif %}
+
+									<div id="MensualColeccion-{{ collectionNumeral }}" class="SlidesCarrusel InactivoCarrusel">
+
+										{% for product in collections.arraymensual.products %}
+
+										{% capture numeral %}slide-{{ forloop.index }}{% endcapture %}
+
+											<div id="MensualColeccion-{{ collectionNumeral }}-Item-{{ numeral }}" class="Slides"  data-boton-tiempo="MensualSemana-{{ collectionNumeral }}" data-input="Item-{{ collectionNumeral }}" data-parent="MensualColeccion-{{ collectionNumeral }}" data-titulo="{{ product.title }}"><img src="{{ product.featured_image | img_url: 'large' }}" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+										{% endfor %}
+
+									</div>
+
+								{% endfor %} 
+
+								{% comment %}
+
+								<div id="MensualColeccion-1" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="MensualColeccion-1-Item-1" class="Slides"  data-boton-tiempo="MensualSemana-1" data-input="Item-1" data-parent="MensualColeccion-1" data-titulo="TituloItem1"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-1-Item-2" class="Slides"  data-boton-tiempo="MensualSemana-1" data-input="Item-1" data-parent="MensualColeccion-1" data-titulo="TituloItem"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-1-Item-3" class="Slides"  data-boton-tiempo="MensualSemana-1" data-input="Item-1" data-parent="MensualColeccion-1" data-titulo="TituloItem"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-1-Item-4" class="Slides"  data-boton-tiempo="MensualSemana-1" data-input="Item-1" data-parent="MensualColeccion-1" data-titulo="TituloItem"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-1-Item-5" class="Slides"  data-boton-tiempo="MensualSemana-1" data-input="Item-1" data-parent="MensualColeccion-1" data-titulo="TituloItem"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-1-Item-6" class="Slides"  data-boton-tiempo="MensualSemana-1" data-input="Item-1" data-parent="MensualColeccion-1" data-titulo="TituloItem"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="MensualColeccion-2" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="MensualColeccion-2-Item-1" class="Slides"  data-boton-tiempo="MensualSemana-2" data-input="Item-2" data-parent="MensualColeccion-2" data-titulo="TituloItem2"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-2-Item-2" class="Slides"  data-boton-tiempo="MensualSemana-2" data-input="Item-2" data-parent="MensualColeccion-2" data-titulo="TituloItem"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-2-Item-3" class="Slides"  data-boton-tiempo="MensualSemana-2" data-input="Item-2" data-parent="MensualColeccion-2" data-titulo="TituloItem"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-2-Item-4" class="Slides"  data-boton-tiempo="MensualSemana-2" data-input="Item-2" data-parent="MensualColeccion-2" data-titulo="TituloItem"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-2-Item-5" class="Slides"  data-boton-tiempo="MensualSemana-2" data-input="Item-2" data-parent="MensualColeccion-2" data-titulo="TituloItem"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-2-Item-6" class="Slides"  data-boton-tiempo="MensualSemana-2" data-input="Item-2" data-parent="MensualColeccion-2" data-titulo="TituloItem"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="MensualColeccion-3" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="MensualColeccion-3-Item-1" class="Slides"  data-boton-tiempo="MensualSemana-3" data-input="Item-3" data-parent="MensualColeccion-3" data-titulo="TituloItem3"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-3-Item-2" class="Slides"  data-boton-tiempo="MensualSemana-3" data-input="Item-3" data-parent="MensualColeccion-3" data-titulo="TituloItem"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-3-Item-3" class="Slides"  data-boton-tiempo="MensualSemana-3" data-input="Item-3" data-parent="MensualColeccion-3" data-titulo="TituloItem"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-3-Item-4" class="Slides"  data-boton-tiempo="MensualSemana-3" data-input="Item-3" data-parent="MensualColeccion-3" data-titulo="TituloItem"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-3-Item-5" class="Slides"  data-boton-tiempo="MensualSemana-3" data-input="Item-3" data-parent="MensualColeccion-3" data-titulo="TituloItem"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-3-Item-6" class="Slides"  data-boton-tiempo="MensualSemana-3" data-input="Item-3" data-parent="MensualColeccion-3" data-titulo="TituloItem"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="MensualColeccion-4" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="MensualColeccion-4-Item-1" class="Slides"  data-boton-tiempo="MensualSemana-4" data-input="Item-4" data-parent="MensualColeccion-4" data-titulo="TituloItem4"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-4-Item-2" class="Slides"  data-boton-tiempo="MensualSemana-4" data-input="Item-4" data-parent="MensualColeccion-4" data-titulo="TituloItem"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-4-Item-3" class="Slides"  data-boton-tiempo="MensualSemana-4" data-input="Item-4" data-parent="MensualColeccion-4" data-titulo="TituloItem"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-4-Item-4" class="Slides"  data-boton-tiempo="MensualSemana-4" data-input="Item-4" data-parent="MensualColeccion-4" data-titulo="TituloItem"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-4-Item-5" class="Slides"  data-boton-tiempo="MensualSemana-4" data-input="Item-4" data-parent="MensualColeccion-4" data-titulo="TituloItem"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="MensualColeccion-4-Item-6" class="Slides"  data-boton-tiempo="MensualSemana-4" data-input="Item-4" data-parent="MensualColeccion-4" data-titulo="TituloItem"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								{% endcomment %}
+
+
+
+								<!-- Carrusel Plan Anual --> 
+
+								 {% for i in (0..11) %}
+
+									{% if i == 0 %}
+
+										{% capture collectionNumeral %}1{% endcapture %}
+
+										{% capture collectionMes %}arrayenero{% endcapture %}
+
+									{% elsif i == 1 %}
+
+										{% capture collectionNumeral %}2{% endcapture %}
+
+										{% capture collectionMes %}arrayfebrero{% endcapture %}
+
+									{% elsif i == 2 %}
+
+										{% capture collectionNumeral %}3{% endcapture %}
+
+										{% capture collectionMes %}arraymarzo{% endcapture %}
+
+									{% elsif i == 3 %}
+
+										{% capture collectionNumeral %}4{% endcapture %}
+
+										{% capture collectionMes %}arrayabril{% endcapture %}
+
+									{% elsif i == 4 %}
+
+										{% capture collectionNumeral %}5{% endcapture %}
+
+										{% capture collectionMes %}arraymayo{% endcapture %}
+
+									{% elsif i == 5 %}
+
+										{% capture collectionNumeral %}6{% endcapture %}
+
+										{% capture collectionMes %}arrayjunio{% endcapture %}
+
+									{% elsif i == 6 %}
+
+										{% capture collectionNumeral %}7{% endcapture %}
+
+										{% capture collectionMes %}arrayjulio{% endcapture %}
+
+									{% elsif i == 7 %}
+
+										{% capture collectionNumeral %}8{% endcapture %}
+
+										{% capture collectionMes %}arrayagosto{% endcapture %}
+
+									{% elsif i == 8 %}
+
+										{% capture collectionNumeral %}9{% endcapture %}
+
+										{% capture collectionMes %}arrayseptiembre{% endcapture %}
+
+									{% elsif i == 9 %}
+
+										{% capture collectionNumeral %}10{% endcapture %}
+
+										{% capture collectionMes %}arrayoctubre{% endcapture %}
+
+									{% elsif i == 10 %}
+
+										{% capture collectionNumeral %}11{% endcapture %}
+
+										{% capture collectionMes %}arraynoviembre{% endcapture %}
+
+									{% elsif i == 11 %}
+
+										{% capture collectionNumeral %}12{% endcapture %}
+
+										{% capture collectionMes %}arraydiciembre{% endcapture %}
+
+									{% endif %}
+
+									<div id="AnualColeccion-{{ collectionNumeral }}" class="SlidesCarrusel InactivoCarrusel">
+
+										{% for product in collections.[collectionMes].products %}
+
+										{% capture numeral %}slide-{{ forloop.index }}{% endcapture %}
+
+											<div id="AnualColeccion-{{ collectionNumeral }}-Item-{{ numeral }}" class="Slides"  data-boton-tiempo="AnualMes-{{ collectionNumeral }}" data-input="Item-{{ collectionNumeral }}" data-parent="AnualColeccion-{{ collectionNumeral }}" data-titulo="{{ product.title }}"><img src="{{ product.featured_image | img_url: 'large' }}" alt="" class="BordeGris img-responsive"><span class="ContSelect SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+										{% endfor %}
+
+									</div>
+
+								{% endfor %} 
+
+
+								{% comment %}
+
+								<div id="AnualColeccion-1" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-1-Item-1" class="Slides"  data-boton-tiempo="AnualMes-1" data-input="Item-1" data-parent="AnualColeccion-1"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-1-Item-2" class="Slides"  data-boton-tiempo="AnualMes-1" data-input="Item-1" data-parent="AnualColeccion-1"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-1-Item-3" class="Slides"  data-boton-tiempo="AnualMes-1" data-input="Item-1" data-parent="AnualColeccion-1"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-1-Item-4" class="Slides"  data-boton-tiempo="AnualMes-1" data-input="Item-1" data-parent="AnualColeccion-1"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-1-Item-5" class="Slides"  data-boton-tiempo="AnualMes-1" data-input="Item-1" data-parent="AnualColeccion-1"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-1-Item-6" class="Slides"  data-boton-tiempo="AnualMes-1" data-input="Item-1" data-parent="AnualColeccion-1"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-2" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-2-Item-1" class="Slides"  data-boton-tiempo="AnualMes-2" data-input="Item-2" data-parent="AnualColeccion-2"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-2-Item-2" class="Slides"  data-boton-tiempo="AnualMes-2" data-input="Item-2" data-parent="AnualColeccion-2"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-2-Item-3" class="Slides"  data-boton-tiempo="AnualMes-2" data-input="Item-2" data-parent="AnualColeccion-2"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-2-Item-4" class="Slides"  data-boton-tiempo="AnualMes-2" data-input="Item-2" data-parent="AnualColeccion-2"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-2-Item-5" class="Slides"  data-boton-tiempo="AnualMes-2" data-input="Item-2" data-parent="AnualColeccion-2"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-2-Item-6" class="Slides"  data-boton-tiempo="AnualMes-2" data-input="Item-2" data-parent="AnualColeccion-2"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-3" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-3-Item-1" class="Slides"  data-boton-tiempo="AnualMes-3" data-input="Item-3" data-parent="AnualColeccion-3"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-3-Item-2" class="Slides"  data-boton-tiempo="AnualMes-3" data-input="Item-3" data-parent="AnualColeccion-3"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-3-Item-3" class="Slides"  data-boton-tiempo="AnualMes-3" data-input="Item-3" data-parent="AnualColeccion-3"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-3-Item-4" class="Slides"  data-boton-tiempo="AnualMes-3" data-input="Item-3" data-parent="AnualColeccion-3"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-3-Item-5" class="Slides"  data-boton-tiempo="AnualMes-3" data-input="Item-3" data-parent="AnualColeccion-3"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-3-Item-6" class="Slides"  data-boton-tiempo="AnualMes-3" data-input="Item-3" data-parent="AnualColeccion-3"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-4" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-4-Item-1" class="Slides"  data-boton-tiempo="AnualMes-4" data-input="Item-4" data-parent="AnualColeccion-4"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-4-Item-2" class="Slides"  data-boton-tiempo="AnualMes-4" data-input="Item-4" data-parent="AnualColeccion-4"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-4-Item-3" class="Slides"  data-boton-tiempo="AnualMes-4" data-input="Item-4" data-parent="AnualColeccion-4"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-4-Item-4" class="Slides"  data-boton-tiempo="AnualMes-4" data-input="Item-4" data-parent="AnualColeccion-4"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-4-Item-5" class="Slides"  data-boton-tiempo="AnualMes-4" data-input="Item-4" data-parent="AnualColeccion-4"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-4-Item-6" class="Slides"  data-boton-tiempo="AnualMes-4" data-input="Item-4" data-parent="AnualColeccion-4"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-5" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-5-Item-1" class="Slides"  data-boton-tiempo="AnualMes-5" data-input="Item-5" data-parent="AnualColeccion-5"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-5-Item-2" class="Slides"  data-boton-tiempo="AnualMes-5" data-input="Item-5" data-parent="AnualColeccion-5"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-5-Item-3" class="Slides"  data-boton-tiempo="AnualMes-5" data-input="Item-5" data-parent="AnualColeccion-5"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-5-Item-4" class="Slides"  data-boton-tiempo="AnualMes-5" data-input="Item-5" data-parent="AnualColeccion-5"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-5-Item-5" class="Slides"  data-boton-tiempo="AnualMes-5" data-input="Item-5" data-parent="AnualColeccion-5"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-5-Item-6" class="Slides"  data-boton-tiempo="AnualMes-5" data-input="Item-5" data-parent="AnualColeccion-5"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-6" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-6-Item-1" class="Slides"  data-boton-tiempo="AnualMes-6" data-input="Item-6" data-parent="AnualColeccion-6"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-6-Item-2" class="Slides"  data-boton-tiempo="AnualMes-6" data-input="Item-6" data-parent="AnualColeccion-6"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-6-Item-3" class="Slides"  data-boton-tiempo="AnualMes-6" data-input="Item-6" data-parent="AnualColeccion-6"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-6-Item-4" class="Slides"  data-boton-tiempo="AnualMes-6" data-input="Item-6" data-parent="AnualColeccion-6"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-6-Item-5" class="Slides"  data-boton-tiempo="AnualMes-6" data-input="Item-6" data-parent="AnualColeccion-6"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-6-Item-6" class="Slides"  data-boton-tiempo="AnualMes-6" data-input="Item-6" data-parent="AnualColeccion-6"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-7" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-7-Item-1" class="Slides"  data-boton-tiempo="AnualMes-7" data-input="Item-7" data-parent="AnualColeccion-7"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-7-Item-2" class="Slides"  data-boton-tiempo="AnualMes-7" data-input="Item-7" data-parent="AnualColeccion-7"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-7-Item-3" class="Slides"  data-boton-tiempo="AnualMes-7" data-input="Item-7" data-parent="AnualColeccion-7"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-7-Item-4" class="Slides"  data-boton-tiempo="AnualMes-7" data-input="Item-7" data-parent="AnualColeccion-7"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-7-Item-5" class="Slides"  data-boton-tiempo="AnualMes-7" data-input="Item-7" data-parent="AnualColeccion-7"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-7-Item-6" class="Slides"  data-boton-tiempo="AnualMes-7" data-input="Item-7" data-parent="AnualColeccion-7"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-8" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-8-Item-1" class="Slides"  data-boton-tiempo="AnualMes-8" data-input="Item-8" data-parent="AnualColeccion-8"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-8-Item-2" class="Slides"  data-boton-tiempo="AnualMes-8" data-input="Item-8" data-parent="AnualColeccion-8"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-8-Item-3" class="Slides"  data-boton-tiempo="AnualMes-8" data-input="Item-8" data-parent="AnualColeccion-8"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-8-Item-4" class="Slides"  data-boton-tiempo="AnualMes-8" data-input="Item-8" data-parent="AnualColeccion-8"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-8-Item-5" class="Slides"  data-boton-tiempo="AnualMes-8" data-input="Item-8" data-parent="AnualColeccion-8"  data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-8-Item-6" class="Slides"  data-boton-tiempo="AnualMes-8" data-input="Item-8" data-parent="AnualColeccion-8"  data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-9" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-9-Item-1" class="Slides"  data-boton-tiempo="AnualMes-9" data-input="Item-9" data-parent="AnualColeccion-9"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-9-Item-2" class="Slides"  data-boton-tiempo="AnualMes-9" data-input="Item-9" data-parent="AnualColeccion-9"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-9-Item-3" class="Slides"  data-boton-tiempo="AnualMes-9" data-input="Item-9" data-parent="AnualColeccion-9"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-9-Item-4" class="Slides"  data-boton-tiempo="AnualMes-9" data-input="Item-9" data-parent="AnualColeccion-9"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-9-Item-5" class="Slides"  data-boton-tiempo="AnualMes-9" data-input="Item-9" data-parent="AnualColeccion-9"  data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-9-Item-6" class="Slides"  data-boton-tiempo="AnualMes-9" data-input="Item-9" data-parent="AnualColeccion-9"  data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-10" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-10-Item-1" class="Slides"  data-boton-tiempo="AnualMes-10" data-input="Item-10" data-parent="AnualColeccion-10" data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-10-Item-2" class="Slides"  data-boton-tiempo="AnualMes-10" data-input="Item-10" data-parent="AnualColeccion-10" data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-10-Item-3" class="Slides"  data-boton-tiempo="AnualMes-10" data-input="Item-10" data-parent="AnualColeccion-10" data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-10-Item-4" class="Slides"  data-boton-tiempo="AnualMes-10" data-input="Item-10" data-parent="AnualColeccion-10" data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-10-Item-5" class="Slides"  data-boton-tiempo="AnualMes-10" data-input="Item-10" data-parent="AnualColeccion-10" data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-10-Item-6" class="Slides"  data-boton-tiempo="AnualMes-10" data-input="Item-10" data-parent="AnualColeccion-10" data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-11" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-11-Item-1" class="Slides"  data-boton-tiempo="AnualMes-11" data-input="Item-11" data-parent="AnualColeccion-11" data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-11-Item-2" class="Slides"  data-boton-tiempo="AnualMes-11" data-input="Item-11" data-parent="AnualColeccion-11" data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-11-Item-3" class="Slides"  data-boton-tiempo="AnualMes-11" data-input="Item-11" data-parent="AnualColeccion-11" data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-11-Item-4" class="Slides"  data-boton-tiempo="AnualMes-11" data-input="Item-11" data-parent="AnualColeccion-11" data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-11-Item-5" class="Slides"  data-boton-tiempo="AnualMes-11" data-input="Item-11" data-parent="AnualColeccion-11" data-titulo="ItemAnual"><img src="Images/Flor_4.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-11-Item-6" class="Slides"  data-boton-tiempo="AnualMes-11" data-input="Item-11" data-parent="AnualColeccion-11" data-titulo="ItemAnual"><img src="Images/Flor_1.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								<div id="AnualColeccion-12" class="SlidesCarrusel InactivoCarrusel">
+
+									<div id="AnualColeccion-12-Item-1" class="Slides"  data-boton-tiempo="AnualMes-12" data-input="Item-12" data-parent="AnualColeccion-12" data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-12-Item-2" class="Slides"  data-boton-tiempo="AnualMes-12" data-input="Item-12" data-parent="AnualColeccion-12" data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-12-Item-3" class="Slides"  data-boton-tiempo="AnualMes-12" data-input="Item-12" data-parent="AnualColeccion-12" data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-12-Item-4" class="Slides"  data-boton-tiempo="AnualMes-12" data-input="Item-12" data-parent="AnualColeccion-12" data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-12-Item-5" class="Slides"  data-boton-tiempo="AnualMes-12" data-input="Item-12" data-parent="AnualColeccion-12" data-titulo="ItemAnual"><img src="Images/Flor_3.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+									<div id="AnualColeccion-12-Item-6" class="Slides"  data-boton-tiempo="AnualMes-12" data-input="Item-12" data-parent="AnualColeccion-12" data-titulo="ItemAnual"><img src="Images/Flor_2.jpg" alt="" class="BordeGris img-responsive"><span class="ContSelect  SelectOff"><span class="IconoSelect"><i class="fa fa-check"></i></span></span></div>
+
+								</div>
+
+								{% endcomment %}
+
+							</div>
+
+							<div class="ContCarruselText">
+
+								<!-- Carrusel Plan Mensual --> 
+
+								{% for i in (0..3) %}
+
+									{% if i == 0 %}
+
+										{% capture collectionNumeral %}1{% endcapture %}
+
+									{% elsif i == 1 %}
+
+										{% capture collectionNumeral %}2{% endcapture %}
+
+									{% elsif i == 2 %}
+
+										{% capture collectionNumeral %}3{% endcapture %}
+
+									{% elsif i == 3 %}
+
+										{% capture collectionNumeral %}4{% endcapture %}
+
+									{% endif %}
+
+									<div id="MensualColeccionText-{{ collectionNumeral }}" class="SlidesCarruselText InactivoCarrusel">
+
+										{% for product in collections.arraymensual.products %}
+
+										{% capture numeral %}slide-{{ forloop.index }}{% endcapture %}
+
+											<div id="MensualColeccionText-{{ collectionNumeral }}-Item-{{ numeral }}" class="SlidesText"><span class="SlidesTextTitulo">{{ product.title }}</span></div>
+
+										{% endfor %}
+
+									</div>
+
+								{% endfor %} 
+
+								{% comment %}
+
+								<div id="MensualColeccionText-1" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="MensualColeccionText-1-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="MensualColeccionText-1-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="MensualColeccionText-1-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="MensualColeccionText-1-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="MensualColeccionText-1-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="MensualColeccionText-1-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+								</div>
+
+								<div id="MensualColeccionText-2" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="MensualColeccionText-2-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="MensualColeccionText-2-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="MensualColeccionText-2-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="MensualColeccionText-2-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="MensualColeccionText-2-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="MensualColeccionText-2-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+								</div>
+
+								<div id="MensualColeccionText-3" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="MensualColeccionText-3-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="MensualColeccionText-3-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="MensualColeccionText-3-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="MensualColeccionText-3-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="MensualColeccionText-3-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="MensualColeccionText-3-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+								</div>
+
+								<div id="MensualColeccionText-4" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="MensualColeccionText-4-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="MensualColeccionText-4-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="MensualColeccionText-4-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="MensualColeccionText-4-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="MensualColeccionText-4-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="MensualColeccionText-4-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+								</div>
+
+								{% endcomment %}
+
+
+
+								
+
+								<!-- Carrusel Plan Anual -->
+
+								<div id="AnualColeccionText-1" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-1-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="AnualColeccionText-1-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="AnualColeccionText-1-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="AnualColeccionText-1-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="AnualColeccionText-1-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+									<div id="AnualColeccionText-1-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 1</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-2" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-2-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="AnualColeccionText-2-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="AnualColeccionText-2-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="AnualColeccionText-2-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="AnualColeccionText-2-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+									<div id="AnualColeccionText-2-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 2</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-3" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-3-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="AnualColeccionText-3-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="AnualColeccionText-3-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="AnualColeccionText-3-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="AnualColeccionText-3-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+									<div id="AnualColeccionText-3-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 3</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-4" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-4-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="AnualColeccionText-4-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="AnualColeccionText-4-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="AnualColeccionText-4-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="AnualColeccionText-4-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+									<div id="AnualColeccionText-4-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 4</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-5" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-5-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 5</span></div>
+
+									<div id="AnualColeccionText-5-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 5</span></div>
+
+									<div id="AnualColeccionText-5-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 5</span></div>
+
+									<div id="AnualColeccionText-5-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 5</span></div>
+
+									<div id="AnualColeccionText-5-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 5</span></div>
+
+									<div id="AnualColeccionText-5-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 5</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-6" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-6-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 6</span></div>
+
+									<div id="AnualColeccionText-6-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 6</span></div>
+
+									<div id="AnualColeccionText-6-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 6</span></div>
+
+									<div id="AnualColeccionText-6-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 6</span></div>
+
+									<div id="AnualColeccionText-6-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 6</span></div>
+
+									<div id="AnualColeccionText-6-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 6</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-7" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-7-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 7</span></div>
+
+									<div id="AnualColeccionText-7-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 7</span></div>
+
+									<div id="AnualColeccionText-7-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 7</span></div>
+
+									<div id="AnualColeccionText-7-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 7</span></div>
+
+									<div id="AnualColeccionText-7-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 7</span></div>
+
+									<div id="AnualColeccionText-7-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 7</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-8" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-8-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 8</span></div>
+
+									<div id="AnualColeccionText-8-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 8</span></div>
+
+									<div id="AnualColeccionText-8-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 8</span></div>
+
+									<div id="AnualColeccionText-8-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 8</span></div>
+
+									<div id="AnualColeccionText-8-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 8</span></div>
+
+									<div id="AnualColeccionText-8-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 8</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-9" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-9-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 9</span></div>
+
+									<div id="AnualColeccionText-9-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 9</span></div>
+
+									<div id="AnualColeccionText-9-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 9</span></div>
+
+									<div id="AnualColeccionText-9-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 9</span></div>
+
+									<div id="AnualColeccionText-9-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 9</span></div>
+
+									<div id="AnualColeccionText-9-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 9</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-10" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-10-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 10</span></div>
+
+									<div id="AnualColeccionText-10-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 10</span></div>
+
+									<div id="AnualColeccionText-10-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 10</span></div>
+
+									<div id="AnualColeccionText-10-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 10</span></div>
+
+									<div id="AnualColeccionText-10-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 10</span></div>
+
+									<div id="AnualColeccionText-10-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 10</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-11" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-11-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 11</span></div>
+
+									<div id="AnualColeccionText-11-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 11</span></div>
+
+									<div id="AnualColeccionText-11-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 11</span></div>
+
+									<div id="AnualColeccionText-11-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 11</span></div>
+
+									<div id="AnualColeccionText-11-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 11</span></div>
+
+									<div id="AnualColeccionText-11-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 11</span></div>
+
+								</div>
+
+								<div id="AnualColeccionText-12" class="SlidesCarruselText InactivoCarrusel">
+
+									<div id="AnualColeccionText-12-Item-1" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 12</span></div>
+
+									<div id="AnualColeccionText-12-Item-2" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 12</span></div>
+
+									<div id="AnualColeccionText-12-Item-3" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 12</span></div>
+
+									<div id="AnualColeccionText-12-Item-4" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 12</span></div>
+
+									<div id="AnualColeccionText-12-Item-5" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 12</span></div>
+
+									<div id="AnualColeccionText-12-Item-6" class="SlidesText"><span class="SlidesTextTitulo">Nombre Arreglo Coleccion 12</span></div>
+
+								</div>
+
+							</div>
+
+							<div class="clearfix"></div>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-xs-12">
+
+							<div id="ContinuarSeccionFlores">
+
+								<div class="ContinuarBoton center-block">Continuar</div>
+
+							</div>
+
+						</div>
+						
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- Sección  Tres-->
+
+		<div id="SeccionConfirma" class="Opcion row">
+
+			<!-- Titulo Opción -->
+
+			<div id="TituloConfirmaMembresia" class="TituloOpcion col-xs-12">
+
+				<div class="ContTituloOpcion Borde">
+
+					<span class="Titulo_1">3. Confirma tu Membresía</span>
+
+					<span class="Done_1 hidden"><i class="fa fa-check"></i></span>										
+
+				</div>
+
+				<div class="Acalracion"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacinia neque nulla, a auctor nulla blandit eu</p></div>
+				
+			</div>
+
+			<!-- Contenido Opción -->
+
+			<div class="ContenidoOpcion col-xs-12">
+
+				<div class="Borde">
+
+					<div class="row">
+
+						<div class="col-xs-12 hidden-xs hidden-sm">							
+
+							<div class="ContTituloTabla">
+
+								<div class="row">
+
+									<div class="col-md-6 col-lg-8">Membresía</div>
+
+									<div class="col-md-3 col-lg-2">Frecuencía de entrega</div>
+
+									<div class="col-md-3 col-lg-2">Horario de entrega</div>
+
+								</div>
+
+							</div>							
+
+						</div>
+
+						<div class="col-xs-12 col-md-6 col-lg-8">
+
+							<div class="IconoConfirmacion"><img src="Images/IconoMensual.png" alt=""></div>
+
+							<div class="IconoTextConf">
+
+								<div class="MemDescricion">
+
+									<div class="Desc_1"><strong>1</strong> <small>producto <strong>semanal</strong> por un mes</small></div>
+
+									<div class="Desc_2">
+
+										<span id="DescText"></span>
+
+										<span id="Item-1"></span>
+
+										<span id="Item-2"></span>
+
+										<span id="Item-3"></span>
+
+										<span id="Item-4"></span>
+
+										<span id="Item-5"></span>
+
+										<span id="Item-6"></span>
+
+										<span id="Item-7"></span>
+
+										<span id="Item-8"></span>
+
+										<span id="Item-9"></span>
+
+										<span id="Item-10"></span>
+
+										<span id="Item-11"></span>
+
+										<span id="Item-12"></span>
+
+									</div>
+
+								</div>
+								
+							</div>
+
+							<div class="clearfix"></div>
+							
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+
+							<div class="ContSelect">
+
+								<select name="DiaEntrega" id="DiaEntrega">
+
+									<option value="" selected>Día de entrega</option>
+
+									<option value="Lunes">Lunes</option>
+
+									<option value="Martes">Martes</option>
+
+									<option value="Miercoles">Miércoles</option>
+
+									<option value="Jueves">Jueves</option>
+
+									<option value="Viernes">Viernes</option>
+
+									<option value="Sabado">Sábado</option>
+									
+									<option value="Domingo">Domingo</option>
+									
+								</select>
+
+							</div>
+
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+
+							<div class="ContSelect">
+
+								<select name="HorarioEntrega" id="HorarioEntrega">
+
+									<option value="" selected>Horário de entrega</option>
+
+									<option value="7-10">7-10 hrs.</option>
+
+									<option value="10-13">10-13 hrs.</option>
+
+									<option value="13-16">13-16 hrs.</option>
+
+									<option value="16-21">16-21 hrs.</option>
+									
+								</select>
+
+							</div>
+
+						</div>
+
+					</div>
+					
+				</div>
+
+				<div id="BotonMensual" class="ContBoton">
+
+					<div class="CostoTotal">Costo total <span>$1,500</span></div>
+
+					<div class="EnviarForm">Realizar Pago</div>
+
+					<div class="clearfix"></div>
+
+				</div>
+
+				<div id="Formulario" class="Formulario">
+
+					<div class="ContFormulario col-xs-12 col-md-4 col-lg-3">
+
+						<div class="TituloFormulario">Dirección de envío*</div>
+
+						<div class="row">
+
+							<div class="Campos">
+						
+								<div class="col-xs-12 col-sm-6 col-md-12">Nombre <input required name="Nombre" type="text"></div>
+
+								<div class="col-xs-12 col-sm-4 col-md-8">Calle y número (ext/int) <input required name="Calle" type="text"></div>
+
+								<div class="col-xs-12 col-sm-2 col-md-4">C.P. <input required name="Postal" type="text"></div>
+
+								<div class="col-xs-12 col-sm-6 col-md-6">Colónia <input required name="Colonia" type="text"></div>
+
+								<div class="col-xs-12 col-sm-6 col-md-6">Municipio/Delegación <input required name="Delegacion" type="text"></div>
+
+								<div class="Disponibles col-xs-12">*Entregas disponibles solo en zona metropoliatana.</div>
+
+							</div>
+
+						</div>
+						
+					</div>
+
+					<div class="ContFormulario col-xs-12 col-md-7 col-md-offset-1 col-lg-8 col-lg-offset-1">
+
+						<div class="TituloFormulario">Forma de pago</div>
+
+						<div class="row">
+
+							<div class="Campos">
+						
+								<div class="col-xs-12 col-sm-4">Numero de tarjeta <input required name="Tarjeta" type="text"></div>
+
+								<div class="IconosTarejtas col-xs-12 col-sm-8">
+
+									<img src="Images/AmexIcon.png" alt="">
+
+									<img src="Images/VisaIcon.png" alt="">
+
+									<img src="Images/MasterIcon.png" alt="">
+									
+								</div>
+
+								<div class="col-xs-12 col-sm-4">Nombre del tarjeta habiente <input required name="TarjetaHabiente" type="text"></div>
+
+								<div class="col-xs-6 col-sm-6">
+
+									<div class="row" style="margin-bottom:0;">
+
+										<div class="col-xs-12" style="margin-bottom:0;">Fecha Expiración</div>
+
+										<div class="col-xs-6" style="margin-bottom:0;">
+
+											<select name="Expiracion" placeholder="Mes">
+
+												<option value="" selected>Mes</option>
+
+												<option value="1">1</option>
+
+												<option value="2">2</option>
+
+												<option value="3">3</option>
+
+												<option value="4">4</option>
+
+												<option value="5">5</option>
+
+												<option value="6">6</option>
+
+												<option value="7">7</option>
+
+												<option value="8">8</option>
+
+												<option value="9">9</option>
+
+												<option value="10">10</option>
+
+												<option value="11">11</option>
+
+												<option value="12">12</option>
+												
+											</select>
+
+										</div>
+
+										<div class="col-xs-6" style="margin-bottom:0;"><input required name="Anio" type="text" placeholder="Año"></div>
+
+									</div>
+
+								</div>									
+
+								<div class="col-xs-6 col-sm-2">CVC <input required name="CVC" type="text"></div>
+
+								<div class="col-xs-12">
+
+									<div id="BotonAnual" class="ContBoton">
+
+										<div class="CostoTotal" style="margin-bottom:0;">Costo total <span>$1,500</span></div>
+
+										<div class="EnviarForm" style="margin-bottom:0;">Realizar Pago</div>
+
+										<div class="clearfix"></div>
+
+									</div>
+									
+								</div>									
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="clearfix"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<!-- Formulario Membresía Mensual -->
+
+<form action="Accion.php" method="GET" id="FormularioPlan_1">
+
+	<label for="">Plan</label>
+
+	<input type="text" name="Plan" form="FormularioPlan_1" readonly><br>
+
+	<label for="">Item 1</label>
+
+	<input type="text" name="Item-1" form="FormularioPlan_1" readonly><br>
+
+	<label for="">Item 2</label>
+
+	<input type="text" name="Item-2" form="FormularioPlan_1" readonly><br>
+
+	<label for="">Item 3</label>
+
+	<input type="text" name="Item-3" form="FormularioPlan_1" readonly><br>
+
+	<label for="">Item 4</label>
+
+	<input type="text" name="Item-4" form="FormularioPlan_1" readonly><br>
+
+	<label for="">Día de la semana</label>
+
+	<input type="text" name="DiaSemana" form="FormularioPlan_1" readonly><br>
+
+	<label for="">Horario</label>
+
+	<input type="text" name="Horario" form="FormularioPlan_1" readonly><br>
+	
+</form>
+
+<br><br><br><br><br><br>
+
+<!-- Formulario Membresía Anual -->
+
+<form action="Accion.php" method="GET" id="FormularioPlan_2">
+
+	<label for="">Plan</label>
+
+	<input type="text" name="Plan" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 1</label>
+
+	<input type="text" name="Item-1" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 2</label>
+
+	<input type="text" name="Item-2" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 3</label>
+
+	<input type="text" name="Item-3" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 4</label>
+
+	<input type="text" name="Item-4" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 5</label>
+
+	<input type="text" name="Item-5" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 6</label>
+
+	<input type="text" name="Item-6" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 7</label>
+
+	<input type="text" name="Item-7" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 8</label>
+
+	<input type="text" name="Item-8" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 9</label>
+
+	<input type="text" name="Item-9" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 10</label>
+
+	<input type="text" name="Item-10" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 11</label>
+
+	<input type="text" name="Item-11" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Item 12</label>
+
+	<input type="text" name="Item-12" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Día de la semana</label>
+
+	<input type="text" name="DiaSemana" form="FormularioPlan_2" readonly><br>
+
+	<label for="">Horario</label>
+
+	<input type="text" name="Horario" form="FormularioPlan_2" readonly><br>
+	
+</form>
+
+
+
+{{ "jQueryCycle-2.js" | asset_url | script_tag }}
+
+{{ "jQueryCycle-2-Carousel.js" | asset_url | script_tag }}
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+Ventana = $(window);
+
+var ThisColeccion, ThisColeccionText, Formulario, DataMensual, DataAnual;
+
+var ClicksFlores		= 0;
+
+var ContClickMembresia	= 0;
+
+var ContClickFlores		= 0;
+
+function IniciarCarrusel(ThisColeccion, ThisColeccionText){
+
+	$('#' + ThisColeccion + ', #' + ThisColeccionText).cycle({
+
+        fx: 'carousel',
+
+        speed: 600,
+
+        slides: 'div',
+
+        paused: true,
+
+        prev: '#PrevCarrusel',
+
+        next: '#NextCarrusel',
+
+        carouselVisible: SlidesVisibles,
+
+        carouselFluid: true
+
+	});
+
+}
+
+function ResizeCarrusel(){
+
+	var AnchoContenedor = $('.container').outerWidth();
+
+	if (AnchoContenedor == 1170) {
+
+		$('.SlidesCarrusel, .SlidesCarruselText').cycle('destroy');
+
+		SlidesVisibles = 3;
+
+		IniciarCarrusel(ThisColeccion, ThisColeccionText);
+
+	}
+
+	else if(AnchoContenedor == 970){
+
+		$('.SlidesCarrusel, .SlidesCarruselText').cycle('destroy');
+
+		SlidesVisibles = 3;
+
+		IniciarCarrusel(ThisColeccion, ThisColeccionText);
+
+	}
+
+	else if(AnchoContenedor == 750){
+
+		$('.SlidesCarrusel, .SlidesCarruselText').cycle('destroy');
+
+		SlidesVisibles = 2;
+
+		IniciarCarrusel(ThisColeccion, ThisColeccionText);
+
+	}
+
+	else if(AnchoContenedor <= 480){
+
+		$('.SlidesCarrusel, .SlidesCarruselText').cycle('destroy');
+
+		SlidesVisibles = 1;
+
+		IniciarCarrusel(ThisColeccion, ThisColeccionText);
+
+	}
+
+	else{
+
+		$('.SlidesCarrusel, .SlidesCarruselText').cycle('destroy');
+
+		SlidesVisibles = 2;
+
+		IniciarCarrusel(ThisColeccion, ThisColeccionText);
+
+	}
+
+
+
+}
+$(document).ready(function(){
+
+	Ventana.resize(ResizeCarrusel).trigger('resize');
+
+	$('#SeccionMembresia .Acalracion').css({'display':'block'});
+
+	$('.Numeralia').click(function(){
+
+		ThisNumeralia = $(this);
+
+		DataPlan = ThisNumeralia.attr('data-plan');
+
+		$('input').val('');
+
+		$('input[name=Plan]').val(DataPlan);
+
+		$('#SeccionMembresia .IconoSelect').css('display','none');
+
+		$('.ContIcono').css('border','2px solid #91a0b6');
+
+		$('#ContinuarSeccionMembresia .ContinuarBoton').css({'background':'#5cb85c', 'color':'#fff'});
+
+		ThisNumeralia.children('.Bloque').children('.ContIcono').css('border','2px solid #73b638').children('.IconoSelect').css('display','block');
+
+		$('#SeccionFlores .Done_1').addClass('hidden');
+
+		$('#SeccionConfirma .Done_1').addClass('hidden');
+
+		$('#ContinuarSeccionMembresia').click(function(){
+
+			$('#SeccionMembresia .ContTituloOpcion').css({'border-bottom':'1px solid #91a0b6'});
+
+			$('#SeccionMembresia .ContenidoOpcion').css({'max-height':'0'});
+
+			$('#SeccionMembresia .Acalracion').css({'display':'none'});
+
+			$('#SeccionMembresia .Done_1').removeClass('hidden');
+
+			$('#TituloEscogeMembresia .Titulo_1').css('cursor','pointer');
+
+			$('#SeccionFlores .ContTituloOpcion').css({'border-bottom':'1px solid #fff'});
+
+			$('#SeccionFlores .ContenidoOpcion').css({'max-height':'1000px'});
+
+			$('#SeccionFlores .Acalracion').css({'display':'block'});
+
+			$('#TituloEscogeMembresia .Titulo_1').click(function(){
+
+				if(ContClickMembresia == 0){
+
+					$('#SeccionMembresia .ContTituloOpcion').css({'border-bottom':'1px solid #fff'});
+
+					$('#SeccionMembresia .ContenidoOpcion').css({'max-height':'1000px'});
+
+					$('#SeccionMembresia .Acalracion').css({'display':'block'});
+
+					ContClickMembresia = 1;
+
+				}
+				else{
+
+					$('#SeccionMembresia .ContTituloOpcion').css({'border-bottom':'1px solid #91a0b6'});
+
+					$('#SeccionMembresia .ContenidoOpcion').css({'max-height':'0'});
+
+					$('#SeccionMembresia .Acalracion').css({'display':'none'});
+
+					ContClickMembresia = 0;
+
+				}
+
+			});
+
+		});
+
+		Elementos = $('<ul />');
+
+		if(DataPlan == 'Mensual'){			
+
+			for (var i = 01; i < 05; i++) {
+
+				Elementos.append('<li id="MensualSemana-' + i + '" class="BotonTiempo" data-coleccion="MensualColeccion-' + i +'" data-coleccion-text="MensualColeccionText-' + i + '"><i class="fa fa-square-o"></i> Semana ' + i + '</li>');
+				
+			};
+
+			$('.ContDias').html(Elementos);
+
+			ObjetoBotonTiempo = $('#MensualSemana-1');
+
+			CargarCarrusel(ObjetoBotonTiempo);
+
+			$('.IconoConfirmacion img').attr('src', 'https://cdn.shopify.com/s/files/1/0750/3211/files/IconoMensual.png?5893053799090096079');
+
+			$('.Desc_2 #DescText').text('4 arreglos en total: ');
+
+			Formulario = 'FormularioPlan_1';
+
+			if($('#' + Formulario + ' input[name=Item-1]').val() == ''){
+
+				$('#ContinuarSeccionFlores .ContinuarBoton').css({'background':'#e9e9e9', 'color':'#aaa'});
+
+			}
+
+			$('.ContSelect').removeClass('SelectOn').addClass('SelectOff');
+
+			$('.Slides img').removeClass('GrisOn').addClass('GrisOff');
+
+			$('#SeccionConfirma .ContTituloOpcion').css({'border-bottom':'1px solid #91a0b6'});
+
+			$('#SeccionConfirma .ContenidoOpcion').css({'max-height':'0'});
+
+			$('#SeccionConfirma .Acalracion').css({'display':'none'});
+
+			$('.Desc_2 span[id*=Item-]').text('');
+
+			ClicksFlores = 0;
+
+			$('#ContinuarSeccionFlores').click(function(){
+
+				if (ClicksFlores == 1) {
+
+				}
+				else{
+
+				};
+				
+			});
+
+			$('#BotonMensual').css('display','block');
+
+			$('#Formulario').css('display','none');
+
+		}
+
+		else{
+
+			var Meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
+			for (var i = 0; i < 12; i++) {
+
+					Elementos.append('<li id="AnualMes-' + (i + 1) +'" class="BotonTiempo" data-coleccion="AnualColeccion-' + (i + 1) +'" data-coleccion-text="AnualColeccionText-' + (i + 1) + '"><i class="fa fa-square-o"></i> ' + Meses[i] + '</li>');
+				
+			};
+
+			$('.ContDias').html(Elementos);
+
+			ObjetoBotonTiempo = $('#AnualMes-1');
+
+			CargarCarrusel(ObjetoBotonTiempo);
+
+			$('.IconoConfirmacion img').attr('src', 'https://cdn.shopify.com/s/files/1/0750/3211/files/IconoAnual.png?589305379');
+
+			$('.Desc_2 #DescText').text('12 arreglos en total: ');
+
+			Formulario = 'FormularioPlan_2';
+
+			if($('#' + Formulario + ' input[name=Item-1]').val() == ''){
+
+				$('#ContinuarSeccionFlores .ContinuarBoton').css({'background':'#e9e9e9', 'color':'#aaa'});
+
+			}
+
+			$('.ContSelect').removeClass('SelectOn').addClass('SelectOff');
+
+			$('.Slides img').removeClass('GrisOn').addClass('GrisOff');
+
+			$('#SeccionConfirma .ContTituloOpcion').css({'border-bottom':'1px solid #91a0b6'});
+
+			$('#SeccionConfirma .ContenidoOpcion').css({'max-height':'0'});
+
+			$('#SeccionConfirma .Acalracion').css({'display':'none'});
+
+			$('.Desc_2 span[id*=Item-]').text('');
+
+			ClicksFlores = 0;
+
+			$('#ContinuarSeccionFlores').click(function(){
+
+				if (ClicksFlores == 1) {
+
+				}
+				else{
+
+				};
+
+			});
+
+			$('#Formulario').css('display','block');
+
+			$('#BotonMensual').css('display','none');
+
+		};
+
+		function CargarCarrusel(ObjetoBotonTiempo){
+
+			ThisColeccion = ObjetoBotonTiempo.attr('data-coleccion');
+
+			ThisColeccionText = ObjetoBotonTiempo.attr('data-coleccion-text');
+
+			$('.SlidesCarrusel, .SlidesCarruselText').removeClass('ActivoCarrusel').addClass('InactivoCarrusel');
+
+			$('#' + ThisColeccion + ', #' + ThisColeccionText).toggleClass('InactivoCarrusel ActivoCarrusel');
+
+			$('.BotonTiempo').css('color','#000');
+
+			ObjetoBotonTiempo.css('color', '#73b638');
+
+			IniciarCarrusel(ThisColeccion, ThisColeccionText);
+
+		};
+
+		$('.Slides').click(function(){
+
+			ThisSlide = $(this);
+
+			$('#' + ThisSlide.attr('data-parent') + ' .ContSelect').removeClass('SelectOn').addClass('SelectOff');
+
+			$('#' + ThisSlide.attr('data-parent') + ' img').removeClass('GrisOn').addClass('GrisOff');
+
+			$('#' + ThisSlide.attr('id') + ' .ContSelect').toggleClass('SelectOn SelectOff');
+
+			$('#' + ThisSlide.attr('id') + ' img').toggleClass('GrisOn GrisOff');
+
+			$('#' + ThisSlide.attr('data-boton-tiempo') + ' i').removeClass('fa-square-o').addClass('fa-check-square');
+
+			$("#" + Formulario + " input[name=" + ThisSlide.attr('data-input') + "]").val(ThisSlide.attr('id'));
+
+			if (ThisSlide.attr('data-boton-tiempo') == 'MensualSemana-1') {
+
+				ObjetoBotonTiempo = $('#MensualSemana-2');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#MensualSemana-1').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-1').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if(ThisSlide.attr('data-boton-tiempo') == 'MensualSemana-2'){
+
+				ObjetoBotonTiempo = $('#MensualSemana-3');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#MensualSemana-2').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-2').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if(ThisSlide.attr('data-boton-tiempo') == 'MensualSemana-3'){
+
+				ObjetoBotonTiempo = $('#MensualSemana-4');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#MensualSemana-3').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-3').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if(ThisSlide.attr('data-boton-tiempo') == 'MensualSemana-4'){
+
+				ObjetoBotonTiempo = $('#MensualSemana-4');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#MensualSemana-4').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-4').text(ThisSlide.attr('data-titulo'));
+
+			}
+
+
+
+			if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-1') {
+
+				ObjetoBotonTiempo = $('#AnualMes-2');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-1').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-1').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-2') {
+
+				ObjetoBotonTiempo = $('#AnualMes-3');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-2').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-2').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-3') {
+
+				ObjetoBotonTiempo = $('#AnualMes-4');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-3').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-3').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-4') {
+
+				ObjetoBotonTiempo = $('#AnualMes-5');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-4').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-4').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-5') {
+
+				ObjetoBotonTiempo = $('#AnualMes-6');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-5').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-5').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-6') {
+
+				ObjetoBotonTiempo = $('#AnualMes-7');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-6').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-6').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-7') {
+
+				ObjetoBotonTiempo = $('#AnualMes-8');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-7').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-7').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-8') {
+
+				ObjetoBotonTiempo = $('#AnualMes-9');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-8').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-8').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-9') {
+
+				ObjetoBotonTiempo = $('#AnualMes-10');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-9').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-9').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-10') {
+
+				ObjetoBotonTiempo = $('#AnualMes-11');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-10').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-10').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-11') {
+
+				ObjetoBotonTiempo = $('#AnualMes-12');
+
+				CargarCarrusel(ObjetoBotonTiempo);
+
+				$('#AnualMes-11').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-11').text(ThisSlide.attr('data-titulo'));
+
+			}
+			else if (ThisSlide.attr('data-boton-tiempo') == 'AnualMes-12') {
+
+				$('#AnualMes-12').click(function(){
+
+					ObjetoBotonTiempo = $(this);
+
+					CargarCarrusel(ObjetoBotonTiempo);
+
+				});
+
+				$('.Desc_2 #Item-12').text(ThisSlide.attr('data-titulo'));
+
+			}
+
+			if($('#' + Formulario + ' input[name=Item-1]').val() != '' && $('#' + Formulario + ' input[name=Item-2]').val() != '' && $('#' + Formulario + ' input[name=Item-3]').val() != '' && $('#' + Formulario + ' input[name=Item-4]').val() != '' && $('#' + Formulario + ' input[name=Item-5]').val() != '' && $('#' + Formulario + ' input[name=Item-6]').val() != '' && $('#' + Formulario + ' input[name=Item-7]').val() != '' && $('#' + Formulario + ' input[name=Item-8]').val() != '' && $('#' + Formulario + ' input[name=Item-9]').val() != '' && $('#' + Formulario + ' input[name=Item-10]').val() != '' && $('#' + Formulario + ' input[name=Item-11]').val() != '' && $('#' + Formulario + ' input[name=Item-12]').val() != ''){
+
+				$('#ContinuarSeccionFlores .ContinuarBoton').css({'background':'#5cb85c', 'color':'#fff'});
+
+				ClicksFlores = 1;
+
+				$('#ContinuarSeccionFlores').click(function(){
+
+					if (ClicksFlores == 1) {
+
+						$('#SeccionFlores .ContTituloOpcion').css({'border-bottom':'1px solid #91a0b6'});
+
+						$('#SeccionFlores .ContenidoOpcion').css({'max-height':'0'});
+
+						$('#SeccionFlores .Acalracion').css({'display':'none'});
+
+						$('#SeccionFlores .Done_1').removeClass('hidden');
+
+						$('#TituloEscogeFlores .Titulo_1').css('cursor','pointer');
+
+						$('#SeccionConfirma .ContTituloOpcion').css({'border-bottom':'1px solid #fff'});
+
+						$('#SeccionConfirma .ContenidoOpcion').css({'max-height':'3000px'});
+
+						$('#SeccionConfirma .Acalracion').css({'display':'block'});
+
+						$('#TituloEscogeFlores .Titulo_1').click(function(){
+
+							if(ContClickFlores == 0){
+
+								$('#SeccionFlores .ContTituloOpcion').css({'border-bottom':'1px solid #fff'});
+
+								$('#SeccionFlores .ContenidoOpcion').css({'max-height':'1000px'});
+
+								$('#SeccionFlores .Acalracion').css({'display':'block'});
+
+								ContClickFlores = 1;
+
+							}
+							else{
+
+								$('#SeccionFlores .ContTituloOpcion').css({'border-bottom':'1px solid #91a0b6'});
+
+								$('#SeccionFlores .ContenidoOpcion').css({'max-height':'0'});
+
+								$('#SeccionFlores .Acalracion').css({'display':'none'});
+
+								ContClickFlores = 0;
+
+							}
+
+						});
+
+					}
+					else{
+
+					};
+
+				});
+
+				if(Formulario == 'FormularioPlan_1'){
+
+					Plan 			= $('#' + Formulario + ' input[name=Plan]').val();
+
+					Item_1 			= $('#' + Formulario + ' input[name=Item-1]').val();
+
+					Item_2 			= $('#' + Formulario + ' input[name=Item-2]').val();
+
+					Item_3 			= $('#' + Formulario + ' input[name=Item-3]').val();
+
+					Item_4 			= $('#' + Formulario + ' input[name=Item-4]').val();
+
+					$('select[name=DiaEntrega], select[name=HorarioEntrega]').change(function(){
+
+						$('#' + Formulario + ' input[name=DiaSemana]').val($('select[name=DiaEntrega]').val());
+
+						$('#' + Formulario + ' input[name=Horario]').val($('select[name=HorarioEntrega]').val());
+
+						DiaSemana		= $('#' + Formulario + ' input[name=DiaSemana]').val();
+
+						Horario			= $('#' + Formulario + ' input[name=Horario]').val();
+
+						if (Plan != '' && Item_1 != '' && Item_2 != '' && Item_3 != '' && Item_4 != '' && DiaSemana != '' && Horario != ''){
+
+							$('#SeccionConfirma .Done_1').removeClass('hidden');
+
+							$('#BotonMensual .EnviarForm').css({'background':'#5cb85c', 'color':'#fff'});
+
+							$('#BotonMensual .EnviarForm').off('click');
+
+							$('#BotonMensual .EnviarForm').click(function(){
+
+								DataMensual = [Plan, Item_1, Item_2, Item_3, Item_4, DiaSemana, Horario];
+
+							});							
+
+						}				
+
+					});
+
+				}
+				else{
+
+					Plan 			= $('#' + Formulario + ' input[name=Plan]').val();
+
+					Item_1 			= $('#' + Formulario + ' input[name=Item-1]').val();
+
+					Item_2 			= $('#' + Formulario + ' input[name=Item-2]').val();
+
+					Item_3 			= $('#' + Formulario + ' input[name=Item-3]').val();
+
+					Item_4 			= $('#' + Formulario + ' input[name=Item-4]').val();
+
+					Item_5 			= $('#' + Formulario + ' input[name=Item-5]').val();
+
+					Item_6 			= $('#' + Formulario + ' input[name=Item-6]').val();
+
+					Item_7 			= $('#' + Formulario + ' input[name=Item-7]').val();
+
+					Item_8 			= $('#' + Formulario + ' input[name=Item-8]').val();
+
+					Item_9 			= $('#' + Formulario + ' input[name=Item-9]').val();
+
+					Item_10			= $('#' + Formulario + ' input[name=Item-10]').val();
+
+					Item_11			= $('#' + Formulario + ' input[name=Item-11]').val();
+
+					Item_12			= $('#' + Formulario + ' input[name=Item-12]').val();
+
+					$('select[name=DiaEntrega], select[name=HorarioEntrega], input[name=Nombre], input[name=Calle], input[name=Postal], input[name=Colonia], input[name=Delegacion], input[name=Tarjeta], input[name=TarjetaHabiente], select[name=Expiracion], input[name=Anio], input[name=CVC]').change(function(){
+
+						$('#' + Formulario + ' input[name=DiaSemana]').val($('select[name=DiaEntrega]').val());
+
+						$('#' + Formulario + ' input[name=Horario]').val($('select[name=HorarioEntrega]').val());
+
+						DiaSemana		= $('#' + Formulario + ' input[name=DiaSemana]').val();
+
+						Horario			= $('#' + Formulario + ' input[name=Horario]').val();
+
+						Nombre 			= $('input[name=Nombre]').val();
+
+						Calle 			= $('input[name=Calle]').val();
+
+						Postal			= $('input[name=Postal]').val();
+
+						Colonia			= $('input[name=Colonia]').val();
+
+						Delegacion		= $('input[name=Delegacion]').val();
+
+						Tarjeta			= $('input[name=Tarjeta]').val();
+
+						TarjetaHabiente	= $('input[name=TarjetaHabiente]').val();
+
+						Expiracion		= $('select[name=Expiracion]').val();
+
+						Anio 			= $('input[name=Anio]').val();
+
+						CVC				= $('input[name=CVC]').val();
+
+						if (Plan != '' && Item_1 != '' && Item_2 != '' && Item_3 != '' && Item_4 != '' && Item_5 != '' && Item_6 != '' && Item_7 != '' && Item_8 != '' && Item_9 != '' && Item_10 != '' && Item_11 != '' && Item_12 != '' && DiaSemana != '' && Horario != '' && Nombre != '' && Calle != '' && Postal != '' && Colonia != '' && Delegacion != '' && Tarjeta != '' && TarjetaHabiente != '' && Expiracion != '' && Anio != '' && CVC != ''){
+
+							$('#SeccionConfirma .Done_1').removeClass('hidden');
+
+							$('#BotonAnual .EnviarForm').css({'background':'#5cb85c', 'color':'#fff'});
+
+							$('#BotonAnual .EnviarForm').off('click');
+
+							$('#BotonAnual .EnviarForm').click(function(){
+
+								DataAnual = [Plan, Item_1, Item_2, Item_3, Item_4, Item_5, Item_6, Item_7, Item_8, Item_9, Item_10, Item_11, Item_12, DiaSemana, Horario, Nombre, Calle, Postal, Colonia, Delegacion, Tarjeta, TarjetaHabiente, Expiracion, Anio, CVC];
+
+								console.log(DataAnual);
+
+							});
+
+						}
+
+					});					
+
+				}
+
+			}
+
+		});
+
+	});
+
+});
+  
+</script>

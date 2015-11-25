@@ -57,7 +57,10 @@ window._fbq.push(['track', 'PixelInitialized', {}]);
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<!-- CSS -->
-		{{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+		{% if page.handle == 'apparreglo' %}
+    {{ 'style-app.css' | asset_url | stylesheet_tag }}
+    {% endif %}
 		{{ '//fonts.googleapis.com/css?family=Montserrat' | stylesheet_tag }}
 
 		{% case settings.typography-heading-font %}
